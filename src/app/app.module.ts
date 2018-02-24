@@ -5,13 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TablesComponent } from './components/tables.component';
 import { HomeComponent } from './components/home.component';
+import { FertilizationComponent } from './components/fertilization.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TablesComponent,
-    HomeComponent
+    HomeComponent,
+    FertilizationComponent
   ],
   imports: [
     BrowserModule,
