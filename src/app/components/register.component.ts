@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../services/authentication.service';
+import { NgForm } from '@angular/forms';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-register',
@@ -6,9 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  userList: Array<User>;
+  user: User;
+
+  constructor(private _authService: AuthenticationService) {
+    this._authService.getUsers().subscribe(res => this.userList = res);
+   }
 
   ngOnInit() {
+    this.user = new User();
   }
 
+  onSubmit(f: NgForm) {
+    console.log(f.value.username + ' si vuole registrare');
+    if(f.value.password1 === f.value.password2) {
+      this.user.username = f.value.username;
+      this.user.email = f.value.email;
+      this.user.password = f.value.password1;
+      this._authService.register(this.user).subscribe(
+        response => {
+          console.log('Response',response);
+        },
+        error => {
+          alert('Some error found: ' + error);
+          console.log(error);
+        });;
+    } else {
+      alert('Attenzione, password non corrisponde');
+    }
+  }
 }

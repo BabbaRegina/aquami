@@ -7,7 +7,6 @@ const ObjectID = require('mongodb').ObjectID;
 const connection = (closure) => {
     return MongoClient.connect('mongodb://localhost:27017/aquami', (err, db) => {
         if (err) return console.log(err);
-
         closure(db);
     });
 };
@@ -40,6 +39,21 @@ router.get('/users', (req, res) => {
             .catch((err) => {
                 sendError(err, res);
             });
+    });
+});
+
+router.post("/newUser", (req, res) => {
+    console.log('Request: ', req.body);
+    const newItem = req.body;
+    connection((db) => {
+        const myAwesomeDB = db.db('aquami');
+        myAwesomeDB.collection('users').insertOne({
+            "username" : newItem.username,
+            "password" : newItem.password,
+            "email" : newItem.email
+        }).then((response) => {
+            res = response;
+        })
     });
 });
 
