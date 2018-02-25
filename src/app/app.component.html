@@ -7,10 +7,7 @@
   </a>
   <ul class="nav navbar-nav d-md-down-none">
     <li class="nav-item px-3">
-      <a class="nav-link" href="#">LogIn</a>
-    </li>
-    <li class="nav-item px-3">
-      <a class="nav-link" href="#">Register</a>
+      <a class="nav-link" routerLinkActive="active" [routerLink]="['/login']">LogIn</a>
     </li>
   </ul>
 </header>
@@ -20,11 +17,11 @@
     <nav class="sidebar-nav">
       <ul class="nav">
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" [routerLink]="['/test']"><i class="icon-speedometer"></i> Test Acqua </a>
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/test']"><i class="fa fa-eyedropper"></i> Test Acqua </a>
         </li>
         <li class="divider"></li>
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" [routerLink]="['/ferti']"><i class="icon-speedometer"></i> Fertilizzazione </a>
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/ferti']"><i class="fa fa-bug"></i> Fertilizzazione </a>
         </li>
       </ul>
     </nav>
