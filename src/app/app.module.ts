@@ -13,6 +13,8 @@ import { HomeComponent } from './components/home.component';
 import { FertilizationComponent } from './components/fertilization.component';
 import { LoginComponent } from './components/login.component';
 import { RegisterComponent } from './components/register.component';
+import { EventService } from './services/event.service';
+import { EventDetailComponent } from './components/event-detail.component';
 
 
 
@@ -23,7 +25,8 @@ import { RegisterComponent } from './components/register.component';
     HomeComponent,
     FertilizationComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    EventDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,7 @@ import { RegisterComponent } from './components/register.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [AuthenticationService],
+  providers: [AuthenticationService, EventService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
