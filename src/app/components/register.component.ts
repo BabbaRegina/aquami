@@ -16,6 +16,9 @@ export class RegisterComponent implements OnInit {
     this._authService.getUsers().subscribe(res => this.userList = res);
    }
 
+   refresh() {
+    this._authService.getUsers().subscribe(res => this.userList = res);
+   }
   ngOnInit() {
     this.user = new User();
   }
@@ -27,13 +30,12 @@ export class RegisterComponent implements OnInit {
       this.user.email = f.value.email;
       this.user.password = f.value.password1;
       this._authService.register(this.user).subscribe(
-        response => {
-          console.log('Response',response);
-        },
-        error => {
-          alert('Some error found: ' + error);
-          console.log(error);
-        });;
+        res => {
+          console.log('RES:',res);
+          if(res===200) {
+            this.refresh();
+          }
+        });
     } else {
       alert('Attenzione, password non corrisponde');
     }

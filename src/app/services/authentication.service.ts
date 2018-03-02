@@ -20,7 +20,16 @@ export class AuthenticationService {
 
   register(data: User) {
     const headers = new Headers({'Content-Type': 'application/json'});
-    return this._http.post("/api/newUser", JSON.stringify(data), {headers});
+    return this._http.post("/api/newUser", JSON.stringify(data), {headers})
+      .map(result => {return result.status});
+    /* .toPromise()
+    .then(
+      response =>{
+        console.log('---------------------3-res', response);
+        return response.json() ;
+      }).catch(err => {
+        console.log(err);
+      }); */
   }
 
 

@@ -52,8 +52,11 @@ router.post("/newUser", (req, res) => {
             "password" : newItem.password,
             "email" : newItem.email
         }).then((response) => {
-            res = response;
-        })
+            console.log('1-res', JSON.stringify(response));
+            res.json(response.opt);
+        }) .catch((err) => {
+            sendError(err, res);
+        });
     });
 });
 
