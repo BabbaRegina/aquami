@@ -18,7 +18,7 @@ export class EventService {
     }
 
     // post("/api/events")
-    creatEevent(newevent: Event): Promise<void | Event> {
+    createEvent(newevent: Event): Promise<void | Event> {
       return this.http.post(this.eventsUrl, newevent)
                  .toPromise()
                  .then(response => response.json() as Event)
@@ -28,7 +28,7 @@ export class EventService {
     // get("/api/events/:id") endpoint not used by Angular app
 
     // delete("/api/events/:id")
-    deletEevent(deleventId: String): Promise<void | String> {
+    deleteEvent(deleventId: String): Promise<void | String> {
       return this.http.delete(this.eventsUrl + '/' + deleventId)
                  .toPromise()
                  .then(response => response.json() as String)
@@ -36,7 +36,7 @@ export class EventService {
     }
 
     // put("/api/events/:id")
-    updatEevent(putevent: Event): Promise<void | Event> {
+    updateEvent(putevent: Event): Promise<void | Event> {
       var putUrl = this.eventsUrl + '/' + putevent._id;
       return this.http.put(putUrl, putevent)
                  .toPromise()

@@ -13,12 +13,12 @@
       <button class="btn btn-warning" (click)="createNewEvent()">New</button>
     </div>
     <div class="col-md-5 col-md-offset-2">
-      <event-details
+      <event-detail
         [event]="selectedEvent"
         [createHandler]="addEvent"
         [updateHandler]="updateEvent"
         [deleteHandler]="deleteEvent">
-      </event-details>
+      </event-detail>
     </div>
   </div>
 

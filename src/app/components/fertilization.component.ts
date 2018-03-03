@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../services/event.service';
 import { Event } from '../models/event';
+import { EventDetailComponent } from './event-detail.component';
 
 @Component({
   selector: 'app-fertilization',

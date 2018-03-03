@@ -1,3 +1,29 @@
-<p>
-  event-detail works!
-</p>
+<div *ngIf="event" class="row">
+  <div class="col-md-12">
+    <h2 *ngIf="event._id">Event Details</h2>
+    <h2 *ngIf="!event._id">New Event</h2>
+  </div>
+</div>
+<div *ngIf="event" class="row">
+  <form class="col-md-12">
+    <div class="form-group">
+      <label for="event-tipoEvento">tipoEvento</label>
+      <input class="form-event" name="event-tipoEvento" type="text" [(ngModel)]="event.tipoEvento" placeholder="tipoEvento" required/>
+    </div>
+    <div class="form-group">
+      <label for="event-dataMisura">dataMisura</label>
+      <input class="form-control" name="event-dataMisura" type="date" [(ngModel)]="event.dataMisura" placeholder="dataMisura"/>
+    </div>
+    <div class="form-group">
+      <label for="event-dataRegistrazione">dataRegistrazione</label>
+      <input class="form-control" name="event-dataRegistrazione" type="datetime-local"  [(ngModel)]="event.dataRegistrazione" placeholder="dataRegistrazione"/>
+    </div>
+    <div class="form-group">
+      <label for="event-note">note</label>
+      <input class="form-control" name="event-note" type="text" [(ngModel)]="event.note" placeholder="note"/>
+    </div>
+    <button class="btn btn-primary" *ngIf="!event._id" (click)="createEvent(event)">Create</button>
+    <button class="btn btn-info" *ngIf="event._id" (click)="updateEvent(event)">Update</button>
+    <button class="btn btn-danger" *ngIf="event._id" (click)="deleteEvent(event._id)">Delete</button>
+  </form>
+</div>
