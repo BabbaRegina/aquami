@@ -1,5 +1,8 @@
+
+import { ObjectID } from 'mongodb';
+
 export class Event {
-    _id?: string;
+    _id: ObjectID;
     tipoEvento: string;
     ferti: Fertilizzazione[];
     test: Test[];
