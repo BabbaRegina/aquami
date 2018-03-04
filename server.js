@@ -60,8 +60,6 @@ app.get("/api/events", function(req, res) {
 
 app.post("/api/events", function(req, res) {
   var newEvent = req.body;
-  newEvent.createDate = new Date();
-
    db.collection(EVENTS_COLLECTION).insertOne(newEvent, function(err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to create new event.");

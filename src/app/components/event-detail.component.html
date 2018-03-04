@@ -8,20 +8,32 @@
   <form class="col-md-12">
     <div class="form-group">
       <label for="event-tipoEvento">tipoEvento</label>
-      <input class="form-event" name="event-tipoEvento" type="text" [(ngModel)]="event.tipoEvento" placeholder="tipoEvento" required/>
+      <input class="form-control" name="event-tipoEvento" type="text" [(ngModel)]="event.tipoEvento" placeholder="tipoEvento" readonly/>
+    </div>
+    <div ng-if="event.isFertilizzazione()" class="form-group">
+      <p>Fertilizzante utilizzato</p>
+      <label for="event-ferti-k2so4">Solfato di potassio</label>
+      <input class="form-control" name="event-ferti-k2so4" type="number" [(ngModel)]="event.ferti.k2so4" placeholder="K2SO4"/>
+      <label for="event-ferti-magnesio">Magnesio</label>
+      <input class="form-control" name="event-ferti-magnesio" type="number" [(ngModel)]="event.ferti.magnesio" placeholder="Magnesio"/>
+      <label for="event-ferti-generico">Generico</label>
+      <input class="form-control" name="event-ferti-generico" type="number" [(ngModel)]="event.ferti.generico" placeholder="Generico"/>
+      <label for="event-ferti-k2no3">Nitrato di potassio</label>
+      <input class="form-control" name="event-ferti-k2no3" type="number" [(ngModel)]="event.ferti.k2no3" placeholder="K2NO3"/>
+      <label for="event-ferti-ferro">Ferro</label>
+      <input class="form-control" name="event-ferti-ferro" type="number" [(ngModel)]="event.ferti.ferro" placeholder="Ferro"/>
+      <label for="event-ferti-fosfati">Fosfati</label>
+      <input class="form-control" name="event-ferti-fosfati" type="number" [(ngModel)]="event.ferti.fosfati" placeholder="Fosfati"/> 
     </div>
     <div class="form-group">
       <label for="event-dataMisura">dataMisura</label>
       <input class="form-control" name="event-dataMisura" type="date" [(ngModel)]="event.dataMisura" placeholder="dataMisura"/>
     </div>
     <div class="form-group">
-      <label for="event-dataRegistrazione">dataRegistrazione</label>
-      <input class="form-control" name="event-dataRegistrazione" type="datetime-local"  [(ngModel)]="event.dataRegistrazione" placeholder="dataRegistrazione"/>
-    </div>
-    <div class="form-group">
       <label for="event-note">note</label>
       <input class="form-control" name="event-note" type="text" [(ngModel)]="event.note" placeholder="note"/>
     </div>
+    <button class="btn btn-primary" (click)="goBack()">Indietro</button>
     <button class="btn btn-primary" *ngIf="!event._id" (click)="createEvent(event)">Create</button>
     <button class="btn btn-info" *ngIf="event._id" (click)="updateEvent(event)">Update</button>
     <button class="btn btn-danger" *ngIf="event._id" (click)="deleteEvent(event._id)">Delete</button>

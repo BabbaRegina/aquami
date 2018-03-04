@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../services/event.service';
-import { Event } from '../models/event';
+import { Event, Fertilizzazione } from '../models/event';
 import { EventDetailComponent } from './event-detail.component';
 
 @Component({
@@ -21,7 +21,7 @@ export class FertilizationComponent implements OnInit {
       .then((events: Event[]) => {
         this.events = events.map((event) => {
           if (!event.ferti) {
-            event.ferti = [];
+            event.ferti = new Fertilizzazione();
           }
           return event;
         });
@@ -39,16 +39,7 @@ export class FertilizationComponent implements OnInit {
   }
 
   createNewEvent() {
-    var event: Event = {
-      tipoEvento: '',
-      _id: '',
-      dataMisura: new Date(),
-      dataRegistrazione: new Date(),
-      ferti:[],
-      note:'',
-      test: []
-    };
-
+    var event = new Event('Fertilizzazione');
     // By default, a newly-created contact will have the selected state.
     this.selectEvent(event);
   }

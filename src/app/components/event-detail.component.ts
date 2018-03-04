@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { EventService } from '../services/event.service';
-import { Event } from '../models/event';
+import { Event, Fertilizzazione } from '../models/event';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'event-detail',
@@ -17,7 +18,7 @@ export class EventDetailComponent {
   @Input()
   deleteHandler: Function;
 
-  constructor (private eventService: EventService) {}
+  constructor (private eventService: EventService, private router: Router) {}
 
   createEvent(event: Event) {
     this.eventService.createEvent(event).then((newEvent: Event) => {
@@ -35,5 +36,9 @@ export class EventDetailComponent {
     this.eventService.deleteEvent(eventId).then((deletedEventId: String) => {
       this.deleteHandler(deletedEventId);
     });
+  }
+
+  goBack() {
+    this.router.navigate(['/ferti']);
   }
 }

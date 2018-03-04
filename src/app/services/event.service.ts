@@ -19,6 +19,7 @@ export class EventService {
 
     // post("/api/events")
     createEvent(newevent: Event): Promise<void | Event> {
+      
       return this.http.post(this.eventsUrl, newevent)
                  .toPromise()
                  .then(response => response.json() as Event)
