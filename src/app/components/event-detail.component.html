@@ -1,7 +1,7 @@
 <div *ngIf="event" class="row">
   <div class="col-md-12">
-    <h2 *ngIf="event._id">Event Details</h2>
-    <h2 *ngIf="!event._id">New Event</h2>
+    <h2 *ngIf="event._id">Dettaglio</h2>
+    <h2 *ngIf="!event._id">Nuova registrazione</h2>
   </div>
 </div>
 <div *ngIf="event" class="row">
@@ -33,7 +33,6 @@
       <label for="event-note">note</label>
       <input class="form-control" name="event-note" type="text" [(ngModel)]="event.note" placeholder="note"/>
     </div>
-    <button class="btn btn-primary" (click)="goBack()">Indietro</button>
     <button class="btn btn-primary" *ngIf="!event._id" (click)="createEvent(event)">Create</button>
     <button class="btn btn-info" *ngIf="event._id" (click)="updateEvent(event)">Update</button>
     <button class="btn btn-danger" *ngIf="event._id" (click)="deleteEvent(event._id)">Delete</button>

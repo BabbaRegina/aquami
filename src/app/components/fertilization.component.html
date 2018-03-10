@@ -1,25 +1,90 @@
-
-<div class="row">
-    <div class="col-md-5">
-      <h2>Events</h2>
-      <ul class="list-group">
-        <li class="list-group-item"
-          *ngFor="let event of events"
-          (click)="selectEvent(event)"
-          [class.active]="event === selectedEvent">
-          {{event.tipoEvento}}
-        </li>
-      </ul>
-      <button class="btn btn-warning" (click)="createNewEvent()">New</button>
-    </div>
-    <div class="col-md-5 col-md-offset-2">
-      <event-detail
-        [event]="selectedEvent"
-        [createHandler]="addEvent"
-        [updateHandler]="updateEvent"
-        [deleteHandler]="deleteEvent">
-      </event-detail>
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-align-justify"></i> Fertilizzazioni
+              <button class="btn btn-warning align-right" (click)="createNewEvent()">New</button>
+        </div>
+        <div class="card-body">
+          <ngx-datatable class="material expandable ngx-datatable fixed-header fixed-row scroll-vertical selectable single-selection"
+            [rows]="events"
+            [columnMode]="'force'"
+            [headerHeight]="50"
+            [footerHeight]="0"
+            [rowHeight]="'auto'"
+            [selected]="selected"
+            [selectionType]="'single'"
+            (activate)="onActivate($event)"
+            (select)='onSelect($event)'>
+            <ngx-datatable-column name="ID">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{row._id}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Data Misura">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{row.dataMisura}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="K2So4">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{row.ferti.k2so4}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="K2No3">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{row.ferti.k2no3}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Magnesio">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{row.ferti.magnesio}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Generico">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{row.ferti.generico}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Ferro">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{row.ferti.ferro}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Fosfati">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{row.ferti.fosfati}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Annotazioni">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{row.note}}
+              </ng-template>
+            </ngx-datatable-column>
+          </ngx-datatable>
+        </div>
+      </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-align-justify"></i> Selezione
+        </div>
+        <div class="card-body">
+          <event-detail
+          [event]="selectedEvent"
+          [createHandler]="addEvent"
+          [updateHandler]="updateEvent"
+          [deleteHandler]="deleteEvent">
+        </event-detail>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 

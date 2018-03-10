@@ -6,6 +6,7 @@ import { AuthenticationService } from './services/authentication.service'
 
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { AppComponent } from './app.component';
 import { TablesComponent } from './components/tables.component';
@@ -33,7 +34,8 @@ import { EventDetailComponent } from './components/event-detail.component';
     AppRoutingModule,
     HttpModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxDatatableModule
   ],
   providers: [AuthenticationService, EventService],
   bootstrap: [AppComponent]

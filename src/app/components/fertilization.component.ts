@@ -10,15 +10,16 @@ import { EventDetailComponent } from './event-detail.component';
 })
 export class FertilizationComponent implements OnInit {
 
-  events: Event[]
-  selectedEvent: Event
+  events: Event[];
+  tmp: any;
+  selected = [];
+  selectedEvent: Event;
+  tmpEvent: Event;
 
   constructor(private eventService: EventService) { }
 
   ngOnInit() {
-     this.eventService
-      .getEvents()
-      .then((events: Event[]) => {
+     this.eventService.getEvents().then((events: Event[]) => {
         this.events = events.map((event) => {
           if (!event.ferti) {
             event.ferti = new Fertilizzazione();
@@ -32,6 +33,11 @@ export class FertilizationComponent implements OnInit {
     return this.events.findIndex((event) => {
       return event._id === eventId;
     });
+  }
+
+  _onRowClick(data: any) {
+    console.log(data);
+    console.log(JSON.stringify(data));
   }
 
   selectEvent(event: Event) {
@@ -66,5 +72,17 @@ export class FertilizationComponent implements OnInit {
       this.selectEvent(event);
     }
     return this.events;
+  }
+
+  onSelect({ selected }) {
+    console.log('-----------Select Event', selected[0]);
+    var idx = this.getIndexOfEvent(selected[0]._id);
+    if (idx !== -1) {
+      this.selectEvent(this.events[idx]);
+    }
+  }
+
+  onActivate(event) {
+    console.log('Activate Event', event);
   }
 }
