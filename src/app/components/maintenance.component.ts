@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../services/event.service';
-import { Event, Fertilizzazione } from '../models/event';
+import { Event, Manutenzione } from '../models/event';
 import { EventDetailComponent } from './event-detail.component';
 
 @Component({
@@ -11,18 +11,16 @@ import { EventDetailComponent } from './event-detail.component';
 export class MaintenanceComponent implements OnInit {
 
   events: Event[];
-  tmp: any;
   selected = [];
   selectedEvent: Event;
-  tmpEvent: Event;
 
   constructor(private eventService: EventService) { }
 
   ngOnInit() {
      this.eventService.getEvents().then((events: Event[]) => {
         this.events = events.map((event) => {
-          if (!event.ferti) {
-            event.ferti = new Fertilizzazione();
+          if (!event.manutenzione) {
+            event.manutenzione = new Manutenzione();
           }
           return event;
         });
@@ -35,18 +33,12 @@ export class MaintenanceComponent implements OnInit {
     });
   }
 
-  _onRowClick(data: any) {
-    console.log(data);
-    console.log(JSON.stringify(data));
-  }
-
   selectEvent(event: Event) {
     this.selectedEvent = event;
   }
 
   createNewEvent() {
-    var event = new Event('Fertilizzazione');
-    // By default, a newly-created contact will have the selected state.
+    var event = new Event('Manutenzione');
     this.selectEvent(event);
   }
 

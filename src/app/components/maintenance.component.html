@@ -3,7 +3,7 @@
       <div class="col-lg-12">
         <div class="card">
           <div class="card-header">
-            <i class="fa fa-align-justify"></i> Fertilizzazioni
+            <i class="fa fa-align-justify"></i> Manutenzione
                 <button class="btn btn-warning align-right" (click)="createNewEvent()">New</button>
           </div>
           <div class="card-body">
@@ -22,34 +22,34 @@
                   {{row.dataMisura}}
                 </ng-template>
               </ngx-datatable-column>
-              <ngx-datatable-column name="K2So4">
+              <ngx-datatable-column name="Cambio acqua">
                 <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-                  {{row.ferti.k2so4}}
+                  {{row.manutenzione.acqua}}
                 </ng-template>
               </ngx-datatable-column>
-              <ngx-datatable-column name="K2No3">
+              <ngx-datatable-column name="Potatura">
                 <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-                  {{row.ferti.k2no3}}
+                  {{row.manutenzione.potatura}}
                 </ng-template>
               </ngx-datatable-column>
-              <ngx-datatable-column name="Magnesio">
+              <ngx-datatable-column name="Cambio Lana Filtro">
                 <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-                  {{row.ferti.magnesio}}
+                  {{row.manutenzione.filtroLana}}
                 </ng-template>
               </ngx-datatable-column>
-              <ngx-datatable-column name="Generico">
+              <ngx-datatable-column name="Pulizia Spugna Filtro">
                 <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-                  {{row.ferti.generico}}
+                  {{row.manutenzione.filtroSpugne}}
                 </ng-template>
               </ngx-datatable-column>
-              <ngx-datatable-column name="Ferro">
+              <ngx-datatable-column name="Pulizia Pompa">
                 <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-                  {{row.ferti.ferro}}
+                  {{row.manutenzione.filtroPompa}}
                 </ng-template>
               </ngx-datatable-column>
-              <ngx-datatable-column name="Fosfati">
+              <ngx-datatable-column name="Pulizia Vetro">
                 <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-                  {{row.ferti.fosfati}}
+                  {{row.manutenzione.vetro}}
                 </ng-template>
               </ngx-datatable-column>
               <ngx-datatable-column name="Annotazioni">
@@ -62,7 +62,7 @@
         </div>
       </div>
     </div>
-    <div *ngIf="selected" class="row">
+    <div *ngIf="selectedEvent" class="row">
       <div class="col-lg-12">
         <div class="card">
           <div class="card-header">

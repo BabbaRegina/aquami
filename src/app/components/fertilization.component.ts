@@ -81,6 +81,10 @@ export class FertilizationComponent implements OnInit {
     }
   }
 
+  back() {
+    this.selectedEvent = null;
+  }
+  
   onActivate(event) {
     console.log('Activate Event', event);
   }
