@@ -4,11 +4,11 @@ import { Event, Fertilizzazione } from '../models/event';
 import { EventDetailComponent } from './event-detail.component';
 
 @Component({
-  selector: 'app-fertilization',
-  templateUrl: './fertilization.component.html',
+  selector: 'app-maintenance',
+  templateUrl: './maintenance.component.html',
   providers: [EventService]
 })
-export class FertilizationComponent implements OnInit {
+export class MaintenanceComponent implements OnInit {
 
   events: Event[];
   tmp: any;

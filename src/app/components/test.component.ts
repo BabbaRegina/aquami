@@ -1,28 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../services/event.service';
-import { Event, Fertilizzazione } from '../models/event';
+import { Event, Test } from '../models/event';
 import { EventDetailComponent } from './event-detail.component';
 
 @Component({
-  selector: 'app-fertilization',
-  templateUrl: './fertilization.component.html',
-  providers: [EventService]
+  templateUrl: 'test.component.html'
 })
-export class FertilizationComponent implements OnInit {
+export class TestComponent implements OnInit {
 
   events: Event[];
-  tmp: any;
   selected = [];
   selectedEvent: Event;
-  tmpEvent: Event;
 
   constructor(private eventService: EventService) { }
 
   ngOnInit() {
      this.eventService.getEvents().then((events: Event[]) => {
         this.events = events.map((event) => {
-          if (!event.ferti) {
-            event.ferti = new Fertilizzazione();
+          if (!event.test) {
+            event.test = new Test();
           }
           return event;
         });
@@ -45,7 +41,7 @@ export class FertilizationComponent implements OnInit {
   }
 
   createNewEvent() {
-    var event = new Event('Fertilizzazione');
+    var event = new Event('Test');
     // By default, a newly-created contact will have the selected state.
     this.selectEvent(event);
   }

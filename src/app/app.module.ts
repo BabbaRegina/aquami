@@ -9,25 +9,35 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { AppComponent } from './app.component';
-import { TablesComponent } from './components/tables.component';
+import { TestComponent } from './components/test.component';
 import { HomeComponent } from './components/home.component';
 import { FertilizationComponent } from './components/fertilization.component';
 import { LoginComponent } from './components/login.component';
 import { RegisterComponent } from './components/register.component';
 import { EventService } from './services/event.service';
 import { EventDetailComponent } from './components/event-detail.component';
+import { MaintenanceComponent } from './components/maintenance.component';
 
+import { NAV_DROPDOWN_DIRECTIVES } from './shared/nav-dropdown.directive';
+import { SIDEBAR_TOGGLE_DIRECTIVES } from './shared/sidebar.directive';
+import { BreadcrumbsComponent } from './shared/breadcrumb.component';
 
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TablesComponent,
+    TestComponent,
     HomeComponent,
     FertilizationComponent,
     LoginComponent,
     RegisterComponent,
-    EventDetailComponent
+    EventDetailComponent,
+    MaintenanceComponent,
+    NAV_DROPDOWN_DIRECTIVES,
+    BreadcrumbsComponent,
+    SIDEBAR_TOGGLE_DIRECTIVES
   ],
   imports: [
     BrowserModule,
@@ -35,7 +45,9 @@ import { EventDetailComponent } from './components/event-detail.component';
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    BsDropdownModule.forRoot(),
+    TabsModule.forRoot(),
   ],
   providers: [AuthenticationService, EventService],
   bootstrap: [AppComponent]

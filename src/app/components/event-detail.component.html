@@ -10,7 +10,7 @@
       <label for="event-tipoEvento">tipoEvento</label>
       <input class="form-control" name="event-tipoEvento" type="text" [(ngModel)]="event.tipoEvento" placeholder="tipoEvento" readonly/>
     </div>
-    <div ng-if="event.isFertilizzazione()" class="form-group">
+    <div *ngIf="event.isFertilizzazione()" class="form-group">
       <p>Fertilizzante utilizzato</p>
       <label for="event-ferti-k2so4">Solfato di potassio</label>
       <input class="form-control" name="event-ferti-k2so4" type="number" [(ngModel)]="event.ferti.k2so4" placeholder="K2SO4"/>
