@@ -1,9 +1,8 @@
-
+import _ from 'lodash';
 import { ObjectID } from 'mongodb';
 
 export class Event {
     _id: ObjectID;
-    tipoEvento: string;
     ferti: Fertilizzazione;
     test: Test;
     manutenzione: Manutenzione;
@@ -12,7 +11,6 @@ export class Event {
     dataRegistrazione: Date;
 
     constructor(tipo: string){
-      this.tipoEvento = tipo;
       this.dataRegistrazione= new Date();
       this.dataMisura = new Date();
       this.note = '';
@@ -22,7 +20,7 @@ export class Event {
     }
 
     isFertilizzazione(): boolean {
-        if (this.tipoEvento==='Fertilizzazione') {
+        if (_.isEmpty(this.ferti)) {
             return true;
         } else {
             return false;
@@ -30,7 +28,7 @@ export class Event {
     }
 
     isTest(): boolean {
-        if (this.tipoEvento==='Test') {
+        if (_.isEmpty(this.test)) {
             return true;
         } else {
             return false;
@@ -38,7 +36,7 @@ export class Event {
     }
 
     isManutenzione(): boolean {
-        if (this.tipoEvento==='Manutenzione') {
+        if (_.isEmpty(this.manutenzione)) {
             return true;
         } else {
             return false;

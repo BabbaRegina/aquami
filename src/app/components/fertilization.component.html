@@ -71,16 +71,6 @@
   <div *ngIf="selectedEvent" class="row">
     <div class="col-lg-12">
       <div class="card">
-        <div class="card-header">
-          <div class="row">
-              <div class="col-sm-5">
-                <i class="fa fa-align-justify"></i> Selezione
-                </div>
-                <div class="col-sm-7 d-none d-md-block">
-                <button class="btn btn-danger float-right" (click)="back()">X</button>
-              </div>
-            </div>
-          </div>
         <div class="card-body">
           <event-detail
           [event]="selectedEvent"
