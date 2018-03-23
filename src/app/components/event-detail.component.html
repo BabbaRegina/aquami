@@ -1,119 +1,233 @@
 <div *ngIf="event" class="row">
   <div class="col-md-12">
-    <h2 *ngIf="event._id">Dettaglio</h2>
-    <h2 *ngIf="!event._id">Nuova registrazione</h2>
+    <h4 *ngIf="event._id">Dettaglio</h4>
+    <h4 *ngIf="!event._id">Nuova registrazione</h4>
   </div>
 </div>
 <form *ngIf="event">
+  <hr>
   <div class="form-group" id="test">
-    <h3>Misurazioni Test</h3>
-    <div class="row">
-      <div class="form-group col-sm-4 border border-info">
-          <legend>Ph</legend>
-        <div class="row">
-          <div class="form-group col-sm-12">
-            <label for="ccph_min">Min</label>
-            <select class="form-control" id="ccph_min">
-              <option>5</option>
-              <option>5,5</option>
-              <option>6</option>
-              <option>6,5</option>
-              <option>7</option>
-              <option>7,5</option>
-              <option>8</option>
-              <option>8,5</option>
-            </select>
-          </div>
-          <div class="form-group col-sm-12">
-            <label for="ccph_max">Max</label>
-            <select class="form-control" id="ccph_max">
-              <option>5</option>
-              <option>5,5</option>
-              <option>6</option>
-              <option>6,5</option>
-              <option>7</option>
-              <option>7,5</option>
-              <option>8</option>
-              <option>8,5</option>
-            </select>
-          </div>
-        </div>
+
+    <div class="cardcard-accent-info">
+      <div class="card-header">
+        <i class="fa fa-eyedropper"></i>
+        Test effettuati
       </div>
-      <div class="form-group col-sm-4 border border-info">
-          <legend>Kh</legend>
+      <div class="card-body">
         <div class="row">
-          <div class="form-group col-sm-12">
-            <label for="cckh_min">Min</label>
-            <select class="form-control" id="cckh_min">
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-              <option>11</option>
-              <option>12</option>
-              <option>13</option>
-              <option>14</option>
-            </select>
+          <div class="col-md-2 col-sm-2">
+            <div class="card">
+              <div class="card-header">Ph</div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="form-group col-sm-12">
+                    <label for="ccph_min">Min</label>
+                    <select class="form-control" id="ccph_min">
+                      <option>5</option>
+                      <option>5,5</option>
+                      <option>6</option>
+                      <option>6,5</option>
+                      <option>7</option>
+                      <option>7,5</option>
+                      <option>8</option>
+                      <option>8,5</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-sm-12">
+                    <label for="ccph_max">Max</label>
+                    <select class="form-control" id="ccph_max">
+                      <option>5</option>
+                      <option>5,5</option>
+                      <option>6</option>
+                      <option>6,5</option>
+                      <option>7</option>
+                      <option>7,5</option>
+                      <option>8</option>
+                      <option>8,5</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="form-group col-sm-12">
-            <label for="cckh_max">Max</label>
-            <select class="form-control" id="cckh_max">
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-              <option>11</option>
-              <option>12</option>
-              <option>13</option>
-              <option>14</option>
-            </select>
+          <div class="col-md-2 col-sm-2">
+            <div class="card">
+              <div class="card-header">Kh</div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="form-group col-sm-12">
+                    <label for="cckh_min">Min</label>
+                    <select class="form-control" id="cckh_min">
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                      <option>11</option>
+                      <option>12</option>
+                      <option>13</option>
+                      <option>14</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-sm-12">
+                    <label for="cckh_max">Max</label>
+                    <select class="form-control" id="cckh_max">
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                      <option>11</option>
+                      <option>12</option>
+                      <option>13</option>
+                      <option>14</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="form-group col-sm-4 border border-info">
-          <legend>Gh</legend>
-        <div class="row">
-          <div class="form-group col-sm-12">
-            <label for="ccgh_min">Min</label>
-            <select class="form-control" id="ccgh_min">
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-              <option>11</option>
-              <option>12</option>
-              <option>13</option>
-              <option>14</option>
-            </select>
+          <div class="col-md-2 col-sm-2">
+            <div class="card">
+              <div class="card-header">Gh</div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="form-group col-sm-12">
+                    <label for="ccgh_min">Min</label>
+                    <select class="form-control" id="ccgh_min">
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                      <option>11</option>
+                      <option>12</option>
+                      <option>13</option>
+                      <option>14</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-sm-12">
+                    <label for="ccgh_max">Max</label>
+                    <select class="form-control" id="ccgh_max">
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
+                      <option>11</option>
+                      <option>12</option>
+                      <option>13</option>
+                      <option>14</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="form-group col-sm-12">
-            <label for="ccgh_max">Max</label>
-            <select class="form-control" id="ccgh_max">
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-              <option>11</option>
-              <option>12</option>
-              <option>13</option>
-              <option>14</option>
-            </select>
+          <div class="col-md-2 col-sm-2">
+            <div class="card">
+              <div class="card-header">Nitrati</div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="form-group col-sm-12">
+                    <label for="ccno3_min">Min</label>
+                    <select class="form-control" id="ccno3_min">
+                      <option>0</option>
+                      <option>0,25</option>
+                      <option>0,5</option>
+                      <option>0,75</option>
+                      <option>1</option>
+                      <option>>1</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-sm-12">
+                    <label for="ccno3_max">Max</label>
+                    <select class="form-control" id="ccno3_max">
+                      <option>0</option>
+                      <option>0,25</option>
+                      <option>0,5</option>
+                      <option>0,75</option>
+                      <option>1</option>
+                      <option>>1</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 col-sm-2">
+            <div class="card">
+              <div class="card-header">Ferro</div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="form-group col-sm-12">
+                    <label for="ccfe_min">Min</label>
+                    <select class="form-control" id="ccfe_min">
+                      <option>0</option>
+                      <option>0,25</option>
+                      <option>0,5</option>
+                      <option>0,75</option>
+                      <option>1</option>
+                      <option>>1</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-sm-12">
+                    <label for="ccfe_max">Max</label>
+                    <select class="form-control" id="ccfe_max">
+                      <option>0</option>
+                      <option>0,25</option>
+                      <option>0,5</option>
+                      <option>0,75</option>
+                      <option>1</option>
+                      <option>>1</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 col-sm-2">
+            <div class="card">
+              <div class="card-header">Fosfati</div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="form-group col-sm-12">
+                    <label for="ccfo_min">Min</label>
+                    <select class="form-control" id="ccfo_min">
+                      <option>0</option>
+                      <option>0,25</option>
+                      <option>0,5</option>
+                      <option>0,75</option>
+                      <option>1</option>
+                      <option>>1</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-sm-12">
+                    <label for="ccfo_max">Max</label>
+                    <select class="form-control" id="ccfo_max">
+                      <option>0</option>
+                      <option>0,25</option>
+                      <option>0,5</option>
+                      <option>0,75</option>
+                      <option>1</option>
+                      <option>>1</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -121,49 +235,224 @@
   </div>
 
   <div class="form-group" id="ferti">
-    <p>Fertilizzante utilizzato</p>
-    <label for="event-ferti-k2so4">Solfato di potassio</label>
-    <input class="form-control" name="event-ferti-k2so4" type="number" [(ngModel)]="event.ferti.k2so4" placeholder="K2SO4" />
-    <label for="event-ferti-magnesio">Magnesio</label>
-    <input class="form-control" name="event-ferti-magnesio" type="number" [(ngModel)]="event.ferti.magnesio" placeholder="Magnesio"
-    />
-    <label for="event-ferti-generico">Generico</label>
-    <input class="form-control" name="event-ferti-generico" type="number" [(ngModel)]="event.ferti.generico" placeholder="Generico"
-    />
-    <label for="event-ferti-k2no3">Nitrato di potassio</label>
-    <input class="form-control" name="event-ferti-k2no3" type="number" [(ngModel)]="event.ferti.k2no3" placeholder="K2NO3" />
-    <label for="event-ferti-ferro">Ferro</label>
-    <input class="form-control" name="event-ferti-ferro" type="number" [(ngModel)]="event.ferti.ferro" placeholder="Ferro" />
-    <label for="event-ferti-fosfati">Fosfati</label>
-    <input class="form-control" name="event-ferti-fosfati" type="number" [(ngModel)]="event.ferti.fosfati" placeholder="Fosfati"
-    />
+    <div class="cardcard-accent-success">
+      <div class="card-header">
+        <i class="fa fa-leaf"></i>
+        Fertilizzante utilizzato
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-2 col-sm-2">
+            <div class="card">
+              <div class="card-header">Solfato di potassio</div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="form-group col-sm-12">
+                    <input class="form-control" name="event-ferti-k2so4" type="number" [(ngModel)]="event.ferti.k2so4" placeholder="K2SO4" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-2 col-sm-2">
+            <div class="card">
+              <div class="card-header">Magnesio</div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="form-group col-sm-12">
+                    <input class="form-control" name="event-ferti-magnesio" type="number" [(ngModel)]="event.ferti.magnesio" placeholder="Magnesio"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-2 col-sm-2">
+            <div class="card">
+              <div class="card-header">Generico</div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="form-group col-sm-12">
+                    <input class="form-control" name="event-ferti-generico" type="number" [(ngModel)]="event.ferti.generico" placeholder="Generico"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-2 col-sm-2">
+            <div class="card">
+              <div class="card-header">Nitrato di potassio</div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="form-group col-sm-12">
+                    <input class="form-control" name="event-ferti-k2no3" type="number" [(ngModel)]="event.ferti.k2no3" placeholder="K2NO3" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-2 col-sm-2">
+            <div class="card">
+              <div class="card-header">Ferro</div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="form-group col-sm-12">
+                    <input class="form-control" name="event-ferti-ferro" type="number" [(ngModel)]="event.ferti.ferro" placeholder="Ferro" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-2 col-sm-2">
+            <div class="card">
+              <div class="card-header">Fosfati</div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="form-group col-sm-12">
+                    <input class="form-control" name="event-ferti-fosfati" type="number" [(ngModel)]="event.ferti.fosfati" placeholder="Fosfati"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </div>
+
   <div class="form-group" id="manu">
-    <p>Manutenzioni effettuate</p>
-    <label for="event-ferti-k2so4">Solfato di potassio</label>
-    <input class="form-control" name="event-ferti-k2so4" type="number" [(ngModel)]="event.ferti.k2so4" placeholder="K2SO4" />
-    <label for="event-ferti-magnesio">Magnesio</label>
-    <input class="form-control" name="event-ferti-magnesio" type="number" [(ngModel)]="event.ferti.magnesio" placeholder="Magnesio"
-    />
-    <label for="event-ferti-generico">Generico</label>
-    <input class="form-control" name="event-ferti-generico" type="number" [(ngModel)]="event.ferti.generico" placeholder="Generico"
-    />
-    <label for="event-ferti-k2no3">Nitrato di potassio</label>
-    <input class="form-control" name="event-ferti-k2no3" type="number" [(ngModel)]="event.ferti.k2no3" placeholder="K2NO3" />
-    <label for="event-ferti-ferro">Ferro</label>
-    <input class="form-control" name="event-ferti-ferro" type="number" [(ngModel)]="event.ferti.ferro" placeholder="Ferro" />
-    <label for="event-ferti-fosfati">Fosfati</label>
-    <input class="form-control" name="event-ferti-fosfati" type="number" [(ngModel)]="event.ferti.fosfati" placeholder="Fosfati"
-    />
+    <div class="cardcard-accent-warning">
+      <div class="card-header">
+        <i class="fa fa-wrench"></i>
+        Manutenzioni effettuate
+      </div>
+      <div class="card-body">
+        <div class="row">
+
+          <div class="col-md-2 col-sm-2">
+            <div class="card">
+              <div class="card-header">Cambio acqua</div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="form-group col-sm-12">
+                    <input class="form-control" name="event-manutenzione-acqua" type="number" [(ngModel)]="event.manutenzione.acqua" placeholder="litri"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-2 col-sm-2">
+            <div class="card">
+              <div class="card-header">Pulizia vetro</div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="form-group col-sm-6">
+                    <input type="radio" [(ngModel)]="event.manutenzione.vetro" name="vetro" value="false" checked> No
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <input type="radio" [(ngModel)]="event.manutenzione.vetro" name="vetro" value="true"> Sì
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-2 col-sm-2">
+            <div class="card">
+              <div class="card-header">Potatura</div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="form-group col-sm-6">
+                    <input type="radio" [(ngModel)]="event.manutenzione.potatura" name="potatura" value="false" checked> No
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <input type="radio" [(ngModel)]="event.manutenzione.potatura" name="potatura" value="true"> Sì
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="col-md-2 col-sm-2">
+            <div class="card">
+              <div class="card-header">Pulizia lana filtro</div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="form-group col-sm-6">
+                    <input type="radio" [(ngModel)]="event.manutenzione.filtroLana" name="lana" value="false" checked> No
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <input type="radio" [(ngModel)]="event.manutenzione.filtroLana" name="lana" value="true"> Sì
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-2 col-sm-2">
+            <div class="card">
+              <div class="card-header">Pulizia spugna filtro</div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="form-group col-sm-6">
+                    <input type="radio" [(ngModel)]="event.manutenzione.filtroSpugna" name="spugna" value="false" checked> No
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <input type="radio" [(ngModel)]="event.manutenzione.filtroSpugna" name="spugna" value="true"> Sì
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-2 col-sm-2">
+            <div class="card">
+              <div class="card-header">Pulizia pompa filtro</div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="form-group col-sm-6">
+                    <input type="radio" [(ngModel)]="event.manutenzione.filtroPompa" name="filtroPompa" value="false" checked>No
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <input type="radio" [(ngModel)]="event.manutenzione.filtroPompa" name="filtroPompa" value="true">Sì
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </div>
+
+
   <div class="form-group">
-    <label for="event-dataMisura">dataMisura</label>
-    <input class="form-control" name="event-dataMisura" type="date" [(ngModel)]="event.dataMisura" placeholder="dataMisura" />
+    <div class="row">
+      <div class="form-group col-sm-3">
+        <label for="event-dataMisura">DataMisura</label>
+        <input class="form-control" name="event-dataMisura" type="date" [(ngModel)]="event.dataMisura" placeholder="dataMisura" />
+      </div>
+      <div class="form-group col-sm-9">
+        <label for="event-note">Note</label>
+        <input class="form-control" name="event-note" type="text" [(ngModel)]="event.note" placeholder="note" />
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="event-note">note</label>
-    <input class="form-control" name="event-note" type="text" [(ngModel)]="event.note" placeholder="note" />
-  </div>
+
   <button class="btn btn-primary" *ngIf="!event._id" (click)="createEvent(event)">Create</button>
   <button class="btn btn-info" *ngIf="event._id" (click)="updateEvent(event)">Update</button>
   <button class="btn btn-danger" *ngIf="event._id" (click)="deleteEvent(event._id)">Delete</button>
