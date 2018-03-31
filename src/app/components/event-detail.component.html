@@ -1,24 +1,22 @@
 <div *ngIf="event" class="row">
   <div class="col-md-12">
-    <h4 *ngIf="event._id">Dettaglio</h4>
-    <h4 *ngIf="!event._id">Nuova registrazione</h4>
+    <h3 class="card-title" *ngIf="event._id">Dettaglio</h3>
+    <h3 class="card-title" *ngIf="!event._id">Nuova registrazione</h3>
   </div>
 </div>
+<hr>
 <form *ngIf="event">
-  <hr>
   <div class="form-group" id="test">
-
-    <div class="cardcard-accent-info">
-      <div class="card-header">
+    <div class="card">
+      <div class="card-header bg-info">
         <i class="fa fa-eyedropper"></i>
-        Test effettuati
       </div>
       <div class="card-body">
         <div class="row">
           <div class="col-md-2 col-sm-2">
             <div class="card">
-              <div class="card-header">Ph</div>
               <div class="card-body">
+                <div class="card-title">Ph</div>
                 <div class="row">
                   <div class="form-group col-sm-12">
                     <label for="ccph_min">Min</label>
@@ -52,8 +50,8 @@
           </div>
           <div class="col-md-2 col-sm-2">
             <div class="card">
-              <div class="card-header">Kh</div>
               <div class="card-body">
+                <div class="card-title">Kh</div>
                 <div class="row">
                   <div class="form-group col-sm-12">
                     <label for="cckh_min">Min</label>
@@ -95,8 +93,8 @@
           </div>
           <div class="col-md-2 col-sm-2">
             <div class="card">
-              <div class="card-header">Gh</div>
               <div class="card-body">
+                <div class="card-title">Gh</div>
                 <div class="row">
                   <div class="form-group col-sm-12">
                     <label for="ccgh_min">Min</label>
@@ -138,8 +136,8 @@
           </div>
           <div class="col-md-2 col-sm-2">
             <div class="card">
-              <div class="card-header">Nitrati</div>
               <div class="card-body">
+                <div class="card-title">Nitrati</div>
                 <div class="row">
                   <div class="form-group col-sm-12">
                     <label for="ccno3_min">Min</label>
@@ -169,8 +167,8 @@
           </div>
           <div class="col-md-2 col-sm-2">
             <div class="card">
-              <div class="card-header">Ferro</div>
               <div class="card-body">
+                <div class="card-title">Ferro</div>
                 <div class="row">
                   <div class="form-group col-sm-12">
                     <label for="ccfe_min">Min</label>
@@ -200,8 +198,8 @@
           </div>
           <div class="col-md-2 col-sm-2">
             <div class="card">
-              <div class="card-header">Fosfati</div>
               <div class="card-body">
+                <div class="card-title">Fosfati</div>
                 <div class="row">
                   <div class="form-group col-sm-12">
                     <label for="ccfo_min">Min</label>
@@ -235,10 +233,9 @@
   </div>
 
   <div class="form-group" id="ferti">
-    <div class="cardcard-accent-success">
-      <div class="card-header">
+    <div class="card">
+      <div class="card-header bg-success">
         <i class="fa fa-leaf"></i>
-        Fertilizzante utilizzato
       </div>
       <div class="card-body">
         <div class="row">
@@ -329,10 +326,9 @@
   </div>
 
   <div class="form-group" id="manu">
-    <div class="cardcard-accent-warning">
-      <div class="card-header">
+    <div class="card">
+      <div class="card-header bg-warning">
         <i class="fa fa-wrench"></i>
-        Manutenzioni effettuate
       </div>
       <div class="card-body">
         <div class="row">
@@ -419,20 +415,32 @@
           </div>
 
           <div class="col-md-2 col-sm-2">
-            <div class="card">
-              <div class="card-header">Pulizia pompa filtro</div>
-              <div class="card-body">
-                <div class="row">
-                  <div class="form-group col-sm-6">
-                    <input type="radio" [(ngModel)]="event.manutenzione.filtroPompa" name="filtroPompa" value="false" checked>No
-                  </div>
-                  <div class="form-group col-sm-6">
-                    <input type="radio" [(ngModel)]="event.manutenzione.filtroPompa" name="filtroPompa" value="true">Sì
-                  </div>
-                </div>
-              </div>
+            <label for="filtroPompa">Pulizia pompa filtro</label>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+              <label class="form-check-label" for="inlineRadio1">1</label>
             </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+              <label class="form-check-label" for="inlineRadio2">2</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" disabled>
+              <label class="form-check-label" for="inlineRadio3">3 (disabled)</label>
+            </div>
+
+            <!-- <div class="btn-group" data-toggle="buttons">
+              <label class="btn btn-secondary active">
+                <input type="radio" name="filtroPompa" id="option1" [(ngModel)]="event.manutenzione.filtroPompa" value="false" checked> No
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="filtroPompa" id="option2" [(ngModel)]="event.manutenzione.filtroPompa" value="true"> Sì
+              </label>
+            </div> -->
+            <!-- <input class="form-control" type="radio" [(ngModel)]="event.manutenzione.filtroPompa" name="filtroPompa" value="false" checked>No
+              <input class="form-control" type="radio" [(ngModel)]="event.manutenzione.filtroPompa" name="filtroPompa" value="true">Sì -->
           </div>
+
 
         </div>
       </div>
