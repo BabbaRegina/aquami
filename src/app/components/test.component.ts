@@ -41,13 +41,13 @@ export class TestComponent implements OnInit {
   }
 
   createNewEvent() {
-    var event = new Event('Test');
+    const event = new Event();
     // By default, a newly-created contact will have the selected state.
     this.selectEvent(event);
   }
 
-  deleteEvent= (eventId: String) => {
-    var idx = this.getIndexOfEvent(eventId);
+  deleteEvent = (eventId: String) => {
+    const idx = this.getIndexOfEvent(eventId);
     if (idx !== -1) {
       this.events.splice(idx, 1);
       this.selectEvent(null);
@@ -62,7 +62,7 @@ export class TestComponent implements OnInit {
   }
 
   updateEvent = (event: Event) => {
-    var idx = this.getIndexOfEvent(event._id);
+    const idx = this.getIndexOfEvent(event._id);
     if (idx !== -1) {
       this.events[idx] = event;
       this.selectEvent(event);
@@ -71,7 +71,7 @@ export class TestComponent implements OnInit {
   }
 
   onSelect({ selected }) {
-    var idx = this.getIndexOfEvent(selected[0]._id);
+    const idx = this.getIndexOfEvent(selected[0]._id);
     if (idx !== -1) {
       this.selectEvent(this.events[idx]);
     }

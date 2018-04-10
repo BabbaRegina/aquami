@@ -38,12 +38,12 @@ export class MaintenanceComponent implements OnInit {
   }
 
   createNewEvent() {
-    var event = new Event('Manutenzione');
+    const event = new Event();
     this.selectEvent(event);
   }
 
-  deleteEvent= (eventId: String) => {
-    var idx = this.getIndexOfEvent(eventId);
+  deleteEvent = (eventId: String) => {
+    const idx = this.getIndexOfEvent(eventId);
     if (idx !== -1) {
       this.events.splice(idx, 1);
       this.selectEvent(null);
@@ -58,7 +58,7 @@ export class MaintenanceComponent implements OnInit {
   }
 
   updateEvent = (event: Event) => {
-    var idx = this.getIndexOfEvent(event._id);
+    const idx = this.getIndexOfEvent(event._id);
     if (idx !== -1) {
       this.events[idx] = event;
       this.selectEvent(event);
@@ -67,7 +67,7 @@ export class MaintenanceComponent implements OnInit {
   }
 
   onSelect({ selected }) {
-    var idx = this.getIndexOfEvent(selected[0]._id);
+    const idx = this.getIndexOfEvent(selected[0]._id);
     if (idx !== -1) {
       this.selectEvent(this.events[idx]);
     }

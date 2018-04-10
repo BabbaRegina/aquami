@@ -19,7 +19,6 @@ export class EventService {
 
     // post("/api/events")
     createEvent(newevent: Event): Promise<void | Event> {
-      
       return this.http.post(this.eventsUrl, newevent)
                  .toPromise()
                  .then(response => response.json() as Event)
@@ -38,7 +37,7 @@ export class EventService {
 
     // put("/api/events/:id")
     updateEvent(putevent: Event): Promise<void | Event> {
-      var putUrl = this.eventsUrl + '/' + putevent._id;
+      const putUrl = this.eventsUrl + '/' + putevent._id;
       return this.http.put(putUrl, putevent)
                  .toPromise()
                  .then(response => response.json() as Event)
@@ -46,7 +45,7 @@ export class EventService {
     }
 
     private handleError (error: any) {
-      let errMsg = (error.message) ? error.message :
+      const errMsg = (error.message) ? error.message :
       error.status ? `${error.status} - ${error.statusText}` : 'Server error';
       console.error(errMsg); // log to console instead
     }

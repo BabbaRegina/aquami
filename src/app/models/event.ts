@@ -10,8 +10,8 @@ export class Event {
     dataMisura: Date;
     dataRegistrazione: Date;
 
-    constructor(tipo: string){
-      this.dataRegistrazione= new Date();
+    constructor() {
+      this.dataRegistrazione = new Date();
       this.dataMisura = new Date();
       this.note = '';
       this.ferti = new Fertilizzazione();
