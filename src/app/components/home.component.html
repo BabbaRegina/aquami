@@ -1,70 +1,47 @@
-<div class="container-fluid" *ngIf="!selectedEvent">
-  <button class="btn btn-danger bmd-btn-fab fixed-bottom-right" title="Add" (click)="createNewEvent()">
-    <i class="fa fa-plus"></i>
-  </button>
+<button class="btn btn-danger btn-fab fixed-bottom-right" title="Add" (click)="createNewEvent()">
+  <i class="fa fa-plus"></i>
+</button>
+<div class="jumbotron" *ngIf="!selectedEvent">
+  <img src="assets/img/aqua01.jpg" class="img-home">
+</div>
+<div class="container mb-5" *ngIf="!selectedEvent">
   <div class="row">
-    <div class="col-md-12 col-sm-12">
+    <div class="col">
       <div class="card">
-        <div class="card-body">
-          <img src="assets/img/aqua01.jpg" style="display: block; width: 100%;">
+        <div class="card-body text-center">
+          <h4 class="card-title">Fertilizzazione</h4>
+          <p class="card-text">Ultima fertilizzazione risale al {{dataFerti | date }}</p>
+          <a class="card-link" routerLinkActive="active" [routerLink]="['/ferti']">Vai alla pagina</a>
         </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4 col-sm-4">
+    <div class="col">
       <div class="card">
-        <div class="card-block p-1 clearfix">
-          <i class="fa fa-eyedropper bg-info p-1 font-2xl mr-1 float-left"></i>
-          <div class="h5 text-info mb-0 mt-h">{{dataTest | date }}</div>
-          <div class="text-muted text-uppercase font-weight-bold font-xs">Ultimo Test</div>
-        </div>
-        <div class="card-footer p-x-1 py-h">
-          <a class="font-weight-bold font-xs btn-block text-muted" routerLinkActive="active" [routerLink]="['/test']">Vai alla pagina
-            <i class="fa fa-angle-right float-right font-lg"></i>
-          </a>
+        <div class="card-body text-center">
+          <h4 class="card-title">Test dell'acqua</h4>
+          <p class="card-text">Ultimo test dell'acqua risale al {{dataTest | date }}</p>
+          <a class="card-link" routerLinkActive="active" [routerLink]="['/test']">Vai alla pagina</a>
         </div>
       </div>
     </div>
-    <!--/.col-->
-    <div class="col-md-4 col-sm-4">
+    <div class="col">
       <div class="card">
-        <div class="card-block p-1 clearfix">
-          <i class="fa fa-leaf bg-info p-1 font-2xl mr-1 float-left"></i>
-          <div class="h5 text-info mb-0 mt-h">{{dataTest | date }}</div>
-          <div class="text-muted text-uppercase font-weight-bold font-xs">Ultima Fertilizzazione</div>
-        </div>
-        <div class="card-footer p-x-1 py-h">
-          <a class="font-weight-bold font-xs btn-block text-muted" routerLinkActive="active" [routerLink]="['/ferti']">Vai alla pagina
-            <i class="fa fa-angle-right float-right font-lg"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-    <!--/.col-->
-    <div class="col-md-4 col-sm-4">
-      <div class="card">
-        <div class="card-block p-1 clearfix">
-          <i class="fa fa-wrench bg-info p-1 font-2xl mr-1 float-left"></i>
-          <div class="h5 text-info mb-0 mt-h">{{dataTest | date }}</div>
-          <div class="text-muted text-uppercase font-weight-bold font-xs">Ultima Manutenzione</div>
-        </div>
-        <div class="card-footer p-x-1 py-h">
-          <a class="font-weight-bold font-xs btn-block text-muted" routerLinkActive="active" [routerLink]="['/manutenzione']">Vai alla pagina
-            <i class="fa fa-angle-right float-right font-lg"></i>
-          </a>
+        <div class="card-body text-center">
+          <h4 class="card-title">Manutenzione</h4>
+          <p class="card-text">Ultima manutenzione risale al {{dataManu | date }}</p>
+          <a class="card-link" routerLinkActive="active" [routerLink]="['/manutenzione']">Vai alla pagina</a>
         </div>
       </div>
     </div>
   </div>
 </div>
-<div class="container-fluid" *ngIf="selectedEvent">
+<div class="container mb-5" *ngIf="selectedEvent">
   <div class="row">
     <div class="col-lg-12">
       <div class="card">
         <div class="card-body">
-          <event-detail [event]="selectedEvent" [createHandler]="addEvent" [updateHandler]="updateEvent" [deleteHandler]="deleteEvent">
-          </event-detail>
+          <app-event-detail [event]="selectedEvent" [createHandler]="addEvent" [updateHandler]="updateEvent" [deleteHandler]="deleteEvent">
+          </app-event-detail>
         </div>
       </div>
     </div>

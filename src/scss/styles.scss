@@ -1,0 +1,67 @@
+@import url(https://fonts.googleapis.com/css?family=Quicksand);
+
+$body-bg: #ededed;
+
+$jumbo-bg: white; 
+
+
+body {
+    background: $body-bg;
+    font-family: Quicksand, Roboto, cursive;
+}
+
+.jumbotron {
+    background-color: $jumbo-bg;
+    border-top: 1rem solid $body-bg;
+}
+
+.footer {
+    bottom: 1rem;
+    text-align: right;
+}
+
+.font-fancy {
+  font-family: Quicksand, Roboto, cursive;
+  font-size: 2rem ;
+}
+
+.img-home {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+.btn-fab {
+  width: 3.3rem;
+  height: 3.3rem;
+  border-radius: 50%;
+  padding: 0;
+  line-height: 3.25rem;
+  font-size: 1rem;
+
+  &.btn-lg {
+    width: 4.25rem;
+    height: 4.25rem;
+    line-height: 4.25rem;
+    font-size: 1.25rem;
+  }
+  &.btn-sm {
+    width: 2.25rem;
+    height: 2.25rem;
+    line-height: 2.25rem;
+    font-size: 0.9rem;
+  }
+  &.btn-xs {
+    width: 1.5rem;
+    height: 15rem;
+    line-height: 1.5rem;
+    font-size: 0.8rem;
+  }
+  &.fixed-bottom-right {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    z-index: 5;
+  }
+}

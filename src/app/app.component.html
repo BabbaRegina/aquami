@@ -1,61 +1,10 @@
-<header class="app-header navbar">
-  <button class="navbar-toggler d-lg-none" type="button" appMobileSidebarToggler>&#9776;</button>
-  <button class="navbar-toggler d-md-down-none" type="button" appSidebarToggler>&#9776;</button>
-  <a href="#" class="nav-link">
-    <img src="assets/img/alga.png" style="width:42px;height:42px;border:0">
-  </a>
-  <ul class="nav navbar-nav ml-auto">
-    <li class="nav-item dropdown" dropdown>
-      <a href class="nav-link dropdown-toggle" dropdownToggle (click)="false">
-        <span class="fa fa-user"></span>
-        <span class="d-md-down-none">admin</span>
-      </a>
-      <div class="dropdown-menu dropdown-menu-right" *dropdownMenu aria-labelledby="simple-dropdown">
-        <div class="dropdown-header text-center">
-          <strong>Account</strong>
-        </div>
-        <a class="dropdown-item" href="#">
-          <i class="fa fa-shield"></i> Lock account</a>
-        <a class="dropdown-item" href="#">
-          <i class="fa fa-lock"></i> Logout</a>
-      </div>
-    </li>
-  </ul>
-</header>
 
-<div class="app-body">
-  <div class="sidebar">
-    <nav class="sidebar-nav">
-      <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" [routerLink]="['/test']">
-            <i class="fa fa-eyedropper"></i> Test Acqua </a>
-        </li>
-        <li class="divider"></li>
-        <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" [routerLink]="['/ferti']">
-            <i class="fa fa-leaf"></i> Fertilizzazione </a>
-        </li>
-        <li class="divider"></li>
-        <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" [routerLink]="['/manutenzione']">
-            <i class="fa fa-wrench"></i> Manutenzione </a>
-        </li>
-      </ul>
-    </nav>
-  </div>
+  <app-topbar></app-topbar>
+  <router-outlet></router-outlet>
 
-  <!-- Main content -->
-  <main class="main">
-    <div class="container-fluid">
-      <router-outlet></router-outlet>
+
+  <footer>
+    <div class="container-fluid footer bg-white mb-2 mt-2">
+      <span class="text-muted text-left">&copy; 2018 acquaMI - Created by Irene Nicolini</span>
     </div>
-  </main>
-</div>
-
-<footer class="footer">
-  <div class="container">
-    <span class="text-muted text-left">&copy; 2018 acquaMI</span>
-    <span class="text-muted text-right">Created by Irene Nicolini</span>
-  </div>
-</footer>
+  </footer>

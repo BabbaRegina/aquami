@@ -4,7 +4,7 @@ import { Event, Fertilizzazione } from '../models/event';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'event-detail',
+  selector: 'app-event-detail',
   templateUrl: './event-detail.component.html'
 })
 export class EventDetailComponent {
@@ -17,6 +17,7 @@ export class EventDetailComponent {
   updateHandler: Function;
   @Input()
   deleteHandler: Function;
+  newEvent: Event;
 
   constructor (private eventService: EventService, private router: Router) {}
 
@@ -38,7 +39,4 @@ export class EventDetailComponent {
     });
   }
 
-  goBack() {
-    this.router.navigate(['/ferti']);
-  }
 }

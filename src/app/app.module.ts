@@ -24,6 +24,8 @@ import { BreadcrumbsComponent } from './shared/breadcrumb.component';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { LayoutComponent } from './layout/layout.component';
+import { TopbarComponent } from './layout/topbar/topbar.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     MaintenanceComponent,
     NAV_DROPDOWN_DIRECTIVES,
     BreadcrumbsComponent,
-    SIDEBAR_TOGGLE_DIRECTIVES
+    SIDEBAR_TOGGLE_DIRECTIVES,
+    LayoutComponent,
+    TopbarComponent
   ],
   imports: [
     BrowserModule,
