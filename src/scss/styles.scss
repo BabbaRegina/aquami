@@ -1,35 +1,34 @@
 @import url(https://fonts.googleapis.com/css?family=Quicksand);
-
+// Variable Overrides 
 $body-bg: #ededed;
-
-$jumbo-bg: white; 
-
+$theme-colors: ( "primary": #00cbd9); // Bootstrap Sass Imports
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+$jumbo-bg: white;
 
 body {
-    background: $body-bg;
-    font-family: Quicksand, Roboto, cursive;
+  font-family: Quicksand, Roboto, cursive;
 }
 
 .jumbotron {
-    background-color: $jumbo-bg;
-    border-top: 1rem solid $body-bg;
+  background-color: $jumbo-bg;
+  border-top: 1rem solid $body-bg;
 }
 
 .footer {
-    bottom: 1rem;
-    text-align: right;
+  bottom: 1rem;
+  text-align: right;
 }
 
 .font-fancy {
   font-family: Quicksand, Roboto, cursive;
-  font-size: 2rem ;
+  font-size: 2rem;
 }
 
 .img-home {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 70%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
 }
 
 .btn-fab {
@@ -39,7 +38,6 @@ body {
   padding: 0;
   line-height: 3.25rem;
   font-size: 1rem;
-
   &.btn-lg {
     width: 4.25rem;
     height: 4.25rem;

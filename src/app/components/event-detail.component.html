@@ -461,7 +461,6 @@
     </div>
   </div>
 
-  <a type="button" class="btn btn-primary" href="/home" >Indietro</a>
   <button class="btn btn-primary" *ngIf="!event._id" (click)="createEvent(event)">Create</button>
   <button class="btn btn-info" *ngIf="event._id" (click)="updateEvent(event)">Update</button>
   <button class="btn btn-danger" *ngIf="event._id" (click)="deleteEvent(event._id)">Delete</button>

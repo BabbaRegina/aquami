@@ -1,8 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-
-import { AuthenticationService } from './services/authentication.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -18,14 +17,12 @@ import { EventService } from './services/event.service';
 import { EventDetailComponent } from './components/event-detail.component';
 import { MaintenanceComponent } from './components/maintenance.component';
 
-import { NAV_DROPDOWN_DIRECTIVES } from './shared/nav-dropdown.directive';
-import { SIDEBAR_TOGGLE_DIRECTIVES } from './shared/sidebar.directive';
-import { BreadcrumbsComponent } from './shared/breadcrumb.component';
-
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { LayoutComponent } from './layout/layout.component';
 import { TopbarComponent } from './layout/topbar/topbar.component';
+import { SharedModule } from './shared/shared.module';
+import { AuthenticationService } from './services/authentication.service';
 
 @NgModule({
   declarations: [
@@ -37,21 +34,22 @@ import { TopbarComponent } from './layout/topbar/topbar.component';
     RegisterComponent,
     EventDetailComponent,
     MaintenanceComponent,
-    NAV_DROPDOWN_DIRECTIVES,
-    BreadcrumbsComponent,
-    SIDEBAR_TOGGLE_DIRECTIVES,
     LayoutComponent,
     TopbarComponent
   ],
   imports: [
+    SharedModule,
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
+    NgbModule,
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
     NgxDatatableModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
+    CalendarModule.forRoot()
   ],
   providers: [AuthenticationService, EventService],
   bootstrap: [AppComponent]
