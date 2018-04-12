@@ -238,85 +238,40 @@
         <i class="fa fa-leaf"></i>
       </div>
       <div class="card-body">
-        <div class="row">
-          <div class="col-md-2 col-sm-2">
-            <div class="card h-100">
-              <div class="card-body">
-                <h5 class="card-title">Solfato di potassio</h5>
-                <div class="card-text">
-                    <input class="form-control" name="event-ferti-k2so4" type="number" [(ngModel)]="event.ferti.k2so4" placeholder="K2SO4" />
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-md-2 col-sm-2">
-            <div class="card h-100">
-              <div class="card-body">
-                  <h5 class="card-title">Magnesio</h5>
-                  <div class="card-text">
-                    <input class="form-control" name="event-ferti-magnesio" type="number" [(ngModel)]="event.ferti.magnesio" placeholder="Magnesio"
-                    />
-                  </div>
-              </div>
-            </div>
+        <div class="form-row my-2">
+          <div class="form-group col-4">
+            <label for="event-ferti-k2so4">Solfato di potassio</label>
+            <input class="form-control" name="event-ferti-k2so4" type="number" [(ngModel)]="event.ferti.k2so4" placeholder="K2SO4" />
           </div>
-
-          <div class="col-md-2 col-sm-2">
-            <div class="card h-100">
-              <div class="card-header">Generico</div>
-              <div class="card-body">
-                <div class="row">
-                  <div class="form-group col-sm-12">
-                    <input class="form-control" name="event-ferti-generico" type="number" [(ngModel)]="event.ferti.generico" placeholder="Generico"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="form-group col-4">
+            <label for="event-ferti-magnesio">Magnesio</label>
+            <input class="form-control" name="event-ferti-magnesio" type="number" [(ngModel)]="event.ferti.magnesio" placeholder="Magnesio"
+            />
           </div>
-
-          <div class="col-md-2 col-sm-2">
-            <div class="card h-100">
-              <div class="card-header">Nitrato di potassio</div>
-              <div class="card-body">
-                <div class="row">
-                  <div class="form-group col-sm-12">
-                    <input class="form-control" name="event-ferti-k2no3" type="number" [(ngModel)]="event.ferti.k2no3" placeholder="K2NO3" />
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="form-group col-4">
+            <label for="event-ferti-generico">Generico</label>
+            <input class="form-control" name="event-ferti-generico" type="number" [(ngModel)]="event.ferti.generico" placeholder="Generico"
+            />
           </div>
-
-          <div class="col-md-2 col-sm-2">
-            <div class="card h-100">
-              <div class="card-header">Ferro</div>
-              <div class="card-body">
-                <div class="row">
-                  <div class="form-group col-sm-12">
-                    <input class="form-control" name="event-ferti-ferro" type="number" [(ngModel)]="event.ferti.ferro" placeholder="Ferro" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-2 col-sm-2">
-            <div class="card h-100">
-              <div class="card-header">Fosfati</div>
-              <div class="card-body">
-                <div class="row">
-                  <div class="form-group col-sm-12">
-                    <input class="form-control" name="event-ferti-fosfati" type="number" [(ngModel)]="event.ferti.fosfati" placeholder="Fosfati"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
+
+        <div class="form-row my-2">
+          <div class="form-group col-4">
+            <label for="event-ferti-k2no3">Nitrato di potassio</label>
+            <input class="form-control" name="event-ferti-k2no3" type="number" [(ngModel)]="event.ferti.k2no3" placeholder="K2NO3" />
+          </div>
+          <div class="form-group col-4">
+            <label for="event-ferti-ferro">Ferro</label>
+            <input class="form-control" name="event-ferti-ferro" type="number" [(ngModel)]="event.ferti.ferro" placeholder="Ferro" />
+          </div>
+          <div class="form-group col-4">
+            <label for="event-ferti-fosfati">Fosfati</label>
+            <input class="form-control" name="event-ferti-fosfati" type="number" [(ngModel)]="event.ferti.fosfati" placeholder="Fosfati"
+            />
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -327,133 +282,112 @@
         <i class="fa fa-wrench"></i>
       </div>
       <div class="card-body">
-        <div class="row">
 
-          <div class="col-md-2 col-sm-2">
-            <div class="card">
-              <div class="card-header">Cambio acqua</div>
-              <div class="card-body">
-                <div class="row">
-                  <div class="form-group col-sm-12">
-                    <input class="form-control" name="event-manutenzione-acqua" type="number" [(ngModel)]="event.manutenzione.acqua" placeholder="litri"
-                    />
-                  </div>
-                </div>
-              </div>
+        <div class="form-row my-2">
+          <div class="form-group row">
+            <label for="event-manutenzione-acqua" class="col-6 col-form-label">Cambio acqua</label>
+            <div class="col-3">
+              <input class="form-control" name="event-manutenzione-acqua" type="number" [(ngModel)]="event.manutenzione.acqua" placeholder="litri"
+              />
             </div>
           </div>
-
-          <div class="col-md-2 col-sm-2">
-            <div class="card">
-              <div class="card-header">Pulizia vetro</div>
-              <div class="card-body">
-                <div class="row">
-                  <div class="form-group col-sm-6">
-                    <input type="radio" [(ngModel)]="event.manutenzione.vetro" name="vetro" value="false" checked> No
-                  </div>
-                  <div class="form-group col-sm-6">
-                    <input type="radio" [(ngModel)]="event.manutenzione.vetro" name="vetro" value="true"> Sì
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-md-2 col-sm-2">
-            <div class="card">
-              <div class="card-header">Potatura</div>
-              <div class="card-body">
-                <div class="row">
-                  <div class="form-group col-sm-6">
-                    <input type="radio" [(ngModel)]="event.manutenzione.potatura" name="potatura" value="false" checked> No
-                  </div>
-                  <div class="form-group col-sm-6">
-                    <input type="radio" [(ngModel)]="event.manutenzione.potatura" name="potatura" value="true"> Sì
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-
-          <div class="col-md-2 col-sm-2">
-            <div class="card">
-              <div class="card-header">Pulizia lana filtro</div>
-              <div class="card-body">
-                <div class="row">
-                  <div class="form-group col-sm-6">
-                    <input type="radio" [(ngModel)]="event.manutenzione.filtroLana" name="lana" value="false" checked> No
-                  </div>
-                  <div class="form-group col-sm-6">
-                    <input type="radio" [(ngModel)]="event.manutenzione.filtroLana" name="lana" value="true"> Sì
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-2 col-sm-2">
-            <div class="card">
-              <div class="card-header">Pulizia spugna filtro</div>
-              <div class="card-body">
-                <div class="row">
-                  <div class="form-group col-sm-6">
-                    <input type="radio" [(ngModel)]="event.manutenzione.filtroSpugna" name="spugna" value="false" checked> No
-                  </div>
-                  <div class="form-group col-sm-6">
-                    <input type="radio" [(ngModel)]="event.manutenzione.filtroSpugna" name="spugna" value="true"> Sì
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-2 col-sm-2">
-            <label for="filtroPompa">Pulizia pompa filtro</label>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-              <label class="form-check-label" for="inlineRadio1">1</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-              <label class="form-check-label" for="inlineRadio2">2</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" disabled>
-              <label class="form-check-label" for="inlineRadio3">3 (disabled)</label>
-            </div>
-
-            <!-- <div class="btn-group" data-toggle="buttons">
-              <label class="btn btn-secondary active">
-                <input type="radio" name="filtroPompa" id="option1" [(ngModel)]="event.manutenzione.filtroPompa" value="false" checked> No
-              </label>
-              <label class="btn btn-secondary">
-                <input type="radio" name="filtroPompa" id="option2" [(ngModel)]="event.manutenzione.filtroPompa" value="true"> Sì
-              </label>
-            </div> -->
-            <!-- <input class="form-control" type="radio" [(ngModel)]="event.manutenzione.filtroPompa" name="filtroPompa" value="false" checked>No
-              <input class="form-control" type="radio" [(ngModel)]="event.manutenzione.filtroPompa" name="filtroPompa" value="true">Sì -->
-          </div>
-
-
         </div>
+        <div class="form-row my-2">
+          <div class="form-group row">
+            <label for="event-manutenzione-khrubi" class="col-6 col-form-label">Durezza acqua rubinetto</label>
+            <div class="col-3">
+              <input class="form-control" name="event-manutenzione-khrubi" type="number" [(ngModel)]="event.manutenzione.khrubi" placeholder="Kh"
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="event-manutenzione-khacqua" class="col-6 col-form-label">Durezza acqua acquario</label>
+            <div class="col-3">
+              <input class="form-control" name="event-manutenzione-khacqua" type="number" [(ngModel)]="event.manutenzione.khacqua" placeholder="Kh"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group row">
+
+            <label for="event-manutenzione-vetro" class="col-6 col-form-label">Pulizia vetro</label>
+            <div class="col-3">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="customRadioInline1" [(ngModel)]="event.manutenzione.vetro" name="event.manutenzione.vetro">
+                <label class="custom-control-label" for="customRadioInline1" value="true">Sì</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="customRadioInline2" [(ngModel)]="event.manutenzione.vetro" name="event.manutenzione.vetro">
+                <label class="custom-control-label" for="customRadioInline2" value="false">No</label>
+              </div>
+            </div>
+
+            <label for="event-manutenzione-potatura" class="col-6 col-form-label">Potatura</label>
+            <div class="col-3">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="customRadioInline1" [(ngModel)]="event.manutenzione.potatura" name="event.manutenzione.potatura">
+                <label class="custom-control-label" for="customRadioInline1" value="true">Sì</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="customRadioInline2" [(ngModel)]="event.manutenzione.potatura" name="event.manutenzione.potatura">
+                <label class="custom-control-label" for="customRadioInline2" value="false">No</label>
+              </div>
+            </div>
+
+            <label for="event-manutenzione-filtroLana" class="col-6 col-form-label">Pulizia lana filtro</label>
+            <div class="col-3">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="customRadioInline1" [(ngModel)]="event.manutenzione.filtroLana" name="event.manutenzione.filtroLana">
+                <label class="custom-control-label" for="customRadioInline1" value="true">Sì</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="customRadioInline2" [(ngModel)]="event.manutenzione.filtroLana" name="event.manutenzione.filtroLana">
+                <label class="custom-control-label" for="customRadioInline2" value="false">No</label>
+              </div>
+            </div>
+
+            <label for="event-manutenzione-filtroSpugna" class="col-6 col-form-label">Pulizia spugna filtro</label>
+            <div class="col-3">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="customRadioInline1" [(ngModel)]="event.manutenzione.filtroSpugna" name="event.manutenzione.filtroSpugna">
+                <label class="custom-control-label" for="customRadioInline1" value="true">Sì</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="customRadioInline2" [(ngModel)]="event.manutenzione.filtroSpugna" name="event.manutenzione.filtroSpugna">
+                <label class="custom-control-label" for="customRadioInline2" value="false">No</label>
+              </div>
+            </div>
+
+            <label for="event-manutenzione-filtroPompa" class="col-6 col-form-label">Pulizia pompa filtro</label>
+            <div class="col-3">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="customRadioInline1" [(ngModel)]="event.manutenzione.filtroPompa" name="event.manutenzione.filtroPompa">
+                <label class="custom-control-label" for="customRadioInline1" value="true">Sì</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input class="custom-control-input" type="radio" id="customRadioInline2" [(ngModel)]="event.manutenzione.filtroPompa" name="event.manutenzione.filtroPompa">
+                <label class="custom-control-label" for="customRadioInline2" value="false">No</label>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 
 
-  <div class="form-group">
-    <div class="row">
-      <div class="form-group col-sm-3">
-        <label for="event-dataMisura">DataMisura</label>
-        <input class="form-control" name="event-dataMisura" type="date" [(ngModel)]="event.dataMisura" placeholder="dataMisura" />
-      </div>
-      <div class="form-group col-sm-9">
-        <label for="event-note">Note</label>
-        <input class="form-control" name="event-note" type="text" [(ngModel)]="event.note" placeholder="note" />
-      </div>
+  <div class="form-row mt-4 mb-2">
+    <div class="form-group col-3">
+      <label for="event-dataMisura">DataMisura</label>
+      <input class="form-control" name="event-dataMisura" type="date" [(ngModel)]="event.dataMisura" />
+    </div>
+    <div class="form-group col-9">
+      <label for="event-note">Note</label>
+      <input class="form-control" name="event-note" type="text" [(ngModel)]="event.note" />
     </div>
   </div>
 
