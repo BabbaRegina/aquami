@@ -42,14 +42,12 @@ import { AuthenticationService } from './services/authentication.service';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    NgbModule,
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
     NgxDatatableModule,
     BsDropdownModule.forRoot(),
-    TabsModule.forRoot(),
-    CalendarModule.forRoot()
+    TabsModule.forRoot()
   ],
   providers: [AuthenticationService, EventService],
   bootstrap: [AppComponent]
