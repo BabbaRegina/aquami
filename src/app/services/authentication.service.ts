@@ -1,37 +1,28 @@
 import { Injectable } from '@angular/core';
 
-import { Http, Headers, RequestOptions } from '@angular/http';
-import 'rxjs/add/operator/map';
-
-import { User } from '../models/user';
-
-
 @Injectable()
 export class AuthenticationService {
 
+  loggedIn = false;
   result: any;
 
-  constructor(private _http: Http) { }
+  constructor() { }
 
-  getUsers() {
-    return this._http.get('/api/users')
-      .map(result => this.result = result.json().data);
+  isAuthenticated() {
+    const promise = new Promise(
+      (resolve, reject) => {
+          resolve(this.loggedIn);
+      }
+    );
+    return promise;
   }
 
-  register(data: User) {
-    const headers = new Headers({'Content-Type': 'application/json'});
-    return this._http.post('/api/newUser', JSON.stringify(data), {headers})
-      .map( result => result.status );
-    /* .toPromise()
-    .then(
-      response =>{
-        console.log('---------------------3-res', response);
-        return response.json() ;
-      }).catch(err => {
-        console.log(err);
-      }); */
+  login(pswd: string) {
+    console.log('auth service ', pswd);
+    if (pswd.trim() === 'ciao_bell0') {
+      this.loggedIn = true;
+      console.log('loggato');
+    }
   }
-
-
 
 }

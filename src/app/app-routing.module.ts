@@ -4,16 +4,15 @@ import { TestComponent } from './components/test.component';
 import { HomeComponent } from './components/home.component';
 import { FertilizationComponent } from './components/fertilization.component';
 import { LoginComponent } from './components/login.component';
-import { RegisterComponent } from './components/register.component';
 import { MaintenanceComponent } from './components/maintenance.component';
+import { AuthGuard } from './shared/guards/auth.guard.service';
 
 const routes: Routes = [
-  { path: 'test', component: TestComponent },
-  { path: 'ferti', component: FertilizationComponent },
-  { path: 'manutenzione', component: MaintenanceComponent },
-  { path: 'home', component: HomeComponent },
+  { path: 'test', component: TestComponent , canActivate: [AuthGuard] },
+  { path: 'ferti', component: FertilizationComponent , canActivate: [AuthGuard] },
+  { path: 'manutenzione', component: MaintenanceComponent , canActivate: [AuthGuard] },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];

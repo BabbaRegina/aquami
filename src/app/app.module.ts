@@ -12,7 +12,6 @@ import { TestComponent } from './components/test.component';
 import { HomeComponent } from './components/home.component';
 import { FertilizationComponent } from './components/fertilization.component';
 import { LoginComponent } from './components/login.component';
-import { RegisterComponent } from './components/register.component';
 import { EventService } from './services/event.service';
 import { EventDetailComponent } from './components/event-detail.component';
 import { MaintenanceComponent } from './components/maintenance.component';
@@ -23,6 +22,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { TopbarComponent } from './layout/topbar/topbar.component';
 import { SharedModule } from './shared/shared.module';
 import { AuthenticationService } from './services/authentication.service';
+import { AuthGuard } from './shared/guards/auth.guard.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,6 @@ import { AuthenticationService } from './services/authentication.service';
     HomeComponent,
     FertilizationComponent,
     LoginComponent,
-    RegisterComponent,
     EventDetailComponent,
     MaintenanceComponent,
     LayoutComponent,
@@ -49,7 +48,7 @@ import { AuthenticationService } from './services/authentication.service';
     BsDropdownModule.forRoot(),
     TabsModule.forRoot()
   ],
-  providers: [AuthenticationService, EventService],
+  providers: [AuthenticationService, EventService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

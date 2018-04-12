@@ -13,12 +13,12 @@ export class RegisterComponent implements OnInit {
   user: User;
 
   constructor(private _authService: AuthenticationService) {
-    this._authService.getUsers().subscribe(res => this.userList = res);
+    /* this._authService.getUsers().subscribe(res => this.userList = res); */
    }
 
    refresh() {
-    this._authService.getUsers().subscribe(res => this.userList = res);
-   }
+/*     this._authService.getUsers().subscribe(res => this.userList = res);
+ */   }
   ngOnInit() {
     this.user = new User();
   }
@@ -29,13 +29,13 @@ export class RegisterComponent implements OnInit {
       this.user.username = f.value.username;
       this.user.email = f.value.email;
       this.user.password = f.value.password1;
-      this._authService.register(this.user).subscribe(
+      /* this._authService.register(this.user).subscribe(
         res => {
           console.log('RES:', res);
           if (res === 200) {
             this.refresh();
           }
-        });
+        }); */
     } else {
       alert('Attenzione, password non corrisponde');
     }
