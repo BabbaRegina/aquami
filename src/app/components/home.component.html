@@ -1,6 +1,49 @@
-<div class="container-fluid">
-  <div class="animated fadeIn">
-    <img src="http://www.theaquariumguide.com/wp-content/uploads/2015/12/Taiwanese-Aquascaping-Style.jpg"
-         style="display: block; width: 100%;">
+<button *ngIf="!selectedEvent" class="btn btn-danger btn-fab fixed-bottom-right" title="Add" (click)="createNewEvent()">
+  <i class="fa fa-plus"></i>
+</button>
+<div class="jumbotron py-3" *ngIf="!selectedEvent">
+  <img src="assets/img/aqua01.jpg" class="img-home">
+</div>
+<div class="container mb-5" *ngIf="!selectedEvent">
+  <div class="row">
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body text-center">
+          <h4 class="card-title">Test dell'acqua</h4>
+          <p class="card-text">Ultimo test dell'acqua risale al {{dataTest | date }}</p>
+          <a class="card-link" routerLinkActive="active" [routerLink]="['/test']">Vai alla pagina</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body text-center">
+          <h4 class="card-title">Fertilizzazione</h4>
+          <p class="card-text">Ultima fertilizzazione risale al {{dataFerti | date }}</p>
+          <a class="card-link" routerLinkActive="active" [routerLink]="['/ferti']">Vai alla pagina</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body text-center">
+          <h4 class="card-title">Manutenzione</h4>
+          <p class="card-text">Ultima manutenzione risale al {{dataManu | date }}</p>
+          <a class="card-link" routerLinkActive="active" [routerLink]="['/manutenzione']">Vai alla pagina</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container my-4" *ngIf="selectedEvent">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body  text-center">
+          <app-event-detail [event]="selectedEvent" [createHandler]="addEvent" [updateHandler]="updateEvent" [deleteHandler]="deleteEvent">
+          </app-event-detail>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

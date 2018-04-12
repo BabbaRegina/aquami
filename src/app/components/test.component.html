@@ -1,0 +1,116 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-sm-5">
+              <i class="fa fa-align-justify"></i> Test
+            </div>
+            <div class="col-sm-7 d-none d-md-block">
+              <button class="btn btn-warning float-right" (click)="createNewEvent()">New</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <ngx-datatable class="material expandable ngx-datatable fixed-header fixed-row scroll-vertical selectable single-selection"
+            [rows]="events" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="0" [rowHeight]="'auto'" [selected]="selected"
+            [selectionType]="'single'" (activate)="onActivate($event)" (select)='onSelect($event)'>
+            <ngx-datatable-column name="Data Misura">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{row.dataMisura}}
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Kh min"> 
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{row.test.khmin}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Kh max">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{row.test.khmax}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Gh min">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{row.test.ghmin}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Gh max">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{row.test.ghmax}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Ph min">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{row.test.phmin}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Ph max">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{row.test.phmax}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="NO3 min">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{row.test.no3min}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="NO3 max">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{row.test.no3max}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="NO2 min">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{row.test.no2min}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="NO2 max">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{row.test.no2max}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Ferro min">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{row.test.femin}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Ferro max">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{row.test.femax}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Fosfati min">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{row.test.fomin}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Fosfati max">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{row.test.fomax}}
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Annotazioni">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{row.note}}
+              </ng-template>
+            </ngx-datatable-column>
+          </ngx-datatable>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="selectedEvent" class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <app-event-detail [event]="selectedEvent" [createHandler]="addEvent" [updateHandler]="updateEvent" [deleteHandler]="deleteEvent">
+          </app-event-detail>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

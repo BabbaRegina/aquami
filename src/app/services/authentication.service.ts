@@ -9,19 +9,19 @@ import { User } from '../models/user';
 @Injectable()
 export class AuthenticationService {
 
-  result:any;
+  result: any;
 
   constructor(private _http: Http) { }
 
   getUsers() {
-    return this._http.get("/api/users")
+    return this._http.get('/api/users')
       .map(result => this.result = result.json().data);
   }
 
   register(data: User) {
     const headers = new Headers({'Content-Type': 'application/json'});
-    return this._http.post("/api/newUser", JSON.stringify(data), {headers})
-      .map(result => {return result.status});
+    return this._http.post('/api/newUser', JSON.stringify(data), {headers})
+      .map( result => result.status );
     /* .toPromise()
     .then(
       response =>{

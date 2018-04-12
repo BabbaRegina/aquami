@@ -25,14 +25,14 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(f: NgForm) {
     console.log(f.value.username + ' si vuole registrare');
-    if(f.value.password1 === f.value.password2) {
+    if (f.value.password1 === f.value.password2) {
       this.user.username = f.value.username;
       this.user.email = f.value.email;
       this.user.password = f.value.password1;
       this._authService.register(this.user).subscribe(
         res => {
-          console.log('RES:',res);
-          if(res===200) {
+          console.log('RES:', res);
+          if (res === 200) {
             this.refresh();
           }
         });

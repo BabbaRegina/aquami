@@ -1,0 +1,89 @@
+<div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+              <div class="row">
+                <div class="col-sm-5">
+                  <i class="fa fa-align-justify"></i> Manutenzioni
+                  </div>
+                  <div class="col-sm-7 d-none d-md-block">
+                  <button class="btn btn-warning float-right" (click)="createNewEvent()">New</button>
+                </div>
+              </div>
+            </div>
+          <div class="card-body">
+            <ngx-datatable class="material expandable ngx-datatable fixed-header fixed-row scroll-vertical selectable single-selection"
+              [rows]="events"
+              [columnMode]="'force'"
+              [headerHeight]="50"
+              [footerHeight]="0"
+              [rowHeight]="'auto'"
+              [selected]="selected"
+              [selectionType]="'single'"
+              (activate)="onActivate($event)"
+              (select)='onSelect($event)'>
+              <ngx-datatable-column name="Data Misura">
+                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                  {{row.dataMisura}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Cambio acqua">
+                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                  {{row.manutenzione.acqua}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Potatura">
+                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                  {{row.manutenzione.potatura}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Cambio Lana Filtro">
+                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                  {{row.manutenzione.filtroLana}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Pulizia Spugna Filtro">
+                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                  {{row.manutenzione.filtroSpugne}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Pulizia Pompa">
+                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                  {{row.manutenzione.filtroPompa}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Pulizia Vetro">
+                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                  {{row.manutenzione.vetro}}
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Annotazioni">
+                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                  {{row.note}}
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="selectedEvent" class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <app-event-detail
+            [event]="selectedEvent"
+            [createHandler]="addEvent"
+            [updateHandler]="updateEvent"
+            [deleteHandler]="deleteEvent">
+          </app-event-detail>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  

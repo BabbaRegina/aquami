@@ -1,44 +1,10 @@
-<header class="app-header navbar">
-  <button class="navbar-toggler d-lg-none" type="button" appMobileSidebarToggler>&#9776;</button>
-  <!--<a class="navbar-brand" href="#"></a>-->
-  <button class="navbar-toggler d-md-down-none" type="button" appSidebarToggler>&#9776;</button>
-  <a class="nav-link" routerLinkActive="active" [routerLink]="['/home']">
-    <h1 class="nav-item">acquaMI</h1>
-  </a>
-  <ul class="nav navbar-nav d-md-down-none">
-    <li class="nav-item px-3">
-      <a class="nav-link" routerLinkActive="active" [routerLink]="['/login']">LogIn</a>
-    </li>
-  </ul>
-</header>
 
-<div class="app-body">
-  <div class="sidebar">
-    <nav class="sidebar-nav">
-      <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" [routerLink]="['/test']"><i class="fa fa-eyedropper"></i> Test Acqua </a>
-        </li>
-        <li class="divider"></li>
-        <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" [routerLink]="['/ferti']"><i class="fa fa-bug"></i> Fertilizzazione </a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-  <!-- Main content -->
-  <main class="main">
-
-    <router-outlet></router-outlet>
-  </main>
-</div>
-
-<footer class="app-footer">
-  <p>
-    <span>&copy; 2018 acquaMI</span>
-    <span class="float-right">Created by Irene Nicolini</span>
-  </p>
-</footer>
+  <app-topbar></app-topbar>
+  <router-outlet></router-outlet>
 
 
-
+  <footer>
+    <div class="container-fluid footer bg-white mb-2 mt-2">
+      <span class="text-muted text-left">&copy; 2018 acquaMI - Created by Irene Nicolini</span>
+    </div>
+  </footer>
