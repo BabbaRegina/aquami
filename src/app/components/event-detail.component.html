@@ -1,5 +1,5 @@
 <div *ngIf="event" class="row">
-  <div class="col-md-12">
+  <div class="col">
     <h3 class="card-title" *ngIf="event._id">Dettaglio</h3>
     <h3 class="card-title" *ngIf="!event._id">Nuova registrazione</h3>
   </div>
@@ -16,7 +16,7 @@
           <div class="col-md-2 col-sm-2">
             <div class="card">
               <div class="card-body">
-                <div class="card-title">Ph</div>
+                <h4 class="card-title">Ph</h4>
                 <div class="row">
                   <div class="form-group col-sm-12">
                     <label for="ccph_min">Min</label>
@@ -51,7 +51,7 @@
           <div class="col-md-2 col-sm-2">
             <div class="card">
               <div class="card-body">
-                <div class="card-title">Kh</div>
+                <h4 class="card-title">Kh</h4>
                 <div class="row">
                   <div class="form-group col-sm-12">
                     <label for="cckh_min">Min</label>
@@ -94,7 +94,7 @@
           <div class="col-md-2 col-sm-2">
             <div class="card">
               <div class="card-body">
-                <div class="card-title">Gh</div>
+                <h4 class="card-title">Gh</h4>
                 <div class="row">
                   <div class="form-group col-sm-12">
                     <label for="ccgh_min">Min</label>
@@ -137,7 +137,7 @@
           <div class="col-md-2 col-sm-2">
             <div class="card">
               <div class="card-body">
-                <div class="card-title">Nitrati</div>
+                <h4 class="card-title">Nitrati</h4>
                 <div class="row">
                   <div class="form-group col-sm-12">
                     <label for="ccno3_min">Min</label>
@@ -168,7 +168,7 @@
           <div class="col-md-2 col-sm-2">
             <div class="card">
               <div class="card-body">
-                <div class="card-title">Ferro</div>
+                <h4 class="card-title">Ferro</h4>
                 <div class="row">
                   <div class="form-group col-sm-12">
                     <label for="ccfe_min">Min</label>
@@ -199,7 +199,7 @@
           <div class="col-md-2 col-sm-2">
             <div class="card">
               <div class="card-body">
-                <div class="card-title">Fosfati</div>
+                <h4 class="card-title">Fosfati</h4>
                 <div class="row">
                   <div class="form-group col-sm-12">
                     <label for="ccfo_min">Min</label>
@@ -240,34 +240,30 @@
       <div class="card-body">
         <div class="row">
           <div class="col-md-2 col-sm-2">
-            <div class="card">
-              <div class="card-header">Solfato di potassio</div>
+            <div class="card h-100">
               <div class="card-body">
-                <div class="row">
-                  <div class="form-group col-sm-12">
+                <h5 class="card-title">Solfato di potassio</h5>
+                <div class="card-text">
                     <input class="form-control" name="event-ferti-k2so4" type="number" [(ngModel)]="event.ferti.k2so4" placeholder="K2SO4" />
-                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           <div class="col-md-2 col-sm-2">
-            <div class="card">
-              <div class="card-header">Magnesio</div>
+            <div class="card h-100">
               <div class="card-body">
-                <div class="row">
-                  <div class="form-group col-sm-12">
+                  <h5 class="card-title">Magnesio</h5>
+                  <div class="card-text">
                     <input class="form-control" name="event-ferti-magnesio" type="number" [(ngModel)]="event.ferti.magnesio" placeholder="Magnesio"
                     />
                   </div>
-                </div>
               </div>
             </div>
           </div>
 
           <div class="col-md-2 col-sm-2">
-            <div class="card">
+            <div class="card h-100">
               <div class="card-header">Generico</div>
               <div class="card-body">
                 <div class="row">
@@ -281,7 +277,7 @@
           </div>
 
           <div class="col-md-2 col-sm-2">
-            <div class="card">
+            <div class="card h-100">
               <div class="card-header">Nitrato di potassio</div>
               <div class="card-body">
                 <div class="row">
@@ -294,7 +290,7 @@
           </div>
 
           <div class="col-md-2 col-sm-2">
-            <div class="card">
+            <div class="card h-100">
               <div class="card-header">Ferro</div>
               <div class="card-body">
                 <div class="row">
@@ -307,7 +303,7 @@
           </div>
 
           <div class="col-md-2 col-sm-2">
-            <div class="card">
+            <div class="card h-100">
               <div class="card-header">Fosfati</div>
               <div class="card-body">
                 <div class="row">
