@@ -2,14 +2,14 @@
 // Variable Overrides 
 $body-bg: #ededed;
 $theme-colors: ( "primary": #00cbd9); // Bootstrap Sass Imports
-@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../../node_modules/bootstrap/scss/bootstrap';
 $jumbo-bg: white;
 
 body {
   font-family: Quicksand, Roboto, cursive;
 }
 
-.jumbotron {
+.jumbotron.home {
   background-color: $jumbo-bg;
   border-top: 0.5rem solid $body-bg;
 }
@@ -38,12 +38,6 @@ body {
 
 input.ng-invalid.ng-touched, select.ng-invalid.ng-touched {
   border: 1px solid red;
-}
-
-.footer {
-  bottom: 1rem;
-  right: 1rem;
-  position: fixed;
 }
 
 .font-fancy {

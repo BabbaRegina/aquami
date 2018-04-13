@@ -1,30 +1,32 @@
-<div class="container align-items-center">
+<div class="jumbotron">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <div class="card-group my-5">
-        <div class="card p-4">
-          <div class="card-body">
-            <h1>Log In</h1>
-            <p>Inserisci la parola magica</p>
-            <form [formGroup]="signupForm" (ngSubmit)="login()">
-              <div class="form-group row mb-4">
-                <label for="password" class="col-1 col-form-label text-center">
-                  <i class="fa fa-magic"></i>
-                </label>
-                <div class="col-11">
-                  <input type="password" formControlName="password" class="form-control" placeholder="********">
-                  <p class="text-muted" *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched"><small>non la sai? Peccato</small></p> 
-                  <p class="text-muted" *ngIf="signupForm.get('password').valid && wrongPassword"><small>Riprova, sarai più fortunato</small></p> 
-                </div>
+      <div class="card p-4">
+        <div class="card-body">
+          <h1>Log In</h1>
+          <p>Inserisci la parola magica</p>
+          <form [formGroup]="signupForm" (ngSubmit)="login()">
+            <div class="form-group row mb-4">
+              <label for="password" class="col-1 col-form-label text-center">
+                <i class="fa fa-magic"></i>
+              </label>
+              <div class="col-11">
+                <input type="password" formControlName="password" class="form-control" placeholder="********">
+                <p class="text-muted" *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched">
+                  <small>non la sai? Peccato</small>
+                </p>
+                <p class="text-muted" *ngIf="signupForm.get('password').valid && wrongPassword">
+                  <small>Riprova, sarai più fortunato</small>
+                </p>
               </div>
-              <div class="row text-center">
-                <div class="col-12"> 
-                  <!-- <button type="submit" class="btn btn-primary px-4" [disabled]="!f.valid" >Login</button> -->
-                  <button type="submit" class="btn btn-primary px-4" [disabled]="!signupForm.valid" >Login</button>
-                </div>
+            </div>
+            <div class="row text-center">
+              <div class="col-12">
+                <!-- <button type="submit" class="btn btn-primary px-4" [disabled]="!f.valid" >Login</button> -->
+                <button type="submit" class="btn btn-primary px-4" [disabled]="!signupForm.valid">Login</button>
               </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
