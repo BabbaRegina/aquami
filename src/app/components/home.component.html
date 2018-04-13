@@ -36,14 +36,6 @@
   </div>
 </div>
 <div class="container my-4" *ngIf="selectedEvent">
-  <div class="row">
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
-          <app-event-detail [event]="selectedEvent" [createHandler]="addEvent" [updateHandler]="updateEvent" [deleteHandler]="deleteEvent">
-          </app-event-detail>
-        </div>
-      </div>
-    </div>
-  </div>
+  <app-event-detail [event]="selectedEvent" [createHandler]="addEvent" [updateHandler]="updateEvent" [deleteHandler]="deleteEvent">
+  </app-event-detail>
 </div>

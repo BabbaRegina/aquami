@@ -5,24 +5,23 @@
         <div class="card p-4">
           <div class="card-body">
             <h1>Log In</h1>
-            <p class="text-muted">Inserisci la parola magica</p>
-            <!--               <div class="input-group mb-3">
-                <span class="input-group-addon"><i class="icon-user"></i></span>
-                <input type="text" class="form-control" placeholder="Username">
-              </div> -->
-            <div class="form-group row mb-4">
-              <label for="password" class="col-1 col-form-label text-center">
-                <i class="fa fa-magic"></i>
-              </label>
-              <div class="col-11">
-                <input type="password" name="password" [(ngModel)]="password" class="form-control" id="password" placeholder="********" required>
+            <p>Inserisci la parola magica</p>
+            <form (ngSubmit)="login(f)" #f="ngForm">
+              <div class="form-group row mb-4">
+                <label for="password" class="col-1 col-form-label text-center">
+                  <i class="fa fa-magic"></i>
+                </label>
+                <div class="col-11">
+                  <input type="password" name="password" ngModel class="form-control" placeholder="********" required #password="ngModel">
+                  <p class="text-muted" *ngIf="!password.valid && password.touched"><small>non la sai? Peccato</small></p>
+                </div>
               </div>
-            </div>
-            <div class="row text-center">
-              <div class="col-12">
-                <button type="button" class="btn btn-primary px-4" (click)="login()">Login</button>
+              <div class="row text-center">
+                <div class="col-12"> 
+                  <button type="submit" class="btn btn-primary px-4" [disabled]="!f.valid" >Login</button>
+                </div>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>

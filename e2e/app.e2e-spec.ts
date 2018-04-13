@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('acquami App', () => {
+describe('aquami App', () => {
   let page: AppPage;
 
   beforeEach(() => {

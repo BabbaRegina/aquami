@@ -14,6 +14,32 @@ body {
   border-top: 1rem solid $body-bg;
 }
 
+.overlay{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;	
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: .5;
+	z-index: 1;
+}
+
+.modal{
+	z-index: 2;
+}
+
+.wrapper{
+  -webkit-filter: blur(2px); /* Chrome, Safari, Opera */
+	filter: blur(2px);
+}
+
+input.ng-invalid.ng-touched, select.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
 .footer {
   bottom: 1rem;
   text-align: right;
