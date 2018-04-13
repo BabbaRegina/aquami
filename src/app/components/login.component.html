@@ -14,12 +14,13 @@
                 <div class="col-11">
                   <input type="password" formControlName="password" class="form-control" placeholder="********">
                   <p class="text-muted" *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched"><small>non la sai? Peccato</small></p> 
+                  <p class="text-muted" *ngIf="signupForm.get('password').valid && wrongPassword"><small>Riprova, sarai più fortunato</small></p> 
                 </div>
               </div>
               <div class="row text-center">
                 <div class="col-12"> 
                   <!-- <button type="submit" class="btn btn-primary px-4" [disabled]="!f.valid" >Login</button> -->
-                  <button type="submit" class="btn btn-primary px-4">Login</button>
+                  <button type="submit" class="btn btn-primary px-4" [disabled]="!signupForm.valid" >Login</button>
                 </div>
               </div>
             </form>
