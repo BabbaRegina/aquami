@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.service';
 import { RouterModule, Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,14 +9,20 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
+  signupForm: FormGroup;
+
   constructor(private authService: AuthenticationService, private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.signupForm = new FormGroup({
+      'password': new FormControl(null, Validators.required)
+    });
+  }
 
-  login(form: NgForm) {
-    console.log('login ', form);
-    if (form.value.password) {
-      this.authService.login(form.value.password);
+  login() {
+    console.log(this.signupForm);
+    if (this.signupForm.value.password) {
+      this.authService.login(this.signupForm.value.password);
       this.authService.isAuthenticated().then((authenticated: boolean) => {
         if (authenticated) {
           this.router.navigate(['/home']);

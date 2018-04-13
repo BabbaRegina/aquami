@@ -6,19 +6,20 @@
           <div class="card-body">
             <h1>Log In</h1>
             <p>Inserisci la parola magica</p>
-            <form (ngSubmit)="login(f)" #f="ngForm">
+            <form [formGroup]="signupForm" (ngSubmit)="login()">
               <div class="form-group row mb-4">
                 <label for="password" class="col-1 col-form-label text-center">
                   <i class="fa fa-magic"></i>
                 </label>
                 <div class="col-11">
-                  <input type="password" name="password" ngModel class="form-control" placeholder="********" required #password="ngModel">
-                  <p class="text-muted" *ngIf="!password.valid && password.touched"><small>non la sai? Peccato</small></p>
+                  <input type="password" formControlName="password" class="form-control" placeholder="********">
+                  <p class="text-muted" *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched"><small>non la sai? Peccato</small></p> 
                 </div>
               </div>
               <div class="row text-center">
                 <div class="col-12"> 
-                  <button type="submit" class="btn btn-primary px-4" [disabled]="!f.valid" >Login</button>
+                  <!-- <button type="submit" class="btn btn-primary px-4" [disabled]="!f.valid" >Login</button> -->
+                  <button type="submit" class="btn btn-primary px-4">Login</button>
                 </div>
               </div>
             </form>

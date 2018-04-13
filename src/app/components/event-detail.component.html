@@ -376,7 +376,6 @@
         </div>
       </div>
 
-
       <div class="form-row mt-4 mb-2">
         <div class="form-group col-3">
           <label for="event-dataMisura">DataMisura</label>
@@ -387,6 +386,7 @@
           <input class="form-control" name="event-note" type="text" [(ngModel)]="event.note" />
         </div>
       </div>
+      
       <button type="submit" class="btn btn-primary" >Submit</button>
       <button class="btn btn-primary" *ngIf="!event._id" (click)="createEvent(event)">Create</button>
       <button class="btn btn-info" *ngIf="event._id" (click)="updateEvent(event)">Update</button>
