@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Quicksand);
-// Variable Overrides 
+// Variable Overrides
 $body-bg: #ededed;
-$theme-colors: ( "primary": #00cbd9); // Bootstrap Sass Imports
+$theme-colors: ('primary': #00cbd9); // Bootstrap Sass Imports
 @import '../../node_modules/bootstrap/scss/bootstrap';
 $jumbo-bg: white;
 
@@ -9,34 +9,44 @@ body {
   font-family: Quicksand, Roboto, cursive;
 }
 
-.jumbotron.home {
-  background-color: $jumbo-bg;
+.jumbotron {
+  background-color: $body-bg;
   border-top: 0.5rem solid $body-bg;
 }
 
-.overlay{
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;	
-	bottom: 0;
-	width: 100%;
-	height: 100%;
-	background: #000;
-	opacity: .5;
-	z-index: 1;
+.detail-over {
+  z-index: 2;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
 }
 
-.modal{
-	z-index: 2;
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.5;
+  z-index: 1;
 }
 
-.wrapper{
+.modal {
+  z-index: 2;
+}
+
+.wrapper {
   -webkit-filter: blur(2px); /* Chrome, Safari, Opera */
-	filter: blur(2px);
+  filter: blur(2px);
 }
 
-input.ng-invalid.ng-touched, select.ng-invalid.ng-touched {
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched {
   border: 1px solid red;
 }
 

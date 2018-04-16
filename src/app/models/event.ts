@@ -12,7 +12,7 @@ export class Event {
 
     constructor() {
       this.dataRegistrazione = new Date();
-      this.dataMisura = new Date();
+      this.dataMisura = null;
       this.note = '';
       this.ferti = new Fertilizzazione();
       this.test = new Test();

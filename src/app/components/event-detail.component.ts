@@ -1,42 +1,68 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { EventService } from '../services/event.service';
 import { Event, Fertilizzazione } from '../models/event';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-event-detail',
   templateUrl: './event-detail.component.html'
 })
-export class EventDetailComponent {
-  @Input() event: Event;
-
-  @Input() createHandler: Function;
-  @Input() updateHandler: Function;
-  @Input() deleteHandler: Function;
-  newEvent: Event;
+export class EventDetailComponent implements OnInit, OnDestroy {
+  subscriptionEdit: Subscription;
+  subscriptionNew: Subscription;
+  editMode = false;
+  indexItem: number;
+  event: Event;
 
   constructor(private eventService: EventService, private router: Router) {}
 
-  createEvent(event: Event) {
-    this.eventService.createEvent(event).then((newEvent: Event) => {
-      this.createHandler(newEvent);
+  ngOnInit() {
+    this.subscriptionEdit = this.eventService.eventEdit.subscribe(
+      (index: number) => {
+        this.indexItem = index;
+        this.editMode = true;
+        this.event = this.eventService.getEvent(index);
+      }
+    );
+    this.subscriptionNew = this.eventService.eventNew.subscribe(
+      (newevent: boolean) => {
+        this.event = new Event();
+      }
+    );
+  }
+
+  createEvent() {
+    this.eventService.createEvent(this.event).then((newEvent: Event) => {
+      this.eventService.eventsChanged.next(true);
+      this.event = undefined;
     });
   }
 
-  updateEvent(event: Event): void {
-    this.eventService.updateEvent(event).then((updatedEvent: Event) => {
-      this.updateHandler(updatedEvent);
+  updateEvent(): void {
+    this.eventService.updateEvent(this.event).then((updatedEvent: Event) => {
+      this.eventService.eventsChanged.next(true);
+      this.event = undefined;
     });
   }
 
-  deleteEvent(eventId: String): void {
-    this.eventService.deleteEvent(eventId).then((deletedEventId: String) => {
-      this.deleteHandler(deletedEventId);
-    });
+  deleteEvent(): void {
+    this.eventService
+      .deleteEvent(this.event._id)
+      .then((deletedEventId: String) => {
+        this.eventService.eventsChanged.next(true);
+        this.event = undefined;
+      });
   }
 
-  submitTest(form: NgForm) {
-    console.log(form.value);
+  goBack() {
+    this.eventService.eventsChanged.next(true);
+    this.event = undefined;
+  }
+
+  ngOnDestroy() {
+    this.subscriptionNew.unsubscribe();
+    this.subscriptionEdit.unsubscribe();
   }
 }

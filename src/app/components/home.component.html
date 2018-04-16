@@ -1,5 +1,6 @@
-<div class="full-page-container" *ngIf="!selectedEvent">
-  <button class="btn btn-danger btn-fab fixed-top-right" title="Add" (click)="createNewEvent()">
+<app-event-detail></app-event-detail>
+<div class="full-page-container">
+  <button class="btn btn-danger btn-fab fixed-top-right" title="Add" (click)="createNewEvent()" *ngIf="showAddButton">
     <i class="fa fa-plus"></i>
   </button>
   <div class="jumbotron py-3">
@@ -36,8 +37,4 @@
       </div>
     </div>
   </div>
-</div>
-<div class="container my-4" *ngIf="selectedEvent">
-  <app-event-detail [event]="selectedEvent" [createHandler]="addEvent" [updateHandler]="updateEvent" [deleteHandler]="deleteEvent">
-  </app-event-detail>
 </div>

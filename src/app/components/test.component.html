@@ -1,17 +1,15 @@
-<div class="container my-4" *ngIf="!selectedEvent">
-  <button class="btn btn-danger btn-fab fixed-top-right" title="Add" (click)="createNewEvent()">
-    <i class="fa fa-plus"></i>
-  </button>
+<app-event-detail></app-event-detail>
+<div class="container my-4">
   <div class="card">
     <div class="card-body">
       <h3 class="card-title">Test dell'acqua</h3>
       <div class="card-text">
         <ngx-datatable class="material expandable ngx-datatable fixed-header fixed-row scroll-vertical selectable single-selection"
-          [rows]="events" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="0" [rowHeight]="'auto'" [selected]="selected"
-          [selectionType]="'single'" (activate)="onActivate($event)" (select)='onSelect($event)'>
+          [rows]="events" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="0" [rowHeight]="'auto'" 
+          [selectionType]="'single'"  (select)='onSelect($event)'>
           <ngx-datatable-column name="Data Misura">
             <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-              {{row.dataMisura}}
+                {{row.dataMisura | date:'dd/MM/yyyy'}}
             </ng-template>
           </ngx-datatable-column>
 
@@ -95,8 +93,4 @@
       </div>
     </div>
   </div>
-</div>
-<div class="container my-4" *ngIf="selectedEvent">
-  <app-event-detail [event]="selectedEvent" [createHandler]="addEvent" [updateHandler]="updateEvent" [deleteHandler]="deleteEvent">
-  </app-event-detail>
 </div>
