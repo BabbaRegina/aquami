@@ -12,75 +12,39 @@
                 {{row.dataMisura | date:'dd/MM/yyyy'}}
             </ng-template>
           </ngx-datatable-column>
-
-          <ngx-datatable-column name="Kh min">
+          <ngx-datatable-column name="Kh">
             <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-              {{row.test.khmin}}
+              {{row.test.khmin}} - {{row.test.khmax}}
             </ng-template>
           </ngx-datatable-column>
-          <ngx-datatable-column name="Kh max">
+          <ngx-datatable-column name="Gh">
             <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-              {{row.test.khmax}}
+              {{row.test.ghmin}} - {{row.test.ghmax}}
             </ng-template>
           </ngx-datatable-column>
-          <ngx-datatable-column name="Gh min">
+          <ngx-datatable-column name="Ph">
             <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-              {{row.test.ghmin}}
+              {{row.test.phmin}} - {{row.test.phmax}}
             </ng-template>
           </ngx-datatable-column>
-          <ngx-datatable-column name="Gh max">
+          <ngx-datatable-column name="NO3">
             <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-              {{row.test.ghmax}}
+              {{row.test.no3min}} - {{row.test.no3max}}
             </ng-template>
           </ngx-datatable-column>
-          <ngx-datatable-column name="Ph min">
+          <ngx-datatable-column name="NO2">
             <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-              {{row.test.phmin}}
+              {{row.test.no2min}} - {{row.test.no2max}}
             </ng-template>
           </ngx-datatable-column>
-          <ngx-datatable-column name="Ph max">
+          <ngx-datatable-column name="Ferro">
             <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-              {{row.test.phmax}}
+              {{row.test.femin}} - {{row.test.femax}}
             </ng-template>
           </ngx-datatable-column>
-          <ngx-datatable-column name="NO3 min">
+          <ngx-datatable-column name="Fosfati">
             <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-              {{row.test.no3min}}
-            </ng-template>
-          </ngx-datatable-column>
-          <ngx-datatable-column name="NO3 max">
-            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-              {{row.test.no3max}}
-            </ng-template>
-          </ngx-datatable-column>
-          <ngx-datatable-column name="NO2 min">
-            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-              {{row.test.no2min}}
-            </ng-template>
-          </ngx-datatable-column>
-          <ngx-datatable-column name="NO2 max">
-            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-              {{row.test.no2max}}
-            </ng-template>
-          </ngx-datatable-column>
-          <ngx-datatable-column name="Ferro min">
-            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-              {{row.test.femin}}
-            </ng-template>
-          </ngx-datatable-column>
-          <ngx-datatable-column name="Ferro max">
-            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-              {{row.test.femax}}
-            </ng-template>
-          </ngx-datatable-column>
-          <ngx-datatable-column name="Fosfati min">
-            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-              {{row.test.fomin}}
-            </ng-template>
-          </ngx-datatable-column>
-          <ngx-datatable-column name="Fosfati max">
-            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-              {{row.test.fomax}}
+              {{row.test.fomin}} - {{row.test.fomax}}
             </ng-template>
           </ngx-datatable-column>
 

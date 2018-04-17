@@ -35,15 +35,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   parseEvents() {
     for (let i = 0; i < this.events.length; i++) {
       if (!_.isEmpty(this.events[i].ferti) && !this.dataFerti) {
-        console.log('ferti ok');
         this.dataFerti = this.events[i].dataMisura;
       }
       if (!_.isEmpty(this.events[i].test) && !this.dataTest) {
-        console.log('test ok');
         this.dataTest = this.events[i].dataMisura;
       }
       if (!_.isEmpty(this.events[i].manutenzione) && !this.dataManu) {
-        console.log('manu ok');
         this.dataManu = this.events[i].dataMisura;
       }
       if (this.dataFerti && this.dataManu && this.dataTest) {
