@@ -24,13 +24,11 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log(this.signupForm);
     this.authService.login(this.signupForm.value.password);
     this.authService.isAuthenticated().then((authenticated: boolean) => {
       if (authenticated) {
         this.router.navigate(['/home']);
       } else {
-        console.log('password non valida');
         this.wrongPassword = true;
       }
     });

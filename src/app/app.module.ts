@@ -23,7 +23,6 @@ import { TopbarComponent } from './layout/topbar/topbar.component';
 import { SharedModule } from './shared/shared.module';
 import { AuthenticationService } from './services/authentication.service';
 import { AuthGuard } from './shared/guards/auth.guard.service';
-import { FullcalendarComponent } from './fullcalendar/fullcalendar.component';
 
 @NgModule({
   declarations: [
@@ -35,8 +34,7 @@ import { FullcalendarComponent } from './fullcalendar/fullcalendar.component';
     EventDetailComponent,
     MaintenanceComponent,
     LayoutComponent,
-    TopbarComponent,
-    FullcalendarComponent
+    TopbarComponent
   ],
   imports: [
     SharedModule,

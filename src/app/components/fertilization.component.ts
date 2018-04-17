@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { EventService } from '../services/event.service';
 import { Event, Fertilizzazione } from '../models/event';
 import { EventDetailComponent } from './event-detail.component';
@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs/Subscription';
   templateUrl: './fertilization.component.html',
   providers: [EventService]
 })
-export class FertilizationComponent implements OnInit {
+export class FertilizationComponent implements OnInit, OnDestroy {
   events: Event[];
   selected = [];
 
@@ -41,5 +41,9 @@ export class FertilizationComponent implements OnInit {
   onSelect({ selected }) {
     const idx = this.getIndexOfEvent(selected[0]._id);
     this.eventService.eventEdit.next(idx);
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

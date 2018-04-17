@@ -15,7 +15,7 @@ body {
 }
 
 .detail-over {
-  z-index: 2;
+  z-index: 4;
   position: absolute;
   margin-left: auto;
   margin-right: auto;
@@ -100,3 +100,6 @@ select.ng-invalid.ng-touched {
     z-index: 5;
   }
 }
+
+/* Calendar */
+@import "calendar";

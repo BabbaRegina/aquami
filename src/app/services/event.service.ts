@@ -17,11 +17,8 @@ export class EventService {
   constructor(private http: Http) {}
 
   getEvent(index: number) {
-    console.log('getEvent');
     if (this.savedEvents.length > 0) {
       return this.savedEvents[index];
-    } else {
-      console.log('non ci sono evventi');
     }
   }
 

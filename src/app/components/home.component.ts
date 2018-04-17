@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   showAddButton = true;
   subscription: Subscription;
   events: Event[];
+  calendarData;
 
   constructor(private eventService: EventService) {}
 
@@ -29,6 +30,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.eventService.getEvents().then((events: Event[]) => {
       this.events = events;
       this.parseEvents();
+      this.attachEvents();
     });
   }
 
@@ -45,6 +47,48 @@ export class HomeComponent implements OnInit, OnDestroy {
       }
       if (this.dataFerti && this.dataManu && this.dataTest) {
         break;
+      }
+    }
+  }
+
+  attachEvents() {
+    this.calendarData = {
+      header: {
+        left: 'title',
+        right: 'today prev,next month'
+      },
+      editable: true,
+      droppable: true,
+      events: [],
+      eventClick: function(event) {
+        this.eventService.eventEdit.next(event.id);
+      }
+    };
+    for (let i = 0; i < this.events.length; i++) {
+      const data = this.events[i].dataMisura;
+      if (!_.isEmpty(this.events[i].ferti)) {
+        this.calendarData.events.push({
+          title: 'Fertilizzazione',
+          start: '' + data,
+          color: '#28a745',
+          id: this.events[i]._id
+        });
+      }
+      if (!_.isEmpty(this.events[i].test)) {
+        this.calendarData.events.push({
+          title: 'Test',
+          start: '' + data,
+          color: '#17a2b8',
+          id: this.events[i]._id
+        });
+      }
+      if (!_.isEmpty(this.events[i].manutenzione)) {
+        this.calendarData.events.push({
+          title: 'Manutenzione',
+          start: '' + data,
+          color: '#ffc107',
+          id: this.events[i]._id
+        });
       }
     }
   }

@@ -6,7 +6,7 @@
   <div class="jumbotron py-3">
     <img src="assets/img/aqua01.jpg" class="img-home">
   </div>
-  <div class="container mb-5">
+  <div class="container my-3">
     <div class="row">
       <div class="col">
         <div class="card h-100">
@@ -32,6 +32,17 @@
             <h4 class="card-title">Manutenzione</h4>
             <p class="card-text">Ultima manutenzione risale al {{dataManu | date }}</p>
             <a class="card-link" routerLinkActive="active" [routerLink]="['/manutenzione']">Vai alla pagina</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container" *ngIf="calendarData" >
+    <div class="row justify-content-center my-5">
+      <div class="col-10">
+        <div class="card ">
+          <div class="card-body">
+            <div id="fullcalendar" [appFullCalendar]="calendarData"></div>
           </div>
         </div>
       </div>

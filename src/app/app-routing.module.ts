@@ -6,14 +6,12 @@ import { FertilizationComponent } from './components/fertilization.component';
 import { LoginComponent } from './components/login.component';
 import { MaintenanceComponent } from './components/maintenance.component';
 import { AuthGuard } from './shared/guards/auth.guard.service';
-import { FullcalendarComponent } from './fullcalendar/fullcalendar.component';
 
 const routes: Routes = [
   { path: 'test', component: TestComponent , canActivate: [AuthGuard] },
   { path: 'ferti', component: FertilizationComponent , canActivate: [AuthGuard] },
   { path: 'manutenzione', component: MaintenanceComponent , canActivate: [AuthGuard] },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'calendar', component: FullcalendarComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home', pathMatch: 'full' }
