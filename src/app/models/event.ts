@@ -26,7 +26,6 @@ export class Event {
             return false;
         }
     }
-
     isTest(): boolean {
         if (_.isEmpty(this.test)) {
             return true;
@@ -34,7 +33,6 @@ export class Event {
             return false;
         }
     }
-
     isManutenzione(): boolean {
         if (_.isEmpty(this.manutenzione)) {
             return true;
@@ -76,11 +74,14 @@ export class Test {
 
 export class Manutenzione {
     acqua: number;
+    khrubi: number;
+    khacqua: number;
+    vetro: boolean;
     potatura: boolean;
     filtroLana: boolean;
     filtroSpugna: boolean;
     filtroPompa: boolean;
-    vetro: boolean;
 
     constructor() {}
 }
+

@@ -49,7 +49,7 @@ function handleError(res, reason, message, code) {
  */
 
 app.get("/api/events", function(req, res) {
-  db.collection(EVENTS_COLLECTION).find({}).toArray(function(err, docs) {
+  db.collection(EVENTS_COLLECTION).find({}).sort( { dataMisura: -1 } ).toArray(function(err, docs) {
     if (err) {
       handleError(res, err.message, "Failed to get events.");
     } else {

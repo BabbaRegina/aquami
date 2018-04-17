@@ -1,226 +1,229 @@
 <div class="container detail-over my-4" *ngIf="event">
-  <div class="card">
+  <div class="card" id="accordion">
     <div class="card-body">
       <h3 class="card-title" *ngIf="editMode">Dettaglio</h3>
-      <h3 class="card-title" *ngIf="!editMode">Nuova registrazione</h3>
+      <h3 class="card-title mb-4" *ngIf="!editMode">Nuova registrazione</h3>
       <form #f="ngForm">
         <div class="form-group" id="test">
-          <h5>ID: {{event._id}}</h5>
-          <div class="card">
-            <div class="card-header bg-info">
-              <i class="fa fa-eyedropper"></i>
+          <h6 *ngIf="editMode">ID: {{event._id}}</h6>
+          <div class="card border-info">
+            <div class="card-header p-0" id="headingTest" data-toggle="collapse" data-target="#collapseTest" aria-expanded="true" aria-controls="collapseTest">
+              <i class="fa fa-leaf bg-info p-4 font-2xl mr-3 float-left"></i>
+              <div class="h5 mb-0 pt-3">Test</div>
             </div>
-            <div class="card-body">
-              <div class="row">
-                <div class="col-md-2 col-sm-2">
-                  <div class="card">
-                    <div class="card-body">
-                      <h4 class="card-title">Ph</h4>
-                      <div class="row">
-                        <div class="form-group col-sm-12">
-                          <label for="event.test.phmin">Min</label>
-                          <select class="form-control" name="event.test.phmin" [ngModel]="event.test.phmin">
-                            <option value="5">5</option>
-                            <option value="5,5">5,5</option>
-                            <option value="6">6</option>
-                            <option value="5">6,5</option>
-                            <option value="7">7</option>
-                            <option value="7,5">7,5</option>
-                            <option value="8">8</option>
-                            <option value="8,5">8,5</option>
-                          </select>
-                        </div>
-                        <div class="form-group col-sm-12">
-                          <label for="event.test.phmax">Max</label>
-                          <select class="form-control" name="event.test.phmax" [ngModel]="event.test.phmax">
-                            <option value="5">5</option>
-                            <option value="5,5">5,5</option>
-                            <option value="6">6</option>
-                            <option value="5">6,5</option>
-                            <option value="7">7</option>
-                            <option value="7,5">7,5</option>
-                            <option value="8">8</option>
-                            <option value="8,5">8,5</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-2 col-sm-2">
-                  <div class="card">
-                    <div class="card-body">
-                      <h4 class="card-title">Kh</h4>
-                      <div class="row">
-                        <div class="form-group col-sm-12">
-                          <label for="event.test.khmin">Min</label>
-                          <select class="form-control" name="event.test.khmin" [ngModel]="event.test.khmin">
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                            <option>13</option>
-                            <option>14</option>
-                          </select>
-                        </div>
-                        <div class="form-group col-sm-12">
-                          <label for="event.test.khmax">Max</label>
-                          <select class="form-control" name="event.test.khmax" [ngModel]="event.test.khmax">
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                            <option>13</option>
-                            <option>14</option>
-                          </select>
+            <div id="collapseTest" class="collapse show" aria-labelledby="headingTest" data-parent="#test">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-2 col-sm-2">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title">Ph</h4>
+                        <div class="row">
+                          <div class="form-group col-sm-12">
+                            <label for="event.test.phmin">Min</label>
+                            <select class="form-control" name="event.test.phmin" [(ngModel)]="event.test.phmin">
+                              <option value="5">5</option>
+                              <option value="5,5">5,5</option>
+                              <option value="6">6</option>
+                              <option value="5">6,5</option>
+                              <option value="7">7</option>
+                              <option value="7,5">7,5</option>
+                              <option value="8">8</option>
+                              <option value="8,5">8,5</option>
+                            </select>
+                          </div>
+                          <div class="form-group col-sm-12">
+                            <label for="event.test.phmax">Max</label>
+                            <select class="form-control" name="event.test.phmax" [(ngModel)]="event.test.phmax">
+                              <option value="5">5</option>
+                              <option value="5,5">5,5</option>
+                              <option value="6">6</option>
+                              <option value="5">6,5</option>
+                              <option value="7">7</option>
+                              <option value="7,5">7,5</option>
+                              <option value="8">8</option>
+                              <option value="8,5">8,5</option>
+                            </select>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="col-md-2 col-sm-2">
-                  <div class="card">
-                    <div class="card-body">
-                      <h4 class="card-title">Gh</h4>
-                      <div class="row">
-                        <div class="form-group col-sm-12">
-                          <label for="event.test.ghmin">Min</label>
-                          <select class="form-control" name="event.test.ghmin" [ngModel]="event.test.ghmin">
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                            <option>13</option>
-                            <option>14</option>
-                          </select>
-                        </div>
-                        <div class="form-group col-sm-12">
-                          <label for="event.test.ghmax">Max</label>
-                          <select class="form-control" name="event.test.ghmax" [ngModel]="event.test.ghmax">
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                            <option>13</option>
-                            <option>14</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-2 col-sm-2">
-                  <div class="card">
-                    <div class="card-body">
-                      <h4 class="card-title">Nitrati</h4>
-                      <div class="row">
-                        <div class="form-group col-sm-12">
-                          <label for="event.test.no3min">Min</label>
-                          <select class="form-control" name="event.test.no3min" [ngModel]="event.test.no3min">
-                            <option>0</option>
-                            <option>0,25</option>
-                            <option>0,5</option>
-                            <option>0,75</option>
-                            <option>1</option>
-                            <option>>1</option>
-                          </select>
-                        </div>
-                        <div class="form-group col-sm-12">
-                          <label for="event.test.no3max">Max</label>
-                          <select class="form-control" name="event.test.no3max" [ngModel]="event.test.no3max">
-                            <option>0</option>
-                            <option>0,25</option>
-                            <option>0,5</option>
-                            <option>0,75</option>
-                            <option>1</option>
-                            <option>>1</option>
-                          </select>
+                  <div class="col-md-2 col-sm-2">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title">Kh</h4>
+                        <div class="row">
+                          <div class="form-group col-sm-12">
+                            <label for="event.test.khmin">Min</label>
+                            <select class="form-control" name="event.test.khmin" [(ngModel)]="event.test.khmin">
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                              <option>6</option>
+                              <option>7</option>
+                              <option>8</option>
+                              <option>9</option>
+                              <option>10</option>
+                              <option>11</option>
+                              <option>12</option>
+                              <option>13</option>
+                              <option>14</option>
+                            </select>
+                          </div>
+                          <div class="form-group col-sm-12">
+                            <label for="event.test.khmax">Max</label>
+                            <select class="form-control" name="event.test.khmax" [(ngModel)]="event.test.khmax">
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                              <option>6</option>
+                              <option>7</option>
+                              <option>8</option>
+                              <option>9</option>
+                              <option>10</option>
+                              <option>11</option>
+                              <option>12</option>
+                              <option>13</option>
+                              <option>14</option>
+                            </select>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="col-md-2 col-sm-2">
-                  <div class="card">
-                    <div class="card-body">
-                      <h4 class="card-title">Ferro</h4>
-                      <div class="row">
-                        <div class="form-group col-sm-12">
-                          <label for="event.test.femin">Min</label>
-                          <select class="form-control" name="event.test.femin" [ngModel]="event.test.femin">
-                            <option>0</option>
-                            <option>0,25</option>
-                            <option>0,5</option>
-                            <option>0,75</option>
-                            <option>1</option>
-                            <option>>1</option>
-                          </select>
-                        </div>
-                        <div class="form-group col-sm-12">
-                          <label for="event.test.femax">Max</label>
-                          <select class="form-control" name="event.test.femax" [ngModel]="event.test.femax">
-                            <option>0</option>
-                            <option>0,25</option>
-                            <option>0,5</option>
-                            <option>0,75</option>
-                            <option>1</option>
-                            <option>>1</option>
-                          </select>
+                  <div class="col-md-2 col-sm-2">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title">Gh</h4>
+                        <div class="row">
+                          <div class="form-group col-sm-12">
+                            <label for="event.test.ghmin">Min</label>
+                            <select class="form-control" name="event.test.ghmin" [(ngModel)]="event.test.ghmin">
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                              <option>6</option>
+                              <option>7</option>
+                              <option>8</option>
+                              <option>9</option>
+                              <option>10</option>
+                              <option>11</option>
+                              <option>12</option>
+                              <option>13</option>
+                              <option>14</option>
+                            </select>
+                          </div>
+                          <div class="form-group col-sm-12">
+                            <label for="event.test.ghmax">Max</label>
+                            <select class="form-control" name="event.test.ghmax" [(ngModel)]="event.test.ghmax">
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                              <option>6</option>
+                              <option>7</option>
+                              <option>8</option>
+                              <option>9</option>
+                              <option>10</option>
+                              <option>11</option>
+                              <option>12</option>
+                              <option>13</option>
+                              <option>14</option>
+                            </select>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="col-md-2 col-sm-2">
-                  <div class="card">
-                    <div class="card-body">
-                      <h4 class="card-title">Fosfati</h4>
-                      <div class="row">
-                        <div class="form-group col-sm-12">
-                          <label for="event.test.fomin">Min</label>
-                          <select class="form-control" name="event.test.fomin" [ngModel]="event.test.fomin">
-                            <option>0</option>
-                            <option>0,25</option>
-                            <option>0,5</option>
-                            <option>0,75</option>
-                            <option>1</option>
-                            <option>>1</option>
-                          </select>
+                  <div class="col-md-2 col-sm-2">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title">Nitrati</h4>
+                        <div class="row">
+                          <div class="form-group col-sm-12">
+                            <label for="event.test.no3min">Min</label>
+                            <select class="form-control" name="event.test.no3min" [(ngModel)]="event.test.no3min">
+                              <option>0</option>
+                              <option>0,25</option>
+                              <option>0,5</option>
+                              <option>0,75</option>
+                              <option>1</option>
+                              <option>>1</option>
+                            </select>
+                          </div>
+                          <div class="form-group col-sm-12">
+                            <label for="event.test.no3max">Max</label>
+                            <select class="form-control" name="event.test.no3max" [(ngModel)]="event.test.no3max">
+                              <option>0</option>
+                              <option>0,25</option>
+                              <option>0,5</option>
+                              <option>0,75</option>
+                              <option>1</option>
+                              <option>>1</option>
+                            </select>
+                          </div>
                         </div>
-                        <div class="form-group col-sm-12">
-                          <label for="event.test.fomax">Max</label>
-                          <select class="form-control" name="event.test.fomax" [ngModel]="event.test.fomax">
-                            <option>0</option>
-                            <option>0,25</option>
-                            <option>0,5</option>
-                            <option>0,75</option>
-                            <option>1</option>
-                            <option>>1</option>
-                          </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-2 col-sm-2">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title">Ferro</h4>
+                        <div class="row">
+                          <div class="form-group col-sm-12">
+                            <label for="event.test.femin">Min</label>
+                            <select class="form-control" name="event.test.femin" [(ngModel)]="event.test.femin">
+                              <option>0</option>
+                              <option>0,25</option>
+                              <option>0,5</option>
+                              <option>0,75</option>
+                              <option>1</option>
+                              <option>>1</option>
+                            </select>
+                          </div>
+                          <div class="form-group col-sm-12">
+                            <label for="event.test.femax">Max</label>
+                            <select class="form-control" name="event.test.femax" [(ngModel)]="event.test.femax">
+                              <option>0</option>
+                              <option>0,25</option>
+                              <option>0,5</option>
+                              <option>0,75</option>
+                              <option>1</option>
+                              <option>>1</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-2 col-sm-2">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title">Fosfati</h4>
+                        <div class="row">
+                          <div class="form-group col-sm-12">
+                            <label for="event.test.fomin">Min</label>
+                            <select class="form-control" name="event.test.fomin" [(ngModel)]="event.test.fomin">
+                              <option>0</option>
+                              <option>0,25</option>
+                              <option>0,5</option>
+                              <option>0,75</option>
+                              <option>1</option>
+                              <option>>1</option>
+                            </select>
+                          </div>
+                          <div class="form-group col-sm-12">
+                            <label for="event.test.fomax">Max</label>
+                            <select class="form-control" name="event.test.fomax" [(ngModel)]="event.test.fomax">
+                              <option>0</option>
+                              <option>0,25</option>
+                              <option>0,5</option>
+                              <option>0,75</option>
+                              <option>1</option>
+                              <option>>1</option>
+                            </select>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -232,158 +235,162 @@
         </div>
 
         <div class="form-group" id="ferti">
-          <div class="card">
-            <div class="card-header bg-success">
-              <i class="fa fa-leaf"></i>
+          <div class="card border-success">
+            <div class="card-header p-0" id="headingFerti" data-toggle="collapse" data-target="#collapseFerti" aria-expanded="true" aria-controls="collapseFerti">
+              <i class="fa fa-leaf bg-success p-4 font-2xl mr-3 float-left"></i>
+              <div class="h5 mb-0 pt-3">Fertilizzazione</div>
             </div>
-            <div class="card-body">
+            <div id="collapseFerti" class="collapse show" aria-labelledby="headingFerti" data-parent="#ferti">
+              <div class="card-body">
 
-              <div class="form-row my-2">
-                <div class="form-group col-4">
-                  <label for="event-ferti-k2so4">Solfato di potassio</label>
-                  <input class="form-control" name="event-ferti-k2so4" type="number" [(ngModel)]="event.ferti.k2so4" placeholder="K2SO4" />
+                <div class="form-row my-2">
+                  <div class="form-group col-4">
+                    <label for="event-ferti-k2so4">Solfato di potassio</label>
+                    <input class="form-control" name="event-ferti-k2so4" type="number" [(ngModel)]="event.ferti.k2so4" placeholder="K2SO4" />
+                  </div>
+                  <div class="form-group col-4">
+                    <label for="event-ferti-magnesio">Magnesio</label>
+                    <input class="form-control" name="event-ferti-magnesio" type="number" [(ngModel)]="event.ferti.magnesio" placeholder="Magnesio"
+                    />
+                  </div>
+                  <div class="form-group col-4">
+                    <label for="event-ferti-generico">Generico</label>
+                    <input class="form-control" name="event-ferti-generico" type="number" [(ngModel)]="event.ferti.generico" placeholder="Generico"
+                    />
+                  </div>
                 </div>
-                <div class="form-group col-4">
-                  <label for="event-ferti-magnesio">Magnesio</label>
-                  <input class="form-control" name="event-ferti-magnesio" type="number" [(ngModel)]="event.ferti.magnesio" placeholder="Magnesio"
-                  />
+
+                <div class="form-row my-2">
+                  <div class="form-group col-4">
+                    <label for="event-ferti-k2no3">Nitrato di potassio</label>
+                    <input class="form-control" name="event-ferti-k2no3" type="number" [(ngModel)]="event.ferti.k2no3" placeholder="K2NO3" />
+                  </div>
+                  <div class="form-group col-4">
+                    <label for="event-ferti-ferro">Ferro</label>
+                    <input class="form-control" name="event-ferti-ferro" type="number" [(ngModel)]="event.ferti.ferro" placeholder="Ferro" />
+                  </div>
+                  <div class="form-group col-4">
+                    <label for="event-ferti-fosfati">Fosfati</label>
+                    <input class="form-control" name="event-ferti-fosfati" type="number" [(ngModel)]="event.ferti.fosfati" placeholder="Fosfati"
+                    />
+                  </div>
                 </div>
-                <div class="form-group col-4">
-                  <label for="event-ferti-generico">Generico</label>
-                  <input class="form-control" name="event-ferti-generico" type="number" [(ngModel)]="event.ferti.generico" placeholder="Generico"
-                  />
-                </div>
+
               </div>
-
-              <div class="form-row my-2">
-                <div class="form-group col-4">
-                  <label for="event-ferti-k2no3">Nitrato di potassio</label>
-                  <input class="form-control" name="event-ferti-k2no3" type="number" [(ngModel)]="event.ferti.k2no3" placeholder="K2NO3" />
-                </div>
-                <div class="form-group col-4">
-                  <label for="event-ferti-ferro">Ferro</label>
-                  <input class="form-control" name="event-ferti-ferro" type="number" [(ngModel)]="event.ferti.ferro" placeholder="Ferro" />
-                </div>
-                <div class="form-group col-4">
-                  <label for="event-ferti-fosfati">Fosfati</label>
-                  <input class="form-control" name="event-ferti-fosfati" type="number" [(ngModel)]="event.ferti.fosfati" placeholder="Fosfati"
-                  />
-                </div>
-              </div>
-
             </div>
           </div>
         </div>
 
         <div class="form-group" id="manu">
-          <div class="card">
-            <div class="card-header bg-warning">
-              <i class="fa fa-wrench"></i>
+          <div class="card border-warning">
+            <div class="card-header p-0" id="headingManu" data-toggle="collapse" data-target="#collapseManu" aria-expanded="true" aria-controls="collapseManu">
+              <i class="fa fa-wrench bg-warning p-4 font-2xl mr-3 float-left"></i>
+              <div class="h5 mb-0 pt-3">Manutenzione</div>
             </div>
-            <div class="card-body">
+            <div id="collapseManu" class="collapse show" aria-labelledby="headingManu" data-parent="#manu">
+              <div class="card-body">
+                <div class="form-row my-2">
+                  <div class="form-group row">
+                    <label for="event-manutenzione-acqua" class="col-6 col-form-label">Cambio acqua</label>
+                    <div class="col-3">
+                      <input class="form-control" name="event-manutenzione-acqua" type="number" [(ngModel)]="event.manutenzione.acqua" placeholder="litri"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row my-2">
+                  <div class="form-group row">
+                    <label for="event-manutenzione-khrubi" class="col-6 col-form-label">Durezza acqua rubinetto</label>
+                    <div class="col-3">
+                      <input class="form-control" name="event-manutenzione-khrubi" type="number" [(ngModel)]="event.manutenzione.khrubi" placeholder="Kh"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="event-manutenzione-khacqua" class="col-6 col-form-label">Durezza acqua acquario</label>
+                    <div class="col-3">
+                      <input class="form-control" name="event-manutenzione-khacqua" type="number" [(ngModel)]="event.manutenzione.khacqua" placeholder="Kh"
+                      />
+                    </div>
+                  </div>
+                </div>
 
-              <div class="form-row my-2">
-                <div class="form-group row">
-                  <label for="event-manutenzione-acqua" class="col-6 col-form-label">Cambio acqua</label>
-                  <div class="col-3">
-                    <input class="form-control" name="event-manutenzione-acqua" type="number" [(ngModel)]="event.manutenzione.acqua" placeholder="litri"
-                    />
+                <div class="form-row">
+                  <div class="form-group row">
+
+                    <label for="event-manutenzione-vetro" class="col-6 col-form-label">Pulizia vetro</label>
+                    <div class="col-3">
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input class="custom-control-input" type="radio" id="radio1" [(ngModel)]="event.manutenzione.vetro" name="event.manutenzione.vetro"
+                          value="true">
+                        <label class="custom-control-label" for="radio1">Sì</label>
+                      </div>
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input class="custom-control-input" type="radio" id="radio2" [(ngModel)]="event.manutenzione.vetro" name="event.manutenzione.vetro"
+                          value="false">
+                        <label class="custom-control-label" for="radio2">No</label>
+                      </div>
+                    </div>
+
+                    <label for="event-manutenzione-potatura" class="col-6 col-form-label">Potatura</label>
+                    <div class="col-3">
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input class="custom-control-input" type="radio" id="radio3" [(ngModel)]="event.manutenzione.potatura" name="event.manutenzione.potatura"
+                          value="true">
+                        <label class="custom-control-label" for="radio3">Sì</label>
+                      </div>
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input class="custom-control-input" type="radio" id="radio4" [(ngModel)]="event.manutenzione.potatura" name="event.manutenzione.potatura"
+                          value="false">
+                        <label class="custom-control-label" for="radio4">No</label>
+                      </div>
+                    </div>
+
+                    <label for="event-manutenzione-filtroLana" class="col-6 col-form-label">Pulizia lana filtro</label>
+                    <div class="col-3">
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input class="custom-control-input" type="radio" id="radio5" [(ngModel)]="event.manutenzione.filtroLana" name="event.manutenzione.filtroLana"
+                          value="true">
+                        <label class="custom-control-label" for="radio5">Sì</label>
+                      </div>
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input class="custom-control-input" type="radio" id="radio6" [(ngModel)]="event.manutenzione.filtroLana" name="event.manutenzione.filtroLana"
+                          value="false">
+                        <label class="custom-control-label" for="radio6">No</label>
+                      </div>
+                    </div>
+
+                    <label for="event-manutenzione-filtroSpugna" class="col-6 col-form-label">Pulizia spugna filtro</label>
+                    <div class="col-3">
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input class="custom-control-input" type="radio" id="radio7" [(ngModel)]="event.manutenzione.filtroSpugna" name="event.manutenzione.filtroSpugna"
+                          value="true">
+                        <label class="custom-control-label" for="radio7">Sì</label>
+                      </div>
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input class="custom-control-input" type="radio" id="radio8" [(ngModel)]="event.manutenzione.filtroSpugna" name="event.manutenzione.filtroSpugna"
+                          value="false">
+                        <label class="custom-control-label" for="radio8">No</label>
+                      </div>
+                    </div>
+
+                    <label for="event-manutenzione-filtroPompa" class="col-6 col-form-label">Pulizia pompa filtro</label>
+                    <div class="col-3">
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input class="custom-control-input" type="radio" id="radio9" [(ngModel)]="event.manutenzione.filtroPompa" name="event.manutenzione.filtroPompa"
+                          value="true">
+                        <label class="custom-control-label" for="radio9">Sì</label>
+                      </div>
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input class="custom-control-input" type="radio" id="radio10" [(ngModel)]="event.manutenzione.filtroPompa" name="event.manutenzione.filtroPompa"
+                          value="false">
+                        <label class="custom-control-label" for="radio10">No</label>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
               </div>
-              <div class="form-row my-2">
-                <div class="form-group row">
-                  <label for="event-manutenzione-khrubi" class="col-6 col-form-label">Durezza acqua rubinetto</label>
-                  <div class="col-3">
-                    <input class="form-control" name="event-manutenzione-khrubi" type="number" [(ngModel)]="event.manutenzione.khrubi" placeholder="Kh"
-                    />
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="event-manutenzione-khacqua" class="col-6 col-form-label">Durezza acqua acquario</label>
-                  <div class="col-3">
-                    <input class="form-control" name="event-manutenzione-khacqua" type="number" [(ngModel)]="event.manutenzione.khacqua" placeholder="Kh"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div class="form-group row">
-
-                  <label for="event-manutenzione-vetro" class="col-6 col-form-label">Pulizia vetro</label>
-                  <div class="col-3">
-                    <div class="custom-control custom-radio custom-control-inline">
-                      <input class="custom-control-input" type="radio" id="radio1" [(ngModel)]="event.manutenzione.vetro" name="event.manutenzione.vetro"
-                        value="true">
-                      <label class="custom-control-label" for="radio1">Sì</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                      <input class="custom-control-input" type="radio" id="radio2" [(ngModel)]="event.manutenzione.vetro" name="event.manutenzione.vetro"
-                        value="false">
-                      <label class="custom-control-label" for="radio2">No</label>
-                    </div>
-                  </div>
-
-                  <label for="event-manutenzione-potatura" class="col-6 col-form-label">Potatura</label>
-                  <div class="col-3">
-                    <div class="custom-control custom-radio custom-control-inline">
-                      <input class="custom-control-input" type="radio" id="radio3" [(ngModel)]="event.manutenzione.potatura" name="event.manutenzione.potatura"
-                        value="true">
-                      <label class="custom-control-label" for="radio3">Sì</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                      <input class="custom-control-input" type="radio" id="radio4" [(ngModel)]="event.manutenzione.potatura" name="event.manutenzione.potatura"
-                        value="false">
-                      <label class="custom-control-label" for="radio4">No</label>
-                    </div>
-                  </div>
-
-                  <label for="event-manutenzione-filtroLana" class="col-6 col-form-label">Pulizia lana filtro</label>
-                  <div class="col-3">
-                    <div class="custom-control custom-radio custom-control-inline">
-                      <input class="custom-control-input" type="radio" id="radio5" [(ngModel)]="event.manutenzione.filtroLana" name="event.manutenzione.filtroLana"
-                        value="true">
-                      <label class="custom-control-label" for="radio5">Sì</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                      <input class="custom-control-input" type="radio" id="radio6" [(ngModel)]="event.manutenzione.filtroLana" name="event.manutenzione.filtroLana"
-                        value="false">
-                      <label class="custom-control-label" for="radio6">No</label>
-                    </div>
-                  </div>
-
-                  <label for="event-manutenzione-filtroSpugna" class="col-6 col-form-label">Pulizia spugna filtro</label>
-                  <div class="col-3">
-                    <div class="custom-control custom-radio custom-control-inline">
-                      <input class="custom-control-input" type="radio" id="radio7" [(ngModel)]="event.manutenzione.filtroSpugna" name="event.manutenzione.filtroSpugna"
-                        value="true">
-                      <label class="custom-control-label" for="radio7">Sì</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                      <input class="custom-control-input" type="radio" id="radio8" [(ngModel)]="event.manutenzione.filtroSpugna" name="event.manutenzione.filtroSpugna"
-                        value="false">
-                      <label class="custom-control-label" for="radio8">No</label>
-                    </div>
-                  </div>
-
-                  <label for="event-manutenzione-filtroPompa" class="col-6 col-form-label">Pulizia pompa filtro</label>
-                  <div class="col-3">
-                    <div class="custom-control custom-radio custom-control-inline">
-                      <input class="custom-control-input" type="radio" id="radio9" [(ngModel)]="event.manutenzione.filtroPompa" name="event.manutenzione.filtroPompa"
-                        value="true">
-                      <label class="custom-control-label" for="radio9">Sì</label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                      <input class="custom-control-input" type="radio" id="radio10" [(ngModel)]="event.manutenzione.filtroPompa" name="event.manutenzione.filtroPompa"
-                        value="false">
-                      <label class="custom-control-label" for="radio10">No</label>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
             </div>
           </div>
         </div>
@@ -402,12 +409,12 @@
       </form>
       <div class="row">
         <div class="col-6">
-          <button class="btn btn-warning" (click)="goBack()">Annulla</button>
+          <button class="btn btn-primary" (click)="goBack()">Annulla</button>
         </div>
         <div class="col-6">
-          <button class="btn btn-info pull-right mx-2" *ngIf="!editMode" (click)="createEvent()" [disabled]="!f.valid">Crea</button>
+          <button class="btn btn-primary pull-right mx-2" *ngIf="!editMode" (click)="createEvent()" [disabled]="!f.valid">Crea</button>
           <button class="btn btn-danger pull-right mx-2" *ngIf="editMode" (click)="deleteEvent()">Elimina</button>
-          <button class="btn btn-info pull-right mx-2" *ngIf="editMode" (click)="updateEvent()" [disabled]="!f.valid">Aggiorna</button>
+          <button class="btn btn-primary pull-right mx-2" *ngIf="editMode" (click)="updateEvent()" [disabled]="!f.valid">Aggiorna</button>
         </div>
       </div>
     </div>
