@@ -18,10 +18,8 @@ export class AuthenticationService {
   }
 
   login(pswd: string) {
-    console.log('auth service ', pswd);
     if (pswd.trim() === 'ciao_bell0') {
       this.loggedIn = true;
-      console.log('loggato');
     }
   }
 

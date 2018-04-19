@@ -4,6 +4,8 @@ import { Event, Test } from '../models/event';
 import { EventDetailComponent } from './event-detail.component';
 import { Subscription } from 'rxjs/Subscription';
 
+declare var $: any;
+
 @Component({
   templateUrl: 'test.component.html'
 })
@@ -40,5 +42,6 @@ export class TestComponent implements OnInit {
   onSelect({ selected }) {
     const idx = this.getIndexOfEvent(selected[0]._id);
     this.eventService.eventEdit.next(idx);
+    $('#detail-modal').modal('toggle');
   }
 }

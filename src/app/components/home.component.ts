@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { EventService } from '../services/event.service';
 import * as _ from 'lodash';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html'
@@ -13,7 +14,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   dataTest: Date;
   dataFerti: Date;
   dataManu: Date;
-  showAddButton = true;
   subscription: Subscription;
   events: Event[];
   calendarData;
@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.subscription = this.eventService.eventsChanged
     .subscribe(
       (changed: boolean) => {
-        this.showAddButton = true;
+        console.log('Home: events changed!');
       }
     );
     this.eventService.getEvents().then((events: Event[]) => {
@@ -59,10 +59,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       },
       editable: true,
       droppable: true,
-      events: [],
-      eventClick: function(event) {
-        this.eventService.eventEdit.next(event.id);
-      }
+      events: []
     };
     for (let i = 0; i < this.events.length; i++) {
       const data = this.events[i].dataMisura;
@@ -94,7 +91,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   createNewEvent() {
-    this.showAddButton = false;
     this.eventService.eventNew.next(true);
   }
 

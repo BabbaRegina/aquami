@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
 
+declare var $: any;
+
 @Component({
   selector: 'app-event-detail',
   templateUrl: './event-detail.component.html'
@@ -54,11 +56,6 @@ export class EventDetailComponent implements OnInit, OnDestroy {
         this.eventService.eventsChanged.next(true);
         this.event = undefined;
       });
-  }
-
-  goBack() {
-    this.eventService.eventsChanged.next(true);
-    this.event = undefined;
   }
 
   ngOnDestroy() {

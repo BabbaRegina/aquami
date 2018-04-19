@@ -4,6 +4,8 @@ import { Event, Manutenzione } from '../models/event';
 import { EventDetailComponent } from './event-detail.component';
 import { Subscription } from 'rxjs/Subscription';
 
+declare var $: any;
+
 @Component({
   selector: 'app-maintenance',
   templateUrl: './maintenance.component.html',
@@ -42,5 +44,6 @@ export class MaintenanceComponent implements OnInit {
   onSelect({ selected }) {
     const idx = this.getIndexOfEvent(selected[0]._id);
     this.eventService.eventEdit.next(idx);
+    $('#detail-modal').modal('toggle');
   }
 }
