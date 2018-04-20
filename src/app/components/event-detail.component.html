@@ -1,8 +1,8 @@
 <div class="modal-dialog modal-xl" *ngIf="event">
   <div class="modal-content">
     <div class="modal-header">
-      <h4 class="modal-title" *ngIf="editMode">Dettaglio</h4>
-      <h4 class="modal-title" *ngIf="!editMode">Nuova registrazione</h4>
+      <h3 class="modal-title" *ngIf="editMode">Dettaglio</h3>
+      <h3 class="modal-title" *ngIf="!editMode">Nuova registrazione</h3>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">×</span>
       </button>
@@ -13,14 +13,14 @@
           <h6 *ngIf="editMode">ID: {{event._id}}</h6>
           <div class="card border-info">
             <div class="card-header p-0" id="headingTest" data-toggle="collapse" data-target="#collapseTest" aria-expanded="true" aria-controls="collapseTest">
-              <i class="fa fa-leaf bg-info p-4 font-2xl mr-3 float-left"></i>
+              <i class="fa fa-eyedropper bg-info p-4 font-2xl mr-3 float-left"></i>
               <div class="h5 mb-0 pt-3">Test</div>
             </div>
             <div id="collapseTest" class="collapse show" aria-labelledby="headingTest" data-parent="#test">
               <div class="card-body">
-                <div class="row">
-                  <div class="col-md-2 col-sm-2">
-                    <div class="card">
+                <div class="row justify-content-center">
+                  <div class="col-lg-4 col-md-4 col-sm-12 my-2">
+                    <div class="card  h-100">
                       <div class="card-body">
                         <h4 class="card-title">Ph</h4>
                         <div class="row">
@@ -28,34 +28,34 @@
                             <label for="event.test.phmin">Min</label>
                             <select class="form-control" name="event.test.phmin" [(ngModel)]="event.test.phmin">
                               <option value="5">5</option>
-                              <option value="5,5">5,5</option>
+                              <option value="5.5">5,5</option>
                               <option value="6">6</option>
                               <option value="5">6,5</option>
                               <option value="7">7</option>
-                              <option value="7,5">7,5</option>
+                              <option value="7.5">7,5</option>
                               <option value="8">8</option>
-                              <option value="8,5">8,5</option>
+                              <option value="8.5">8,5</option>
                             </select>
                           </div>
                           <div class="form-group col-sm-12">
                             <label for="event.test.phmax">Max</label>
                             <select class="form-control" name="event.test.phmax" [(ngModel)]="event.test.phmax">
                               <option value="5">5</option>
-                              <option value="5,5">5,5</option>
+                              <option value="5.5">5,5</option>
                               <option value="6">6</option>
                               <option value="5">6,5</option>
                               <option value="7">7</option>
-                              <option value="7,5">7,5</option>
+                              <option value="7.5">7,5</option>
                               <option value="8">8</option>
-                              <option value="8,5">8,5</option>
+                              <option value="8.5">8,5</option>
                             </select>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-2 col-sm-2">
-                    <div class="card">
+                  <div class="col-lg-4 col-md-4 col-sm-12 my-2">
+                    <div class="card h-100">
                       <div class="card-body">
                         <h4 class="card-title">Kh</h4>
                         <div class="row">
@@ -97,8 +97,8 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-2 col-sm-2">
-                    <div class="card">
+                  <div class="col-lg-4 col-md-4 col-sm-12 my-2">
+                    <div class="card h-100">
                       <div class="card-body">
                         <h4 class="card-title">Gh</h4>
                         <div class="row">
@@ -140,8 +140,8 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-2 col-sm-2">
-                    <div class="card">
+                  <div class="col-lg-4 col-md-4 col-sm-12 my-2">
+                    <div class="card h-100">
                       <div class="card-body">
                         <h4 class="card-title">Nitrati</h4>
                         <div class="row">
@@ -149,9 +149,9 @@
                             <label for="event.test.no3min">Min</label>
                             <select class="form-control" name="event.test.no3min" [(ngModel)]="event.test.no3min">
                               <option>0</option>
-                              <option>0,25</option>
+                              <option>0.25</option>
                               <option>0,5</option>
-                              <option>0,75</option>
+                              <option>0.75</option>
                               <option>1</option>
                               <option>>1</option>
                             </select>
@@ -160,9 +160,9 @@
                             <label for="event.test.no3max">Max</label>
                             <select class="form-control" name="event.test.no3max" [(ngModel)]="event.test.no3max">
                               <option>0</option>
-                              <option>0,25</option>
-                              <option>0,5</option>
-                              <option>0,75</option>
+                              <option>0.25</option>
+                              <option>0.5</option>
+                              <option>0.75</option>
                               <option>1</option>
                               <option>>1</option>
                             </select>
@@ -171,8 +171,39 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-2 col-sm-2">
-                    <div class="card">
+                  <div class="col-lg-4 col-md-4 col-sm-12 my-2">
+                    <div class="card h-100">
+                      <div class="card-body">
+                        <h4 class="card-title">Nitriti</h4>
+                        <div class="row">
+                          <div class="form-group col-sm-12">
+                            <label for="event.test.no2min">Min</label>
+                            <select class="form-control" name="event.test.no2min" [(ngModel)]="event.test.no2min">
+                              <option>0</option>
+                              <option>0.25</option>
+                              <option>0,5</option>
+                              <option>0.75</option>
+                              <option>1</option>
+                              <option>>1</option>
+                            </select>
+                          </div>
+                          <div class="form-group col-sm-12">
+                            <label for="event.test.no2max">Max</label>
+                            <select class="form-control" name="event.test.no2max" [(ngModel)]="event.test.no2max">
+                              <option>0</option>
+                              <option>0.25</option>
+                              <option>0.5</option>
+                              <option>0.75</option>
+                              <option>1</option>
+                              <option>>1</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-12 my-2">
+                    <div class="card h-100">
                       <div class="card-body">
                         <h4 class="card-title">Ferro</h4>
                         <div class="row">
@@ -180,9 +211,9 @@
                             <label for="event.test.femin">Min</label>
                             <select class="form-control" name="event.test.femin" [(ngModel)]="event.test.femin">
                               <option>0</option>
-                              <option>0,25</option>
-                              <option>0,5</option>
-                              <option>0,75</option>
+                              <option>0.25</option>
+                              <option>0.5</option>
+                              <option>0.75</option>
                               <option>1</option>
                               <option>>1</option>
                             </select>
@@ -191,9 +222,9 @@
                             <label for="event.test.femax">Max</label>
                             <select class="form-control" name="event.test.femax" [(ngModel)]="event.test.femax">
                               <option>0</option>
-                              <option>0,25</option>
-                              <option>0,5</option>
-                              <option>0,75</option>
+                              <option>0.25</option>
+                              <option>0.5</option>
+                              <option>0.75</option>
                               <option>1</option>
                               <option>>1</option>
                             </select>
@@ -202,8 +233,8 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-2 col-sm-2">
-                    <div class="card">
+                  <div class="col-lg-4 col-md-4 col-sm-12 my-2">
+                    <div class="card h-100">
                       <div class="card-body">
                         <h4 class="card-title">Fosfati</h4>
                         <div class="row">
@@ -211,9 +242,9 @@
                             <label for="event.test.fomin">Min</label>
                             <select class="form-control" name="event.test.fomin" [(ngModel)]="event.test.fomin">
                               <option>0</option>
-                              <option>0,25</option>
-                              <option>0,5</option>
-                              <option>0,75</option>
+                              <option>0.25</option>
+                              <option>0.5</option>
+                              <option>0.75</option>
                               <option>1</option>
                               <option>>1</option>
                             </select>
@@ -222,9 +253,9 @@
                             <label for="event.test.fomax">Max</label>
                             <select class="form-control" name="event.test.fomax" [(ngModel)]="event.test.fomax">
                               <option>0</option>
-                              <option>0,25</option>
-                              <option>0,5</option>
-                              <option>0,75</option>
+                              <option>0.25</option>
+                              <option>0.5</option>
+                              <option>0.75</option>
                               <option>1</option>
                               <option>>1</option>
                             </select>
@@ -401,11 +432,11 @@
         </div>
 
         <div class="form-row mt-4 mb-2">
-          <div class="form-group col-3">
+          <div class="form-group col-lg-2 col-md-3 col-sm-10">
             <label for="event-dataMisura">DataMisura</label>
             <input class="form-control" name="event-dataMisura" type="date" [(ngModel)]="event.dataMisura" required/>
           </div>
-          <div class="form-group col-9">
+          <div class="form-group col-lg-9 col-md-9 col-sm-12">
             <label for="event-note">Note</label>
             <input class="form-control" name="event-note" type="text" [(ngModel)]="event.note" />
           </div>

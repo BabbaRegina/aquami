@@ -23,6 +23,7 @@ export class EventDetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscriptionEdit = this.eventService.eventEdit.subscribe(
       (index: number) => {
+        console.log('new event selected, id: ', index);
         this.indexItem = index;
         this.editMode = true;
         this.event = this.eventService.getEvent(index);

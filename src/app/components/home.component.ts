@@ -1,9 +1,11 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, trigger, style } from '@angular/core';
 import { Event } from '../models/event';
 import { Subscription } from 'rxjs/Subscription';
 import { EventService } from '../services/event.service';
 import * as _ from 'lodash';
+import { state } from '@angular/animations';
 
+declare var $: any;
 
 @Component({
   selector: 'app-home',
@@ -52,6 +54,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   attachEvents() {
+    const calEventService = this.eventService;
     this.calendarData = {
       header: {
         left: 'title',
@@ -59,7 +62,13 @@ export class HomeComponent implements OnInit, OnDestroy {
       },
       editable: true,
       droppable: true,
-      events: []
+      events: [],
+      eventClick: function(event, jsEvent) {
+        alert('evento selezionato ID: ' + event.id);
+        /* TODO: non funziona il click, non carica evento */
+        /* calEventService.eventEdit.next(event.id);
+        $('#detail-modal').modal('toggle'); */
+      }
     };
     for (let i = 0; i < this.events.length; i++) {
       const data = this.events[i].dataMisura;
