@@ -16,42 +16,13 @@ declare var $: any;
 export class MaintenanceComponent implements OnInit, OnDestroy {
   events: Event[];
   selected = [];
-  dataArray: Event[];
-  demodata =
-    {
-      type: 'line',
-      data: undefined,
-      options: {
-        responsive: true,
-        spanGaps: true,
-        scales: {
-          yAxes: [
-            {
-              display: true,
-              ticks: {
-                beginAtZero: true
-              }
-            }
-          ],
-          xAxes: [
-            {
-              display: true,
-              distribution: 'linear',
-              type: 'time',
-              time: {
-                displayFormats: {
-                  quarter: 'MMM YYYY'
-                }
-              }
-            }
-          ]
-        },
-        legend: {
-          display: true
-        }
-      }
-    };
-
+  dataCambio: Date;
+  dataPotatura: Date;
+  dataPuliziaSpugna: Date;
+  dataPuliziaLana: Date;
+  dataPuliziaPompa: Date;
+  dataBatteri: Date;
+  dataVetro: Date;
   private subscription: Subscription;
 
   constructor(private eventService: EventService) {}
@@ -59,17 +30,14 @@ export class MaintenanceComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.eventService.getEvents().then((events: Event[]) => {
       this.events = events;
-      this.dataArray = events;
-      this.loadChartDataset();
+      this.parseEvents();
     });
 
     this.subscription = this.eventService.eventsChanged.subscribe(
       (changed: boolean) => {
-        this.demodata.data = undefined;
         this.eventService.getEvents().then((events: Event[]) => {
           this.events = events;
-          this.dataArray = events;
-          this.loadChartDataset();
+          this.parseEvents();
         });
       }
     );
@@ -91,91 +59,38 @@ export class MaintenanceComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  loadChartDataset() {
-    const dataLabels = [];
-    const litriData = [];
-    const cambioAcqua = [];
-    const potatura = [];
-    const lana = [];
-    const dataArray = this.dataArray;
-    for (let i = 0; i < dataArray.length; i++) {
-      if (!_.isEmpty(dataArray[i].manutenzione)) {
-        // setto elichette
-        const data = dataArray[i].dataMisura;
-        dataLabels.push(data);
-
-        // litri
-        litriData.push(dataArray[i].manutenzione.acqua);
-        if (dataArray[i].manutenzione.acqua) {
-          cambioAcqua.push({
-            x: data,
-            y: 5
-          });
-        }
-
-        if (dataArray[i].manutenzione.potatura === true) {
-          potatura.push({
-            x: data,
-            y: 10
-          });
-        }
-
-        if (dataArray[i].manutenzione.filtroLana === true) {
-          lana.push({
-            x: data,
-            y: 1
-          });
-        }
-
+  parseEvents() {
+    for (let i = 0; i < this.events.length; i++) {
+      console.log(i, this.events[i].manutenzione);
+      if (this.events[i].manutenzione.acqua > 0  && !this.dataCambio) {
+        this.dataCambio = this.events[i].dataMisura;
+      }
+      if (this.events[i].manutenzione.potatura.valueOf()  && !this.dataPotatura) {
+        console.log('entra');
+        this.dataPotatura = this.events[i].dataMisura;
+      } else {
+        console.log(this.events[i].manutenzione.potatura);
+      }
+      if (this.events[i].manutenzione.filtroSpugna === true  && !this.dataPuliziaSpugna) {
+        this.dataPuliziaSpugna = this.events[i].dataMisura;
+      }
+      if (this.events[i].manutenzione.filtroLana === true && !this.dataPuliziaLana) {
+        this.dataPuliziaLana = this.events[i].dataMisura;
+      }
+      if (this.events[i].manutenzione.filtroPompa === true  && !this.dataPuliziaPompa) {
+        this.dataPuliziaPompa = this.events[i].dataMisura;
+      }
+      if (this.events[i].manutenzione.batteri > 0  && !this.dataBatteri) {
+        this.dataBatteri = this.events[i].dataMisura;
+      }
+      if (this.events[i].manutenzione.vetro === true && !this.dataVetro) {
+        this.dataVetro = this.events[i].dataMisura;
+      }
+      if (this.dataCambio && this.dataPotatura && this.dataPuliziaSpugna && this.dataPuliziaLana
+        && this.dataPuliziaPompa && this.dataBatteri && this.dataVetro) {
+        break;
       }
     }
-
-    this.demodata.data = {
-      labels: dataLabels,
-      datasets: [
-        {
-          type: 'scatter',
-          label: 'Cambi acqua',
-          data: cambioAcqua,
-          backgroundColor: colors['red'].alpha(1).toString(),
-          borderColor: colors['red'].toString(),
-          borderWidth: 2,
-          pointRadius: 4,
-          fill: false
-        },
-        {
-          type: 'scatter',
-          label: 'Potatura',
-          data: potatura,
-          backgroundColor: colors['green'].alpha(1).toString(),
-          borderColor: colors['green'].toString(),
-          borderWidth: 2,
-          pointRadius: 4,
-          fill: false
-        },
-        {
-          type: 'scatter',
-          label: 'Cambio lana',
-          data: lana,
-          backgroundColor: colors['yellow'].alpha(1).toString(),
-          borderColor: colors['yellow'].toString(),
-          borderWidth: 2,
-          pointRadius: 4,
-          fill: false
-        },
-        {
-          type: 'line',
-          label: 'Litri cambio acqua',
-          data: litriData,
-          lineTension: 0,
-          backgroundColor: colors['teal'].alpha(0.2).toString(),
-          borderColor: colors['teal'].toString(),
-          borderWidth: 2,
-          pointRadius: 2,
-          fill: false
-        }
-      ]
-    };
   }
 
   goTop() {

@@ -1,10 +1,22 @@
 @import url(https://fonts.googleapis.com/css?family=Quicksand);
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/themes/bootstrap.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
 // Variable Overrides
 $body-bg: #ededed;
 $theme-colors: ('primary': #00cbd9); // Bootstrap Sass Imports
 @import '../../node_modules/bootstrap/scss/bootstrap';
 $jumbo-bg: white;
 $primary: #00cbd9;
+
+.ngx-datatable.material{
+  box-shadow: 0 !important;
+}
+
+.colored-cards {
+  background-color: #00a679;
+}
 
 body {
   font-family: Quicksand, Roboto, cursive;
@@ -19,7 +31,15 @@ input.ng-invalid.ng-touched,
 select.ng-invalid.ng-touched {
   border: 1px solid red;
 }
-
+/* 
+.shadow {
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+  }
+}
+ */
 .font-fancy {
   font-family: Quicksand, Roboto, cursive;
   font-size: 2rem;

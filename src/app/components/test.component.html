@@ -39,8 +39,8 @@
     <div class="modal" id="detail-modal" tabindex="-1" role="document" aria-labelledby="myLargeModalLabel" aria-hidden="true">
       <app-event-detail></app-event-detail>
     </div>
-    <ngx-datatable class="material expandable ngx-datatable fixed-header fixed-row scroll-vertical selectable single-selection my-4"
-      [rows]="events" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="0" [rowHeight]="'auto'" [selectionType]="'single'"
+    <ngx-datatable class="bootstrap ngx-datatable fixed-header fixed-row fixed-footer scroll-vertical selectable single-selection bg-white"
+      [rows]="events" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="100" [rowHeight]="'auto'" [selectionType]="'single'"
       (select)='onSelect($event)'>
       <ngx-datatable-column name="Data Misura">
         <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>

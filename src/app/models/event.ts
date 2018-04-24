@@ -81,6 +81,7 @@ export class Manutenzione {
     filtroLana: boolean;
     filtroSpugna: boolean;
     filtroPompa: boolean;
+    batteri: number;
 
     constructor() {}
 }
