@@ -8,15 +8,24 @@
     <app-event-detail></app-event-detail>
   </div>
 
-  <div class="jumbotron py-3">
-    <img src="assets/img/aqua01.jpg" class="img-home">
+  <div class="jumbotron home py-3">
+    <ngb-carousel>
+        <ng-template ngbSlide>
+          <img src="assets/img/sfondo1.png" alt="" class="img-fluid">
+        </ng-template>
+        <ng-template ngbSlide>
+          <img src="assets/img/sfondo2.png" alt="" class="img-fluid">
+        </ng-template>
+      </ngb-carousel>
   </div>
+
+
   <div class="container my-3">
     <div class="row">
       <div class="col">
         <div class="card h-100">
           <div class="card-body text-center">
-              <i class="card-title fa fa-eyedropper"></i>
+            <i class="card-title fa fa-eyedropper"></i>
             <h4 class="card-title">Test dell'acqua</h4>
             <p class="card-text">Ultimo test dell'acqua risale al {{dataTest | date }}</p>
             <a class="card-link" routerLinkActive="active" [routerLink]="['/test']">Vai alla pagina</a>
@@ -36,7 +45,7 @@
       <div class="col">
         <div class="card h-100">
           <div class="card-body text-center">
-              <i class="card-title fa fa-wrench"></i>
+            <i class="card-title fa fa-wrench"></i>
             <h4 class="card-title">Manutenzione</h4>
             <p class="card-text">Ultima manutenzione risale al {{dataManu | date }}</p>
             <a class="card-link" routerLinkActive="active" [routerLink]="['/manutenzione']">Vai alla pagina</a>

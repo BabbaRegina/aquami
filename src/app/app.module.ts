@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -47,6 +48,7 @@ import { ChartjsComponent } from './chartjs/chartjs.component';
     FormsModule,
     ReactiveFormsModule,
     NgxDatatableModule,
+    NgbModule.forRoot(),
     BsDropdownModule.forRoot(),
     TabsModule.forRoot()
   ],
