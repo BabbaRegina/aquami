@@ -7,8 +7,69 @@
     </div>
   </div>
   <hr>
-  <div class="row justify-content-center my-5 py-5 mx-2">
-    <div class="col-md-6">
+  <div class="container-fluid justify-content-center my-5">
+    <div class="card-deck">
+      <div class="card colored-cards">
+        <div class="card-body text-center">
+          <h6 class="card-title">
+            <strong>Test PH</strong>
+          </h6>
+          <p class="card-text">{{dataph | date }}</p>
+        </div>
+      </div>
+      <div class="card colored-cards">
+        <div class="card-body text-center">
+          <h6 class="card-title">
+            <strong>Test KH</strong>
+          </h6>
+          <p class="card-text">{{datakh | date }}</p>
+        </div>
+      </div>
+      <div class="card colored-cards">
+        <div class="card-body text-center">
+          <h6 class="card-title">
+            <strong>Test GH</strong>
+          </h6>
+          <p class="card-text">{{datagh | date }}</p>
+        </div>
+      </div>
+      <div class="card colored-cards">
+        <div class="card-body text-center">
+          <h6 class="card-title">
+            <strong>Test nitrati</strong>
+          </h6>
+          <p class="card-text">{{datanitrati | date }}</p>
+        </div>
+      </div>
+      <div class="card colored-cards">
+        <div class="card-body text-center">
+          <h6 class="card-title">
+            <strong>Test nitriti</strong>
+          </h6>
+          <p class="card-text">{{datanitriti | date }}</p>
+        </div>
+      </div>
+      <div class="card colored-cards">
+        <div class="card-body text-center">
+          <h6 class="card-title">
+            <strong>Test ferro</strong>
+          </h6>
+          <p class="card-text">{{dataferro | date }}</p>
+        </div>
+      </div>
+      <div class="card colored-cards">
+        <div class="card-body text-center">
+          <h6 class="card-title">
+            <strong>Test fosfati</strong>
+          </h6>
+          <p class="card-text">{{datafosfati | date }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row justify-content-center my-5 mx-2">
+    <div class="col-lg-4 col-md-4 col-sm-12">
       <div class="card">
         <div class="card-body text-center">
           <div class="chart-container" *ngIf="demodata[0].data">
@@ -20,7 +81,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-lg-4 col-md-4 col-sm-12">
       <div class="card">
         <div class="card-body text-center">
           <div class="chart-container" *ngIf="demodata[1].data">
@@ -43,7 +104,7 @@
     </div>
     <ngx-datatable class="material text-center" [rows]="events" columnMode="force" [headerHeight]="50" [footerHeight]="0" [rowHeight]="'auto'"
       [selectionType]="'single'" (select)='onSelect($event)'>
-      <ngx-datatable-column name="Data Misura"  prop="dataMisura"></ngx-datatable-column>
+      <ngx-datatable-column name="Data Misura" prop="dataMisura"></ngx-datatable-column>
       <ngx-datatable-column name="Kh">
         <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
           {{row.test.khmin}} - {{row.test.khmax}}

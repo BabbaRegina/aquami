@@ -16,12 +16,12 @@ export class FertilizationComponent implements OnInit, OnDestroy {
   events: Event[];
   selected = [];
   dataArray: Event[];
-  datak2so4;
-  datak2no3;
-  datamagnesio;
-  datagenerico;
-  datafosfati;
-  dataferro;
+  datak2so4: Date;
+  datak2no3: Date;
+  datamagnesio: Date;
+  datagenerico: Date;
+  datafosfati: Date;
+  dataferro: Date;
   demodata = {
     type: 'line',
     data: undefined,
@@ -208,7 +208,7 @@ export class FertilizationComponent implements OnInit, OnDestroy {
           fill: false
         },
         {
-          label: 'Mng',
+          label: 'Magnesio',
           data: magnesioData,
           lineTension: 0,
           backgroundColor: colors['indigo'].alpha(0.2).toString(),
@@ -218,7 +218,7 @@ export class FertilizationComponent implements OnInit, OnDestroy {
           fill: false
         },
         {
-          label: 'Gen',
+          label: 'Generico',
           data: genericoData,
           lineTension: 0,
           backgroundColor: colors['green'].alpha(0.2).toString(),

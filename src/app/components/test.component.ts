@@ -16,6 +16,13 @@ export class TestComponent implements OnInit, OnDestroy {
   events: Event[];
   selected = [];
   dataArray: Event[];
+  dataph: Date;
+  datakh: Date;
+  datagh: Date;
+  datanitriti: Date;
+  datanitrati: Date;
+  datafosfati: Date;
+  dataferro: Date;
   demodata = [
     {
       type: 'line',
@@ -92,6 +99,7 @@ export class TestComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.eventService.getEvents().then((events: Event[]) => {
       this.events = events;
+      this.parseEvents();
       this.dataArray = events;
       this.loadChartDataset();
     });
@@ -102,6 +110,7 @@ export class TestComponent implements OnInit, OnDestroy {
         this.demodata[1].data = undefined;
         this.eventService.getEvents().then((events: Event[]) => {
           this.events = events;
+          this.parseEvents();
           this.dataArray = events;
           this.loadChartDataset();
         });
@@ -123,6 +132,43 @@ export class TestComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  parseEvents() {
+    this.dataph = undefined;
+    this.datakh = undefined;
+    this.datagh = undefined;
+    this.datanitriti = undefined;
+    this.datanitrati = undefined;
+    this.datafosfati = undefined;
+    this.dataferro = undefined;
+    for (let i = 0; i < this.events.length; i++) {
+      if ((this.events[i].test.phmin != null || this.events[i].test.phmax != null)  && !this.dataph) {
+        this.dataph = this.events[i].dataMisura;
+      }
+      if ((this.events[i].test.khmin != null || this.events[i].test.khmax != null)  && !this.datakh) {
+        this.datakh = this.events[i].dataMisura;
+      }
+      if ((this.events[i].test.ghmin != null || this.events[i].test.ghmax != null)  && !this.datagh) {
+        this.datagh = this.events[i].dataMisura;
+      }
+      if ((this.events[i].test.no2min != null || this.events[i].test.no2max != null)  && !this.datanitriti) {
+        this.datanitriti = this.events[i].dataMisura;
+      }
+      if ((this.events[i].test.fomin != null || this.events[i].test.fomax != null)  && !this.datafosfati) {
+        this.datafosfati = this.events[i].dataMisura;
+      }
+      if ((this.events[i].test.femin != null || this.events[i].test.femax != null)  && !this.dataferro) {
+        this.dataferro = this.events[i].dataMisura;
+      }
+      if ((this.events[i].test.no3min != null || this.events[i].test.no3max != null)  && !this.datanitrati) {
+        this.datanitrati = this.events[i].dataMisura;
+      }
+      if (this.dataph && this.datakh && this.datagh && this.datanitriti
+        && this.datafosfati && this.dataferro && this.datanitrati) {
+        break;
+      }
+    }
   }
 
   loadChartDataset() {
