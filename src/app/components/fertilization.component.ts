@@ -16,74 +16,45 @@ export class FertilizationComponent implements OnInit, OnDestroy {
   events: Event[];
   selected = [];
   dataArray: Event[];
-  demodata = [
-    {
-      type: 'line',
-      data: undefined,
-      options: {
-        responsive: true,
-        spanGaps: true,
-        scales: {
-          yAxes: [
-            {
-              display: true,
-              ticks: {
-                beginAtZero: true
+  datak2so4;
+  datak2no3;
+  datamagnesio;
+  datagenerico;
+  datafosfati;
+  dataferro;
+  demodata = {
+    type: 'line',
+    data: undefined,
+    options: {
+      responsive: true,
+      spanGaps: true,
+      scales: {
+        yAxes: [
+          {
+            display: true,
+            ticks: {
+              beginAtZero: true
+            }
+          }
+        ],
+        xAxes: [
+          {
+            display: true,
+            distribution: 'linear',
+            type: 'time',
+            time: {
+              displayFormats: {
+                quarter: 'MMM YYYY'
               }
             }
-          ],
-          xAxes: [
-            {
-              display: true,
-              distribution: 'linear',
-              type: 'time',
-              time: {
-                displayFormats: {
-                  quarter: 'MMM YYYY'
-                }
-              }
-            }
-          ]
-        },
-        legend: {
-          display: true
-        }
-      }
-    },
-    {
-      type: 'line',
-      data: undefined,
-      options: {
-        responsive: true,
-        spanGaps: true,
-        scales: {
-          yAxes: [
-            {
-              display: true,
-              ticks: {
-                beginAtZero: true
-              }
-            }
-          ],
-          xAxes: [
-            {
-              display: true,
-              distribution: 'linear',
-              type: 'time',
-              time: {
-                displayFormats: {
-                  quarter: 'MMM YYYY'
-                }
-              }
-            }
-          ]
-        },
-        legend: {
-          display: true
-        }
+          }
+        ]
+      },
+      legend: {
+        display: true
       }
     }
-  ];
+  };
 
   private subscription: Subscription;
 
@@ -92,17 +63,17 @@ export class FertilizationComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.eventService.getEvents().then((events: Event[]) => {
       this.events = events;
+      this.parseEvents();
       this.dataArray = events;
       this.loadChartDataset();
     });
 
-    this.subscription = this.eventService.eventsChanged
-    .subscribe(
+    this.subscription = this.eventService.eventsChanged.subscribe(
       (changed: boolean) => {
-        this.demodata[0].data = undefined;
-        this.demodata[1].data = undefined;
+        this.demodata.data = undefined;
         this.eventService.getEvents().then((events: Event[]) => {
           this.events = events;
+          this.parseEvents();
           this.dataArray = events;
           this.loadChartDataset();
         });
@@ -126,149 +97,99 @@ export class FertilizationComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
+  parseEvents() {
+    this.datak2so4 = undefined;
+    this.datak2no3 = undefined;
+    this.datamagnesio = undefined;
+    this.datagenerico = undefined;
+    this.datafosfati = undefined;
+    this.dataferro = undefined;
+    for (let i = 0; i < this.events.length; i++) {
+      if (this.events[i].ferti.k2so4 != null  && !this.datak2so4) {
+        this.datak2so4 = this.events[i].dataMisura;
+      }
+      if (this.events[i].ferti.k2no3 != null  && !this.datak2no3) {
+        this.datak2no3 = this.events[i].dataMisura;
+      }
+      if (this.events[i].ferti.magnesio != null && !this.datamagnesio) {
+        this.datamagnesio = this.events[i].dataMisura;
+      }
+      if (this.events[i].ferti.generico != null && !this.datagenerico) {
+        this.datagenerico = this.events[i].dataMisura;
+      }
+      if (this.events[i].ferti.fosfati != null  && !this.datafosfati) {
+        this.datafosfati = this.events[i].dataMisura;
+      }
+      if (this.events[i].ferti.ferro != null  && !this.dataferro) {
+        this.dataferro = this.events[i].dataMisura;
+      }
+      if (this.datak2so4 && this.datak2no3 && this.datamagnesio && this.datagenerico
+        && this.datafosfati && this.dataferro) {
+        break;
+      }
+    }
+  }
+
   loadChartDataset() {
     const dataLabels = [];
-    const phData = [];
-    const khData = [];
-    const ghData = [];
-    const no2Data = [];
-    const no3Data = [];
-    const feData = [];
-    const foData = [];
+    const k2so4Data = [];
+    const k2no3Data = [];
+    const magnesioData = [];
+    const genericoData = [];
+    const fosfatiData = [];
+    const ferroData = [];
     const dataArray = this.dataArray;
     for (let i = 0; i < dataArray.length; i++) {
-      if (!_.isEmpty(dataArray[i].test)) {
+      if (!_.isEmpty(dataArray[i].ferti)) {
         // setto elichette
         const data = dataArray[i].dataMisura;
         dataLabels.push(data);
 
-        // ph
-        if (dataArray[i].test.phmin || dataArray[i].test.phmax) {
-          const min = +dataArray[i].test.phmin;
-          const max = +dataArray[i].test.phmax;
-          if (min > 0 && max > 0) {
-            phData.push((min + max) / 2);
-          } else if (min > 0) {
-            phData.push(min);
-          } else if (max > 0) {
-            phData.push(max);
-          } else {
-            phData.push(undefined);
-          }
+        // k2so4
+        if (dataArray[i].ferti.k2so4) {
+          k2so4Data.push(dataArray[i].ferti.k2so4);
         } else {
-          phData.push(undefined);
+          k2so4Data.push(undefined);
         }
-
-        // kh
-        if (dataArray[i].test.khmin || dataArray[i].test.khmax) {
-          const min = +dataArray[i].test.khmin;
-          const max = +dataArray[i].test.khmax;
-          if (min > 0 && max > 0) {
-            khData.push((min + max) / 2);
-          } else if (min > 0) {
-            khData.push(min);
-          } else if (max > 0) {
-            khData.push(max);
-          } else {
-            khData.push(undefined);
-          }
+        // k2no3
+        if (dataArray[i].ferti.k2no3) {
+          k2no3Data.push(dataArray[i].ferti.k2no3);
         } else {
-          khData.push(undefined);
+          k2no3Data.push(undefined);
         }
-
-        // gh
-        if (dataArray[i].test.ghmin || dataArray[i].test.ghmax) {
-          const min = +dataArray[i].test.ghmin;
-          const max = +dataArray[i].test.ghmax;
-          if (min > 0 && max > 0) {
-            ghData.push((min + max) / 2);
-          } else if (min > 0) {
-            ghData.push(min);
-          } else if (max > 0) {
-            ghData.push(max);
-          } else {
-            ghData.push(undefined);
-          }
+        // magnesio
+        if (dataArray[i].ferti.magnesio) {
+          magnesioData.push(dataArray[i].ferti.magnesio);
         } else {
-          ghData.push(undefined);
+          magnesioData.push(undefined);
         }
-
-        // no2
-        if (dataArray[i].test.no2min || dataArray[i].test.no2max) {
-          const min = +dataArray[i].test.no2min;
-          const max = +dataArray[i].test.no2max;
-          if (min > 0 && max > 0) {
-            no2Data.push((min + max) / 2);
-          } else if (min > 0) {
-            no2Data.push(min);
-          } else if (max > 0) {
-            no2Data.push(max);
-          } else {
-            no2Data.push(undefined);
-          }
+        // generico
+        if (dataArray[i].ferti.generico) {
+          genericoData.push(dataArray[i].ferti.generico);
         } else {
-          no2Data.push(undefined);
+          genericoData.push(undefined);
         }
-
-        // no3
-        if (dataArray[i].test.no3min || dataArray[i].test.no3max) {
-          const min = +dataArray[i].test.no3min;
-          const max = +dataArray[i].test.no3max;
-          if (min > 0 && max > 0) {
-            no3Data.push((min + max) / 2);
-          } else if (min > 0) {
-            no3Data.push(min);
-          } else if (max > 0) {
-            no3Data.push(max);
-          } else {
-            no3Data.push(undefined);
-          }
+        // fosfati
+        if (dataArray[i].ferti.fosfati) {
+          fosfatiData.push(dataArray[i].ferti.fosfati);
         } else {
-          no3Data.push(undefined);
+          fosfatiData.push(undefined);
         }
-
-        // fe
-        if (dataArray[i].test.femin || dataArray[i].test.femax) {
-          const min = +dataArray[i].test.femin;
-          const max = +dataArray[i].test.femax;
-          if (min > 0 && max > 0) {
-            feData.push((min + max) / 2);
-          } else if (min > 0) {
-            feData.push(min);
-          } else if (max > 0) {
-            feData.push(max);
-          } else {
-            feData.push(undefined);
-          }
+        // ferro
+        if (dataArray[i].ferti.ferro) {
+          ferroData.push(dataArray[i].ferti.ferro);
         } else {
-          feData.push(undefined);
-        }
-
-        // fo
-        if (dataArray[i].test.fomin || dataArray[i].test.fomax) {
-          const min = +dataArray[i].test.fomin;
-          const max = +dataArray[i].test.fomax;
-          if (min > 0 && max > 0) {
-            foData.push((min + max) / 2);
-          } else if (min > 0) {
-            foData.push(min);
-          } else if (max > 0) {
-            foData.push(max);
-          } else {
-            foData.push(undefined);
-          }
-        } else {
-          foData.push(undefined);
+          ferroData.push(undefined);
         }
       }
     }
 
-    this.demodata[0].data = {
+    this.demodata.data = {
       labels: dataLabels,
       datasets: [
         {
-          label: 'Ph',
-          data: phData,
+          label: 'k2so4',
+          data: k2so4Data,
           lineTension: 0,
           backgroundColor: colors['teal'].alpha(0.2).toString(),
           borderColor: colors['teal'].toString(),
@@ -277,8 +198,8 @@ export class FertilizationComponent implements OnInit, OnDestroy {
           fill: false
         },
         {
-          label: 'Kh',
-          data: khData,
+          label: 'k2no3',
+          data: k2no3Data,
           lineTension: 0,
           backgroundColor: colors['blue'].alpha(0.2).toString(),
           borderColor: colors['blue'].toString(),
@@ -287,23 +208,8 @@ export class FertilizationComponent implements OnInit, OnDestroy {
           fill: false
         },
         {
-          label: 'Gh',
-          data: ghData,
-          lineTension: 0,
-          backgroundColor: colors['purple'].alpha(0.2).toString(),
-          borderColor: colors['purple'].toString(),
-          borderWidth: 2,
-          pointRadius: 2,
-          fill: false
-        }
-      ]
-    };
-    this.demodata[1].data = {
-      labels: dataLabels,
-      datasets: [
-        {
-          label: 'NO2',
-          data: no2Data,
+          label: 'Mng',
+          data: magnesioData,
           lineTension: 0,
           backgroundColor: colors['indigo'].alpha(0.2).toString(),
           borderColor: colors['indigo'].toString(),
@@ -312,31 +218,31 @@ export class FertilizationComponent implements OnInit, OnDestroy {
           fill: false
         },
         {
-          label: 'NO3',
-          data: no3Data,
+          label: 'Gen',
+          data: genericoData,
           lineTension: 0,
-          backgroundColor: colors['yellow'].alpha(0.2).toString(),
-          borderColor: colors['yellow'].toString(),
-          borderWidth: 2,
-          pointRadius: 2,
-          fill: false
-        },
-        {
-          label: 'Ferro',
-          data: feData,
-          lineTension: 0,
-          backgroundColor: colors['pink'].alpha(0.2).toString(),
-          borderColor: colors['pink'].toString(),
+          backgroundColor: colors['green'].alpha(0.2).toString(),
+          borderColor: colors['green'].toString(),
           borderWidth: 2,
           pointRadius: 2,
           fill: false
         },
         {
           label: 'Fosfati',
-          data: foData,
+          data: fosfatiData,
           lineTension: 0,
           backgroundColor: colors['red'].alpha(0.2).toString(),
           borderColor: colors['red'].toString(),
+          borderWidth: 2,
+          pointRadius: 2,
+          fill: false
+        },
+        {
+          label: 'Ferro',
+          data: ferroData,
+          lineTension: 0,
+          backgroundColor: colors['purple'].alpha(0.2).toString(),
+          borderColor: colors['purple'].toString(),
           borderWidth: 2,
           pointRadius: 2,
           fill: false

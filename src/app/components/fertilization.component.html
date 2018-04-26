@@ -1,87 +1,92 @@
-<div class="full-page-container">
-
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h2 class="display-4">Festilizzazione</h2>
-      <p class="lead">Registrazione degli interventi di fertilizzazione alle piante dell'acquario, fare riferimento alla tabella sotto per maggiori dettagli.</p>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h2 class="display-4">Festilizzazione</h2>
+    <p class="lead">Registrazione degli interventi di fertilizzazione alle piante dell'acquario, fare riferimento alla tabella sotto per
+      maggiori dettagli.</p>
+  </div>
+</div>
+<div class="container-fluid justify-content-center my-5">
+  <div class="card-deck">
+    <div class="card colored-cards">
+      <div class="card-body text-center">
+        <h6 class="card-title">
+          <strong>Aggiunta Solfato di Potassio (K2SO4)</strong>
+        </h6>
+        <p class="card-text">{{datak2so4 | date }}</p>
+      </div>
+    </div>
+    <div class="card colored-cards">
+      <div class="card-body text-center">
+        <h6 class="card-title">
+          <strong>Aggiunta Nitrato di Potassio (K2NO3)</strong>
+        </h6>
+        <p class="card-text">{{datak2no3 | date }}</p>
+      </div>
+    </div>
+    <div class="card colored-cards">
+      <div class="card-body text-center">
+        <h6 class="card-title">
+          <strong>Aggiunta Magnesio</strong>
+        </h6>
+        <p class="card-text">{{datamagnesio | date }}</p>
+      </div>
+    </div>
+    <div class="card colored-cards">
+      <div class="card-body text-center">
+        <h6 class="card-title">
+          <strong>Aggiunta fertilizzante Generico</strong>
+        </h6>
+        <p class="card-text">{{datagenerico | date }}</p>
+      </div>
+    </div>
+    <div class="card colored-cards">
+      <div class="card-body text-center">
+        <h6 class="card-title">
+          <strong>Aggiunta Fosfati</strong>
+        </h6>
+        <p class="card-text">{{datafosfati | date }}</p>
+      </div>
+    </div>
+    <div class="card colored-cards">
+      <div class="card-body text-center">
+        <h6 class="card-title">
+          <strong>Aggiunta Ferro</strong>
+        </h6>
+        <p class="card-text">{{dataferro | date }}</p>
+      </div>
     </div>
   </div>
-  <div class="row justify-content-center my-5 mx-2">
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-body text-center">
-          <div class="chart-container" *ngIf="demodata[0].data">
-            <canvas [appChartjs]="demodata[0]"></canvas>
-          </div>
-          <div class="chart-container" *ngIf="!demodata[0].data">
-            <span>mancano i dati</span>
-          </div>
+</div>
+<div class="row justify-content-center my-5 mx-2">
+  <div class="col-lg-8 col-md-10 col-sm-12">
+    <div class="card">
+      <div class="card-body text-center">
+        <div class="chart-container" *ngIf="demodata.data">
+          <canvas [appChartjs]="demodata"></canvas>
+        </div>
+        <div class="chart-container" *ngIf="!demodata.data">
+          <span>mancano i dati</span>
         </div>
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-body text-center">
-          <div class="chart-container" *ngIf="demodata[1].data">
-            <canvas [appChartjs]="demodata[1]"></canvas>
-          </div>
-          <div class="chart-container" *ngIf="!demodata[1].data">
-            <span>mancano i dati</span>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
-  <div class="container my-5">
-    <div class="modal" id="detail-modal" tabindex="-1" role="document" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-      <app-event-detail></app-event-detail>
-    </div>
-    <button class="btn btn-primary btn-fab fixed-bottom-right" title="Top" (click)="goTop()">
-      <i class="fa fa-arrow-up" aria-hidden="true"></i>
-    </button>
-    <ngx-datatable class="material expandable ngx-datatable fixed-header fixed-row scroll-vertical selectable single-selection"
-      [rows]="events" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="0" [rowHeight]="'auto'" [selectionType]="'single'"
-      (select)='onSelect($event)'>
-      <ngx-datatable-column name="Data Misura">
-        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-          {{row.dataMisura | date:'dd/MM/yyyy'}}
-        </ng-template>
-      </ngx-datatable-column>
-      <ngx-datatable-column name="K2So4">
-        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-          {{row.ferti.k2so4}}
-        </ng-template>
-      </ngx-datatable-column>
-      <ngx-datatable-column name="K2No3">
-        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-          {{row.ferti.k2no3}}
-        </ng-template>
-      </ngx-datatable-column>
-      <ngx-datatable-column name="Magnesio">
-        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-          {{row.ferti.magnesio}}
-        </ng-template>
-      </ngx-datatable-column>
-      <ngx-datatable-column name="Generico">
-        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-          {{row.ferti.generico}}
-        </ng-template>
-      </ngx-datatable-column>
-      <ngx-datatable-column name="Ferro">
-        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-          {{row.ferti.ferro}}
-        </ng-template>
-      </ngx-datatable-column>
-      <ngx-datatable-column name="Fosfati">
-        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-          {{row.ferti.fosfati}}
-        </ng-template>
-      </ngx-datatable-column>
-      <ngx-datatable-column name="Annotazioni">
-        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-          {{row.note}}
-        </ng-template>
-      </ngx-datatable-column>
-    </ngx-datatable>
+</div>
+<div class="container my-5">
+  <div class="modal" id="detail-modal" tabindex="-1" role="document" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <app-event-detail></app-event-detail>
   </div>
+  <button class="btn btn-primary btn-fab fixed-bottom-right" title="Top" (click)="goTop()">
+    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+  </button>
+  <ngx-datatable class="material expandable ngx-datatable fixed-header fixed-row scroll-vertical selectable single-selection"
+    [rows]="events" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="0" [rowHeight]="'auto'" [selectionType]="'single'"
+    (select)='onSelect($event)'>
+    <ngx-datatable-column name="Data Misura" prop="dataMisura"></ngx-datatable-column>
+    <ngx-datatable-column name="K2So4" prop="ferti.k2so4"></ngx-datatable-column>
+    <ngx-datatable-column name="K2No3" prop="ferti.k2no3"></ngx-datatable-column>
+    <ngx-datatable-column name="Magnesio" prop="ferti.magnesio"></ngx-datatable-column>
+    <ngx-datatable-column name="Generico" prop="ferti.generico"> </ngx-datatable-column>
+    <ngx-datatable-column name="Ferro" prop="ferti.ferro"></ngx-datatable-column>
+    <ngx-datatable-column name="Fosfati" prop="ferti.fosfati"></ngx-datatable-column>
+  </ngx-datatable>
 </div>

@@ -60,30 +60,38 @@ export class MaintenanceComponent implements OnInit, OnDestroy {
   }
 
   parseEvents() {
+    this.dataCambio = undefined;
+    this.dataPotatura = undefined;
+    this.dataPuliziaSpugna = undefined;
+    this.dataPuliziaLana = undefined;
+    this.dataPuliziaPompa = undefined;
+    this.dataBatteri = undefined;
+    this.dataVetro = undefined;
     for (let i = 0; i < this.events.length; i++) {
-      console.log(i, this.events[i].manutenzione);
       if (this.events[i].manutenzione.acqua > 0  && !this.dataCambio) {
         this.dataCambio = this.events[i].dataMisura;
       }
-      if (this.events[i].manutenzione.potatura.valueOf()  && !this.dataPotatura) {
-        console.log('entra');
+      if (this.events[i].manutenzione.potatura && this.events[i].manutenzione.potatura.toString() === 'true'
+      && !this.dataPotatura) {
         this.dataPotatura = this.events[i].dataMisura;
-      } else {
-        console.log(this.events[i].manutenzione.potatura);
       }
-      if (this.events[i].manutenzione.filtroSpugna === true  && !this.dataPuliziaSpugna) {
+      if (this.events[i].manutenzione.filtroSpugna && this.events[i].manutenzione.filtroSpugna.toString() === 'true'
+      && !this.dataPuliziaSpugna) {
         this.dataPuliziaSpugna = this.events[i].dataMisura;
       }
-      if (this.events[i].manutenzione.filtroLana === true && !this.dataPuliziaLana) {
+      if (this.events[i].manutenzione.filtroLana && this.events[i].manutenzione.filtroLana.toString() === 'true'
+      && !this.dataPuliziaLana) {
         this.dataPuliziaLana = this.events[i].dataMisura;
       }
-      if (this.events[i].manutenzione.filtroPompa === true  && !this.dataPuliziaPompa) {
+      if (this.events[i].manutenzione.filtroPompa && this.events[i].manutenzione.filtroPompa.toString() === 'true'
+      && !this.dataPuliziaPompa) {
         this.dataPuliziaPompa = this.events[i].dataMisura;
       }
       if (this.events[i].manutenzione.batteri > 0  && !this.dataBatteri) {
         this.dataBatteri = this.events[i].dataMisura;
       }
-      if (this.events[i].manutenzione.vetro === true && !this.dataVetro) {
+      if (this.events[i].manutenzione.vetro && this.events[i].manutenzione.vetro.toString() === 'true'
+      && !this.dataVetro) {
         this.dataVetro = this.events[i].dataMisura;
       }
       if (this.dataCambio && this.dataPotatura && this.dataPuliziaSpugna && this.dataPuliziaLana

@@ -19,27 +19,6 @@ export class Event {
       this.manutenzione = new Manutenzione();
     }
 
-    isFertilizzazione(): boolean {
-        if (_.isEmpty(this.ferti)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    isTest(): boolean {
-        if (_.isEmpty(this.test)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    isManutenzione(): boolean {
-        if (_.isEmpty(this.manutenzione)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 }
 
 export class Fertilizzazione {

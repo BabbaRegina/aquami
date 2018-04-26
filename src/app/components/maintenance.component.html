@@ -1,112 +1,112 @@
-<div class="full-page-container">
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h2 class="display-4">Interventi di manutenzione</h2>
-      <p class="lead">Registrazione degli interventi di manutenzione effettuati, fare riferimento alla tabella sotto per maggiori dettagli.</p>
-    </div>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h2 class="display-4">Interventi di manutenzione</h2>
+    <p class="lead">Registrazione degli interventi di manutenzione effettuati, fare riferimento alla tabella sotto per maggiori dettagli.</p>
   </div>
-  <div class="container-fluid justify-content-center my-5">
-    <div class="card-deck">
-      <div class="card colored-cards">
-        <div class="card-body text-center">
-          <h6 class="card-title">
-            <strong> Cambio acqua</strong>
-          </h6>
-          <p class="card-text">{{dataCambio | date }}</p>
-        </div>
-      </div>
-      <div class="card colored-cards">
-        <div class="card-body text-center">
-          <h6 class="card-title">
-            <strong>Potatura</strong>
-          </h6>
-          <p class="card-text">{{dataPotatura | date }}</p>
-        </div>
-      </div>
-      <div class="card colored-cards">
-        <div class="card-body text-center">
-          <h6 class="card-title">
-            <strong>Pulizia spugna filtro</strong>
-          </h6>
-          <p class="card-text">{{dataPuliziaSpugna | date }}</p>
-        </div>
-      </div>
-      <div class="card colored-cards">
-        <div class="card-body text-center">
-          <h6 class="card-title">
-            <strong>Sostituzione lana filtro</strong>
-          </h6>
-          <p class="card-text">{{dataPuliziaLana | date }}</p>
-        </div>
-      </div>
-      <div class="card colored-cards">
-        <div class="card-body text-center">
-          <h6 class="card-title">
-            <strong>Pulizia pompa filtro</strong>
-          </h6>
-          <p class="card-text">{{dataPuliziaPompa | date }}</p>
-        </div>
-      </div>
-      <div class="card colored-cards">
-        <div class="card-body text-center">
-          <h6 class="card-title">
-            <strong>Inserimento batteri</strong>
-          </h6>
-          <p class="card-text">{{dataBatteri | date }}</p>
-        </div>
-      </div>
-      <div class="card colored-cards">
-        <div class="card-body text-center">
-          <h6 class="card-title">
-            <strong>Pulizia vetro</strong>
-          </h6>
-          <p class="card-text">{{dataVetro | date }}</p>
-        </div>
+</div>
+<hr>
+<div class="container-fluid justify-content-center my-5">
+  <div class="card-deck">
+    <div class="card colored-cards">
+      <div class="card-body text-center">
+        <h6 class="card-title">
+          <strong> Cambio acqua</strong>
+        </h6>
+        <p class="card-text">{{dataCambio | date }}</p>
       </div>
     </div>
-  </div>
-  <div class="container my-5">
-    <button class="btn btn-primary btn-fab fixed-bottom-right" title="Top" (click)="goTop()">
-      <i class="fa fa-arrow-up" aria-hidden="true"></i>
-    </button>
-    <div class="modal" id="detail-modal" tabindex="-1" role="document" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-      <app-event-detail></app-event-detail>
+    <div class="card colored-cards">
+      <div class="card-body text-center">
+        <h6 class="card-title">
+          <strong>Potatura</strong>
+        </h6>
+        <p class="card-text">{{dataPotatura | date }}</p>
+      </div>
     </div>
-    <ngx-datatable class="material text-center" [rows]="events" columnMode="force" [headerHeight]="50" [footerHeight]="0" [rowHeight]="'auto'"
-      [selectionType]="'single'" (select)='onSelect($event)'>
-      <ngx-datatable-column name="Data Misura" prop="dataMisura"></ngx-datatable-column>
-      <ngx-datatable-column name="Cambio acqua" prop="manutenzione.acqua">l</ngx-datatable-column>
-      <ngx-datatable-column name="Potatura" prop="manutenzione.potatura">
-        <ng-template let-value="value" ngx-datatable-cell-template>
-          <i *ngIf="value === 'true'" class="fa fa-check" aria-hidden="true"></i>
-          <i *ngIf="value === 'false'" class="fa fa-close" aria-hidden="true"></i>
-        </ng-template>
-      </ngx-datatable-column>
-      <ngx-datatable-column name="Cambio Lana Filtro" prop="manutenzione.filtroLana">
-        <ng-template let-value="value" ngx-datatable-cell-template>
-          <i *ngIf="value === 'true'" class="fa fa-check" aria-hidden="true"></i>
-          <i *ngIf="value === 'false'" class="fa fa-close" aria-hidden="true"></i>
-        </ng-template>
-      </ngx-datatable-column>
-      <ngx-datatable-column name="Pulizia Spugna Filtro" prop="manutenzione.filtroSpugna">
-        <ng-template let-value="value" ngx-datatable-cell-template>
-          <i *ngIf="value === 'true'" class="fa fa-check" aria-hidden="true"></i>
-          <i *ngIf="value === 'false'" class="fa fa-close" aria-hidden="true"></i>
-        </ng-template>
-      </ngx-datatable-column>
-      <ngx-datatable-column name="Pulizia Pompa" prop="manutenzione.filtroPompa">
-        <ng-template let-value="value" ngx-datatable-cell-template>
-          <i *ngIf="value === 'true'" class="fa fa-check" aria-hidden="true"></i>
-          <i *ngIf="value === 'false'" class="fa fa-close" aria-hidden="true"></i>
-        </ng-template>
-      </ngx-datatable-column>
-      <ngx-datatable-column name="Pulizia Vetro" prop="manutenzione.vetro">
-        <ng-template let-value="value" ngx-datatable-cell-template>
-          <i *ngIf="value === 'true'" class="fa fa-check" aria-hidden="true"></i>
-          <i *ngIf="value === 'false'" class="fa fa-close" aria-hidden="true"></i>
-        </ng-template>
-      </ngx-datatable-column>
-      <ngx-datatable-column name="Batteri" prop="manutenzione.batteri">ml</ngx-datatable-column>
-    </ngx-datatable>
+    <div class="card colored-cards">
+      <div class="card-body text-center">
+        <h6 class="card-title">
+          <strong>Pulizia spugna filtro</strong>
+        </h6>
+        <p class="card-text">{{dataPuliziaSpugna | date }}</p>
+      </div>
+    </div>
+    <div class="card colored-cards">
+      <div class="card-body text-center">
+        <h6 class="card-title">
+          <strong>Sostituzione lana filtro</strong>
+        </h6>
+        <p class="card-text">{{dataPuliziaLana | date }}</p>
+      </div>
+    </div>
+    <div class="card colored-cards">
+      <div class="card-body text-center">
+        <h6 class="card-title">
+          <strong>Pulizia pompa filtro</strong>
+        </h6>
+        <p class="card-text">{{dataPuliziaPompa | date }}</p>
+      </div>
+    </div>
+    <div class="card colored-cards">
+      <div class="card-body text-center">
+        <h6 class="card-title">
+          <strong>Inserimento batteri</strong>
+        </h6>
+        <p class="card-text">{{dataBatteri | date }}</p>
+      </div>
+    </div>
+    <div class="card colored-cards">
+      <div class="card-body text-center">
+        <h6 class="card-title">
+          <strong>Pulizia vetro</strong>
+        </h6>
+        <p class="card-text">{{dataVetro | date }}</p>
+      </div>
+    </div>
   </div>
+</div>
+<hr>
+<div class="container my-5">
+  <button class="btn btn-primary btn-fab fixed-bottom-right" title="Top" (click)="goTop()">
+    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+  </button>
+  <div class="modal" id="detail-modal" tabindex="-1" role="document" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <app-event-detail></app-event-detail>
+  </div>
+  <ngx-datatable class="material text-center" [rows]="events" columnMode="force" [headerHeight]="50" [footerHeight]="0" [rowHeight]="'auto'"
+    [selectionType]="'single'" (select)='onSelect($event)'>
+    <ngx-datatable-column name="Data Misura" prop="dataMisura"></ngx-datatable-column>
+    <ngx-datatable-column name="Cambio acqua" prop="manutenzione.acqua">l</ngx-datatable-column>
+    <ngx-datatable-column name="Potatura" prop="manutenzione.potatura">
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        <i *ngIf="value === 'true'" class="fa fa-check" aria-hidden="true"></i>
+        <i *ngIf="value === 'false'" class="fa fa-close" aria-hidden="true"></i>
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Cambio Lana Filtro" prop="manutenzione.filtroLana">
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        <i *ngIf="value === 'true'" class="fa fa-check" aria-hidden="true"></i>
+        <i *ngIf="value === 'false'" class="fa fa-close" aria-hidden="true"></i>
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Pulizia Spugna Filtro" prop="manutenzione.filtroSpugna">
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        <i *ngIf="value === 'true'" class="fa fa-check" aria-hidden="true"></i>
+        <i *ngIf="value === 'false'" class="fa fa-close" aria-hidden="true"></i>
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Pulizia Pompa" prop="manutenzione.filtroPompa">
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        <i *ngIf="value === 'true'" class="fa fa-check" aria-hidden="true"></i>
+        <i *ngIf="value === 'false'" class="fa fa-close" aria-hidden="true"></i>
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Pulizia Vetro" prop="manutenzione.vetro">
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        <i *ngIf="value === 'true'" class="fa fa-check" aria-hidden="true"></i>
+        <i *ngIf="value === 'false'" class="fa fa-close" aria-hidden="true"></i>
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Batteri" prop="manutenzione.batteri">ml</ngx-datatable-column>
+  </ngx-datatable>
 </div>

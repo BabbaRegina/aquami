@@ -6,7 +6,7 @@
       <p class="lead">Risultati dei test dell'acqua effettuati, fare riferimento alla tabella sotto per maggiori dettagli.</p>
     </div>
   </div>
-  <div class="row justify-content-center my-5 mx-2">
+  <div class="row justify-content-center my-5 py-5 mx-2">
     <div class="col-md-6">
       <div class="card">
         <div class="card-body text-center">
@@ -39,14 +39,9 @@
     <div class="modal" id="detail-modal" tabindex="-1" role="document" aria-labelledby="myLargeModalLabel" aria-hidden="true">
       <app-event-detail></app-event-detail>
     </div>
-    <ngx-datatable class="bootstrap ngx-datatable fixed-header fixed-row fixed-footer scroll-vertical selectable single-selection bg-white"
-      [rows]="events" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="100" [rowHeight]="'auto'" [selectionType]="'single'"
-      (select)='onSelect($event)'>
-      <ngx-datatable-column name="Data Misura">
-        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-          {{row.dataMisura | date:'dd/MM/yyyy'}}
-        </ng-template>
-      </ngx-datatable-column>
+    <ngx-datatable class="material text-center" [rows]="events" columnMode="force" [headerHeight]="50" [footerHeight]="0" [rowHeight]="'auto'"
+      [selectionType]="'single'" (select)='onSelect($event)'>
+      <ngx-datatable-column name="Data Misura"  prop="dataMisura"></ngx-datatable-column>
       <ngx-datatable-column name="Kh">
         <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
           {{row.test.khmin}} - {{row.test.khmax}}
@@ -80,12 +75,6 @@
       <ngx-datatable-column name="Fosfati">
         <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
           {{row.test.fomin}} - {{row.test.fomax}}
-        </ng-template>
-      </ngx-datatable-column>
-
-      <ngx-datatable-column name="Annotazioni">
-        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-          {{row.note}}
         </ng-template>
       </ngx-datatable-column>
     </ngx-datatable>

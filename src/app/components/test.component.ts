@@ -196,11 +196,11 @@ export class TestComponent implements OnInit, OnDestroy {
         if (dataArray[i].test.no2min || dataArray[i].test.no2max) {
           const min = +dataArray[i].test.no2min;
           const max = +dataArray[i].test.no2max;
-          if (min > 0 && max > 0) {
+          if (min >= 0 && max >= 0) {
             no2Data.push((min + max) / 2);
-          } else if (min > 0) {
+          } else if (min >= 0) {
             no2Data.push(min);
-          } else if (max > 0) {
+          } else if (max >= 0) {
             no2Data.push(max);
           } else {
             no2Data.push(undefined);
@@ -213,11 +213,11 @@ export class TestComponent implements OnInit, OnDestroy {
         if (dataArray[i].test.no3min || dataArray[i].test.no3max) {
           const min = +dataArray[i].test.no3min;
           const max = +dataArray[i].test.no3max;
-          if (min > 0 && max > 0) {
+          if (min >= 0 && max >= 0) {
             no3Data.push((min + max) / 2);
-          } else if (min > 0) {
+          } else if (min >= 0) {
             no3Data.push(min);
-          } else if (max > 0) {
+          } else if (max >= 0) {
             no3Data.push(max);
           } else {
             no3Data.push(undefined);
@@ -230,11 +230,11 @@ export class TestComponent implements OnInit, OnDestroy {
         if (dataArray[i].test.femin || dataArray[i].test.femax) {
           const min = +dataArray[i].test.femin;
           const max = +dataArray[i].test.femax;
-          if (min > 0 && max > 0) {
+          if (min >= 0 && max >= 0) {
             feData.push((min + max) / 2);
-          } else if (min > 0) {
+          } else if (min >= 0) {
             feData.push(min);
-          } else if (max > 0) {
+          } else if (max >= 0) {
             feData.push(max);
           } else {
             feData.push(undefined);
@@ -247,11 +247,11 @@ export class TestComponent implements OnInit, OnDestroy {
         if (dataArray[i].test.fomin || dataArray[i].test.fomax) {
           const min = +dataArray[i].test.fomin;
           const max = +dataArray[i].test.fomax;
-          if (min > 0 && max > 0) {
+          if (min >= 0 && max >= 0) {
             foData.push((min + max) / 2);
-          } else if (min > 0) {
+          } else if (min >= 0) {
             foData.push(min);
-          } else if (max > 0) {
+          } else if (max >= 0) {
             foData.push(max);
           } else {
             foData.push(undefined);
