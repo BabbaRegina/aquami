@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, trigger, style } from '@angular/core';
-import { Event } from '../models/event';
+import { Event } from '../../models/event';
 import { Subscription } from 'rxjs/Subscription';
-import { EventService } from '../services/event.service';
+import { EventService } from '../../core/services/event.service';
 import * as _ from 'lodash';
 import { state } from '@angular/animations';
 

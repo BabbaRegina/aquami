@@ -1,58 +1,31 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
+import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { AppComponent } from './app.component';
-import { TestComponent } from './components/test.component';
-import { HomeComponent } from './components/home.component';
-import { FertilizationComponent } from './components/fertilization.component';
-import { LoginComponent } from './components/login.component';
-import { EventService } from './services/event.service';
-import { EventDetailComponent } from './components/event-detail.component';
-import { MaintenanceComponent } from './components/maintenance.component';
 
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { TabsModule } from 'ngx-bootstrap/tabs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CoreModule } from './core/core.module';
 import { LayoutComponent } from './layout/layout.component';
 import { TopbarComponent } from './layout/topbar/topbar.component';
 import { SharedModule } from './shared/shared.module';
-import { AuthenticationService } from './services/authentication.service';
-import { AuthGuard } from './shared/guards/auth.guard.service';
-import { ChartjsComponent } from './chartjs/chartjs.component';
+import { ChartjsComponent } from './shared/components/chartjs/chartjs.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TestComponent,
-    HomeComponent,
-    FertilizationComponent,
-    LoginComponent,
-    EventDetailComponent,
-    MaintenanceComponent,
     LayoutComponent,
     TopbarComponent,
     ChartjsComponent
   ],
   imports: [
-    SharedModule,
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
-    HttpModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NgxDatatableModule,
-    NgbModule.forRoot(),
-    BsDropdownModule.forRoot(),
-    TabsModule.forRoot()
+    CoreModule,
+    SharedModule,
+    AppRoutingModule
   ],
-  providers: [AuthenticationService, EventService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

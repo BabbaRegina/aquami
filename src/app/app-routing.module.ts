@@ -1,20 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { TestComponent } from './components/test.component';
-import { HomeComponent } from './components/home.component';
-import { FertilizationComponent } from './components/fertilization.component';
-import { LoginComponent } from './components/login.component';
-import { MaintenanceComponent } from './components/maintenance.component';
-import { AuthGuard } from './shared/guards/auth.guard.service';
-import { ChartjsComponent } from './chartjs/chartjs.component';
+import { AuthGuard } from './core/guards/auth.guard.service';
 
 const routes: Routes = [
-  { path: 'test', component: TestComponent , canActivate: [AuthGuard] },
-  { path: 'ferti', component: FertilizationComponent , canActivate: [AuthGuard] },
-  { path: 'manutenzione', component: MaintenanceComponent , canActivate: [AuthGuard] },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'chart', component: ChartjsComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'home', loadChildren: 'app/features/features.module#FeaturesModule', canActivate: [AuthGuard] },
+  { path: 'auth', loadChildren: 'app/auth/auth.module#AuthModule' },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];

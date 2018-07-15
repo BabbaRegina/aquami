@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Event } from '../models/event';
-import { Http, Response } from '@angular/http';
+import { Event } from '../../models/event';
 import 'rxjs/add/operator/toPromise';
 import { Subject } from 'rxjs/Subject';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class EventService {
@@ -14,7 +14,7 @@ export class EventService {
 
   private eventsUrl = '/api/events';
 
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
 
   getEvent(index: number) {
     if (this.savedEvents.length > 0) {
@@ -33,8 +33,7 @@ export class EventService {
       .toPromise()
       .then(
         response => {
-          this.savedEvents = response.json();
-          return response.json() as Event[];
+          return response as Event[];
         }
       )
       .catch(this.handleError);
@@ -46,8 +45,8 @@ export class EventService {
       .post(this.eventsUrl, newevent)
       .toPromise()
       .then(response => {
-        this.savedEvents.push(response.json());
-        return response.json() as Event;
+        this.savedEvents.push(response as Event);
+        return response as Event;
       })
       .catch(this.handleError);
   }
@@ -59,7 +58,7 @@ export class EventService {
     return this.http
       .delete(this.eventsUrl + '/' + deleventId)
       .toPromise()
-      .then(response => response.json() as String)
+      .then(response => response as String)
       .catch(this.handleError);
   }
 
@@ -69,7 +68,7 @@ export class EventService {
     return this.http
       .put(putUrl, putevent)
       .toPromise()
-      .then(response => response.json() as Event)
+      .then(response => response as Event)
       .catch(this.handleError);
   }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { EventService } from '../services/event.service';
-import { Event, Fertilizzazione } from '../models/event';
+import { EventService } from '../../core/services/event.service';
+import { Event, Fertilizzazione } from '../../models/event';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';

@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { EventService } from '../services/event.service';
-import { Event, Test } from '../models/event';
+import { EventService } from '../../core/services/event.service';
+import { Event, Test } from '../../models/event';
 import { EventDetailComponent } from './event-detail.component';
 import { Subscription } from 'rxjs/Subscription';
-import { Color, colors } from '../shared/colors';
+import { Color, colors } from '../../shared/colors';
 
 import * as _ from 'lodash';
 

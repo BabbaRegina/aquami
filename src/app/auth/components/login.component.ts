@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../services/authentication.service';
+import { AuthenticationService } from '../../core/services/authentication.service';
 import { RouterModule, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 

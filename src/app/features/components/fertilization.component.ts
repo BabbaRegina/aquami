@@ -1,11 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { EventService } from '../services/event.service';
-import { Event, Fertilizzazione } from '../models/event';
+import { EventService } from '../../core/services/event.service';
+import { Event, Fertilizzazione } from '../../models/event';
 import { EventDetailComponent } from './event-detail.component';
 import { Subscription } from 'rxjs/Subscription';
 
 import * as _ from 'lodash';
-import { colors } from '../shared/colors';
+import { colors } from '../../shared/colors';
 declare var $: any;
 
 @Component({

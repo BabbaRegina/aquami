@@ -1,4 +1,4 @@
-import { Color, colors } from '../shared/colors';
+import { Color, colors } from '../../colors';
 export const demodata = [
   {
     type: 'line',

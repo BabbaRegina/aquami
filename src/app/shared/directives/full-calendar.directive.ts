@@ -1,5 +1,5 @@
 import { Directive, ElementRef, OnInit, Input } from '@angular/core';
-import { EventService } from '../../services/event.service';
+import { EventService } from '../../core/services/event.service';
 
 declare var $: any;
 @Directive({
