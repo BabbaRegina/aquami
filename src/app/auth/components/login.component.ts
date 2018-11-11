@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.signupForm.value.password);
     this.authService.isAuthenticated().then((authenticated: boolean) => {
       if (authenticated) {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/aquaMI']);
       } else {
         this.wrongPassword = true;
       }
