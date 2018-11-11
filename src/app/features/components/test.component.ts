@@ -23,6 +23,7 @@ export class TestComponent implements OnInit, OnDestroy {
   datanitrati: Date;
   datafosfati: Date;
   dataferro: Date;
+  dataec: Date;
   demodata = [
     {
       type: 'line',
@@ -142,6 +143,8 @@ export class TestComponent implements OnInit, OnDestroy {
     this.datanitrati = undefined;
     this.datafosfati = undefined;
     this.dataferro = undefined;
+    this.dataec = undefined;
+    // TODO refactoring
     for (let i = 0; i < this.events.length; i++) {
       if ((this.events[i].test.phmin != null || this.events[i].test.phmax != null)  && !this.dataph) {
         this.dataph = this.events[i].dataMisura;
@@ -164,8 +167,11 @@ export class TestComponent implements OnInit, OnDestroy {
       if ((this.events[i].test.no3min != null || this.events[i].test.no3max != null)  && !this.datanitrati) {
         this.datanitrati = this.events[i].dataMisura;
       }
+      if (this.events[i].test.ec != null && !this.dataec) {
+        this.dataec = this.events[i].dataMisura;
+      }
       if (this.dataph && this.datakh && this.datagh && this.datanitriti
-        && this.datafosfati && this.dataferro && this.datanitrati) {
+        && this.datafosfati && this.dataferro && this.datanitrati && this.dataec) {
         break;
       }
     }

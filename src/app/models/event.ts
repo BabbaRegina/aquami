@@ -29,6 +29,11 @@ export class Fertilizzazione {
     fosfati: number;
     ferro: number;
 
+    altro: {
+        dose: number;
+        tipo: string;
+    };
+
     constructor() {}
 }
 
@@ -47,6 +52,7 @@ export class Test {
     femax: number;
     fomin: number;
     fomax: number;
+    ec: number;
 
     constructor() {}
 }
@@ -61,6 +67,12 @@ export class Manutenzione {
     filtroSpugna: boolean;
     filtroPompa: boolean;
     batteri: number;
+    lampada: boolean;
+
+    altro: {
+        tipo: string;
+        dose: number;
+    };
 
     constructor() {}
 }
