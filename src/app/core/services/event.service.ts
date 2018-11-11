@@ -33,6 +33,7 @@ export class EventService {
       .toPromise()
       .then(
         response => {
+          this.savedEvents = response as Event[];
           return response as Event[];
         }
       )
